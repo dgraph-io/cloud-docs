@@ -11,6 +11,7 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
+      - run: hugo
       - uses: actions/checkout@v2
       - name: Deploying to netlify
         id: netlify_preview_url
