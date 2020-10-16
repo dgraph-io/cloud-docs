@@ -16,7 +16,7 @@ jobs:
         id: netlify_preview_url
         uses: nwtgck/actions-netlify@v1.1
         with:
-          publish-dir: '/public'
+          publish-dir: './public'
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
