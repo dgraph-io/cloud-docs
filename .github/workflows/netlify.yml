@@ -9,7 +9,7 @@ on:
 jobs:
   netlify_preview:
     timeout-minutes: 30
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
