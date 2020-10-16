@@ -1,5 +1,5 @@
 
-name: Netlify Preview and lighthouse
+name: Netlify Preview 
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  generate_lighthouse_audit:
+  netlify_preview:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -27,3 +27,11 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           timeout-minutes: 1
+      - name: Add comment to PR
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.issue.number }}
+          message: |
+            ${{ steps.netlify_preview_url.outputs.deploy-url }}
