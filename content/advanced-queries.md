@@ -99,7 +99,6 @@ mut = {
 txn = client.txn()
 try:
   res = txn.mutate(set_obj=mut)
-  print(ppl)
 finally:
   txn.discard()
 ```
