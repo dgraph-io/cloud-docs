@@ -37,4 +37,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.issue.number }}
           message: |
-            ${{ steps.netlify_preview_url.outputs.deploy-url }}
+            ${{ steps.netlify_preview_url.outputs.deploy-url }}/introduction
