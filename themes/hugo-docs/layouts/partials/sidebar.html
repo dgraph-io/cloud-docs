@@ -1,19 +1,6 @@
 <aside id="sidebar">
   <div class="menu-header">
-    <div class="heading">
-      Dgraph manual
-    </div>
-    {{ $VersionString := getenv "VERSIONS" }}
-    {{ $Versions := split $VersionString "," }}
-    <select class="version-selector">
-      {{ range $i, $version := $Versions }}
-          {{ if eq $i 0 }}
-            <option value="">{{ $version }} (latest)</option>
-          {{ else }}
-            <option value="{{$version}}">{{ $version }}</option>
-          {{ end }}
-      {{ end }}
-    </select>
+  
   </div>
 
   <ul class="topics">
@@ -29,10 +16,7 @@
     {{ range .Site.Menus.main }}
         {{ if .HasChildren }}
             <li class="topic main-topic children {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
-               <a id="{{ .Name | urlize }}" href="#">
-                    {{ .Pre }}
-                    {{ .Name }}
-                </a><div class="arrow-down"></div>
+             
                 <ul class="sub-topics">
                   {{ range .Children }}
                       <li class="topic sub-topic{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
