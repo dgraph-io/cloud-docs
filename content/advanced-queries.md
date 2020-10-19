@@ -15,7 +15,7 @@ Please note that Slash GraphQL does not allow you to alter the schema or create 
 
 ## Authentication
 
-All the APIs documented here require an API token for access. Please see [Authentication](/slash-graphql/admin/authentication) if you would like to create a new API token.
+All the APIs documented here require an API token for access. Please see [Authentication](/admin/authentication) if you would like to create a new API token.
 
 ### HTTP
 
@@ -132,7 +132,7 @@ In order to configure Ratel, please do the following:
 * Click the Dgraph logo in the top left to bring up the connection screen (by default, it has the caption: play.dgraph.io)
 * Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your graphql endpoint. As an example, if your graphql endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for ratel will be at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
 * Click the blue 'Connect' button. You should see a green tick check next to the word connected
-* Click on the 'Extra Settings' tab, and enter your API token into the 'Slash API Key" field. Please see [Authentication](/slash-graphql/admin/authentication) if you would like to create a new API token.
+* Click on the 'Extra Settings' tab, and enter your API token into the 'Slash API Key" field. Please see [Authentication](/admin/authentication) if you would like to create a new API token.
 * Click on the blue 'Continue' button
 
 You may now queries and mutation via Ratel, and see visualizations of your data.
@@ -141,4 +141,4 @@ However, please note that certain functionality will not work, such as running B
 
 ### Switching Backend Modes
 
-For those who are interested in using DQL/GraphQL+- as their primary mode of interaction with the backend, it is possible to switch your backend to flexible mode. Please see [Backend Modes](/slash-graphql/admin/backend-modes)
+For those who are interested in using DQL/GraphQL+- as their primary mode of interaction with the backend, it is possible to switch your backend to flexible mode. Please see [Backend Modes](/admin/backend-modes)

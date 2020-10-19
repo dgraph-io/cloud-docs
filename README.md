@@ -8,4 +8,4 @@ hugo server
 
 ### Theme
 
-Documentation use hugo theme which stays in repo itself inside themes
+Documentation use hugo theme which stays in repo itself inside `themes` dir

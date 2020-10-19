@@ -13,7 +13,7 @@ In readonly mode, only queries are allowed. All mutations and attempts to alter 
 
 ### GraphQL Mode
 
-GraphQL mode is the default setting on Slash GraphQL, and is suitable for backends where the primary mode of interaction is via the GraphQL APIs. You can use of DQL/GraphQL+- queries and mutations, as described in the [advanced queries](/slash-graphql/advanced-queries/) section. However, all queries and mutations must be valid as per the applied GraphQL schema.
+GraphQL mode is the default setting on Slash GraphQL, and is suitable for backends where the primary mode of interaction is via the GraphQL APIs. You can use of DQL/GraphQL+- queries and mutations, as described in the [advanced queries](/advanced-queries/) section. However, all queries and mutations must be valid as per the applied GraphQL schema.
 
 ### Flexible Mode
 
