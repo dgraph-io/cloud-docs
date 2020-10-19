@@ -235,7 +235,7 @@ Slash GraphQL allows you to pass JSON Web Tokens (JWTs) with custom claims as a 
 
 In our schema, we specify that one can only query tasks if the tasks' user has a `username` that matches `$USER`, a field in the JWT token.
 
-The Authorization magic comment specifies the header where the JWT comes from, the domain, and the key that signed it. In this example, the key is tied to our dev Auth0 account. More information on how this works is available in [this article](/graphql/authorization/authorization-overview).
+The Authorization magic comment specifies the header where the JWT comes from, the domain, and the key that signed it. In this example, the key is tied to our dev Auth0 account. More information on how this works is available in [this article](https://dgraph.io/docs/graphql/authorization/authorization-overview).
 
 To verify these access changes, let's try querying back the tasks:
 
