@@ -1,8 +1,6 @@
-{{ $currentBranch := getenv "CURRENT_BRANCH" }}
-
 <a
   class="edit-btn"
   target="_blank"
-  href="https://github.com/dgraph-io/dgraph/edit/{{ $currentBranch }}/wiki/content/{{ replace .File.Path '\\' '/' }}">
+  href="https://github.com/dgraph-io/slash-docs/edit/master/content/{{ replace .File.Path '\\' '/' }}">
     <i class="fa fa-github-alt"></i> Edit Page
 </a>

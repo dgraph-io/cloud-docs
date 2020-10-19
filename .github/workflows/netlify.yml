@@ -1,0 +1,40 @@
+
+name: Netlify Preview 
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  netlify_preview:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    container: peaceiris/hugo
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: hugo
+      - name: Deploying to netlify
+        id: netlify_preview_url
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './public'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          timeout-minutes: 1
+      - name: Add comment to PR
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.issue.number }}
+          message: |
+            ${{ steps.netlify_preview_url.outputs.deploy-url }}/introduction

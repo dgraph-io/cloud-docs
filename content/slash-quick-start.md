@@ -268,4 +268,4 @@ Congratulations! You have completed the Slash GraphQL quick-start guide, and you
 
 ## Next Steps
 
-To learn more about the Slash GraphQL managed service, see [Administering your Backend](/slash-graphql/admin/) and [Advanced Queries](/slash-graphql/advanced-queries/).
+To learn more about the Slash GraphQL managed service, see [Administering your Backend](/admin/) and [Advanced Queries](/advanced-queries/).
