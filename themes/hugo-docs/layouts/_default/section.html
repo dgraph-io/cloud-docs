@@ -6,18 +6,6 @@
 {{ partial "header.html" . }}
 {{/*  Ideally people never manually find these pages, but they could show up in search results  */}}
 
-{{ if (eq $currentVersion "master") }}
-<div class="alert alert-warning">
-  <i class="fa fa-warning"></i> You are looking at the docs for the unreleased <code>master</code> branch of Dgraph. The
-  latest version is <a href="{{ .Site.BaseURL }}/..">{{ $latestVersion }}</a>.
-</div>
-{{ else if not (eq $latestVersion $currentVersion) }}
-<div class="alert alert-warning">
-  <i class="fa fa-warning"></i> You are looking at the docs for an older version of Dgraph ({{ $currentVersion }}). The
-  latest version is <a href="{{ .Site.BaseURL }}/..">{{ $latestVersion }}</a>.
-</div>
-{{ end }}
-
 <article id="{{ .Slug }}">
   {{ partial "request-edit.html" . }}
   {{ partial "suggest-edit.html" . }}
