@@ -17,9 +17,9 @@ If you wish to deploy your apps to your own domain, you can do that easily with 
 
 1. Fork the github repo of the app you wish to deploy.
 2. Link your forked repo to Netlify by Clicking `New Site from Git` and
-   {{% load-img "/images/importSite.png" "Import Site" %}}
+   {{% load-img "images/importSite.png" "Import Site" %}}
 3. After successful import of the forked repository click on `Show advanced` and `New variable`.
 4. Add `REACT_APP_GRAPHQL_ENDPOINT` in the key and your graphql endpoint obtained from Slash GraphQL in the value field.
 5. Click `Deploy Site` on Netlify Dashboard.
-   {{% load-img "/images/advanced-SettingsNetlify.png" "Advanced Settings" %}}
+   {{% load-img "images/advanced-SettingsNetlify.png" "Advanced Settings" %}}
 6. You can configure [Auth0](https://auth0.com/) steps by following Authorization section of the blogpost [here.](https://dgraph.io/blog/post/surveyo-into/)
