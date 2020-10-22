@@ -1,4 +1,4 @@
-## Slash GraphQL Documentation
+## [Slash GraphQL Documentation](https://dgraph.io/docs/slash-graphql/introduction/)
 
 ### Steps to build
 
