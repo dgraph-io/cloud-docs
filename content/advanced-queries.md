@@ -140,7 +140,7 @@ dgraphClient := dgo.NewDgraphClient(api.NewDgraphClient(conn))
 **Java**
 ```java
 // This example uses dgraph4j
-DgraphStub stub = DgraphClientStub.fromSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>");
+DgraphStub stub = DgraphClient.clientStubFromSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>");
 DgraphClient dgraphClient = new DgraphClient(stub);
 ```
 
