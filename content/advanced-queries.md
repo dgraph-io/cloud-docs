@@ -58,33 +58,14 @@ curl -H "Content-Type: application/graphql+-" -H "x-auth-token: <api-key>" -XPOS
 
 ### gRPC
 
-The gRPC endpoint works identically to Dgraph's gRPC endpoint, with the additional constraint of requiring authentication on every gRPC call. The Slash API token must be passed in the "authorization" metadata to every gRPC call. This may be achieved by using [Metadata Call Credentials](https://godoc.org/google.golang.org/grpc/credentials#PerRPCCredentials) or the equivalent in your language.
-
-For example, if your GraphQL Endpoint is `https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql`, your gRPC endpoint will be `frozen-mango-42.grpc.eu-central-1.aws.cloud.dgraph.io:443`.
+Slash GraphQL is compatible with most existing Dgraph clients. You can use the helper methods from each library to connect to your backend, passing in a Slash GraphQL endpoint and API token.
 
 Here is an example which uses the [pydgraph client](https://github.com/dgraph-io/pydgraph) to make gRPC requests.
 
-For initial setup, make sure you import the right packages and setup your `HOST` and `PORT` correctly.
-
 ```python
-import grpc
-import sys
-import json
-from operator import itemgetter
-
 import pydgraph
 
-
-GRPC_HOST = "frozen-mango-42.grpc.eu-central-1.aws.cloud.dgraph.io"
-GRPC_PORT = "443"
-```
-
-You will then need to pass your API key as follows:
-```python
-creds = grpc.ssl_channel_credentials()
-call_credentials = grpc.metadata_call_credentials(lambda context, callback: callback((("authorization", "<api-key>"),), None))
-composite_credentials = grpc.composite_channel_credentials(creds, call_credentials)
-client_stub = pydgraph.DgraphClientStub('{host}:{port}'.format(host=GRPC_HOST, port=GRPC_PORT), composite_credentials)
+client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
 client = pydgraph.DgraphClient(client_stub)
 ```
 
@@ -120,6 +101,47 @@ try:
   print(ppl)
 finally:
   txn.discard()
+```
+
+#### Connecting from Dgraph Clients
+
+Below are snippets to connect to your Slash Backend from various dgraph clients.
+
+**Python**
+```python
+import pydgraph
+
+client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
+client = pydgraph.DgraphClient(client_stub)
+```
+
+**Javascript**
+```javascript
+const dgraph = require("dgraph-js");
+
+const clientStub = dgraph.clientStubFromSlashGraphQLEndpoint(
+  "https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql",
+  "<api-key>"
+);
+const dgraphClient = new dgraph.DgraphClient(clientStub);
+```
+
+**Go**
+```golang
+// This example uses dgo
+conn, err := dgo.DialSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
+if err != nil {
+  log.Fatal(err)
+}
+defer conn.Close()
+dgraphClient := dgo.NewDgraphClient(api.NewDgraphClient(conn))
+```
+
+**Java**
+```java
+// This example uses dgraph4j
+DgraphStub stub = DgraphClientStub.fromSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>");
+DgraphClient dgraphClient = new DgraphClient(stub);
 ```
 
 ### Visualizing your Graph with Ratel
