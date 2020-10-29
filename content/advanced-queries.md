@@ -5,7 +5,7 @@ weight = 2
     parent = "slash-graphql"
 +++
 
-*It is now possible to [embed GraphQL+- queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to connect to your Slash GraphQL backend with existing Dgraph clients.*
+*It is now possible to [embed GraphQL+- queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Slash GraphQL backend with existing Dgraph clients.*
 
 Slash GraphQL also supports running advanced queries with `GraphQL+-`, a query language that is unique to Dgraph. GraphQL+- should be used by advanced users who wish to make queries and mutations using existing Dgraph client libraries, either via the HTTP or gRPC endpoints. You can learn more about existing client libraries by following this [documentation](https://dgraph.io/docs/clients/).
 
