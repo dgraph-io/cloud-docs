@@ -1,5 +1,5 @@
 +++
-title = "Advanced Queries with GraphQL+-"
+title = "Advanced Queries with DQL"
 weight = 2
 [menu.main]
     parent = "slash-graphql"
