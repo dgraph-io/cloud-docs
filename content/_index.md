@@ -55,7 +55,7 @@ weight = 4
     <a href="{{< relref "migrating-from-hosted-dgraph.md">}}">
       <h2>Migrating from hosted Dgraph</h2>
       <p>
-        Easily migrate your existing Dgraph app over to Slash
+        Easily migrate your existing Dgraph app to Slash
       </p>
     </a>
   </div>
