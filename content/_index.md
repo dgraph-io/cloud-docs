@@ -64,7 +64,7 @@ weight = 4
     <a href="{{< relref "admin/_index.md">}}">
       <h2>Administering your Backend</h2>
       <p>
-        How to programatically set your schema, and import/export your data 
+        Programmatically set and update your schema, import or export your data, and switch or clone your Slash backend
       </p>
     </a>
   </div>
