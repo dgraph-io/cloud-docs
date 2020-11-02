@@ -46,7 +46,7 @@ weight = 4
     <a href="{{< relref "security.md">}}">
       <h2>Securing your GraphQL endpoint</h2>
       <p>
-        Tips for securing your Slash GraphQL Backend
+        Tips for securing your Slash GraphQL backend
       </p>
     </a>
   </div>
