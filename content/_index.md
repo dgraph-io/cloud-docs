@@ -18,7 +18,7 @@ weight = 4
     <a  href="{{< relref "slash-quick-start.md">}}">
       <h2>Slash Quick Start</h2>
       <p>
-        Get started with a Slash GraphQL Schema
+        Get started with a simple "to-do" list app built on Slash GraphQL
       </p>
     </a>
   </div>
