@@ -5,19 +5,77 @@ weight = 4
   identifier = "slash-graphql"
 +++
 
-<p className="subheading font-weight-regular">Slash GraphQL Provides /graphql Backend for Your App</p>
+<div class="landing">
+  <div class="hero">
+    <h1></h1>
+    <p>
+      Slash GraphQL provides a <code>/graphql</code> Backend for your app.
+    </p>
+    <img class="hero-deco" src="images/hero-deco.png" />
+  </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-play" aria-hidden="true"></i></div>
+    <a  href="{{< relref "slash-quick-start.md">}}">
+      <h2>Slash Quick Start</h2>
+      <p>
+        Get started with a simple "to-do" list app built on Slash GraphQL
+      </p>
+    </a>
+  </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-rocket" aria-hidden="true"></i></div>
+    <a href="{{< relref "advanced-queries.md">}}">
+      <h2>Advanced Queries with DQL</h2>
+      <p>
+        Generate advanced queries to interact with your database using the HTTP or gRPC endpoint 
+      </p>
+    </a>
+  </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-package" aria-hidden="true"></i></div>
+    <a href="{{< relref "one-click-deploy.md">}}">
+      <h2>One-click Deploy</h2>
+      <p>
+        Deploy sample apps in minutes from a fresh backend instance
+      </p>
+    </a>
+  </div>
 
-Please see the following topics:
+  <div class="item">
+    <div class="icon"><i class="lni lni-shield" aria-hidden="true"></i></div>
+    <a href="{{< relref "security.md">}}">
+      <h2>Securing your GraphQL endpoint</h2>
+      <p>
+        Tips for securing your Slash GraphQL backend
+      </p>
+    </a>
+  </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-cogs" aria-hidden="true"></i></div>
+    <a href="{{< relref "migrating-from-hosted-dgraph.md">}}">
+      <h2>Migrating from hosted Dgraph</h2>
+      <p>
+        Easily migrate your existing Dgraph app to Slash
+      </p>
+    </a>
+  </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
+    <a href="{{< relref "admin/_index.md">}}">
+      <h2>Administering your Backend</h2>
+      <p>
+        Programmatically set and update your schema, import or export your data, and switch or clone your Slash backend
+      </p>
+    </a>
+  </div>
 
-- The [QuickStart](/slash-quick-start) will help you get started with a Slash GraphQL Schema, starting with a multi tenant todo app
-- [Administering your Backend](/admin/overview) covers topics such as how to programatically set your schema, and import or export your data
-  - [Authentication](/admin/authentication) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
-  - [Schema](/admin/schema) describes how to programatically query and update your GraphQL schema.
-  - [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Slash GraphQL backend, and how to import it into another cluster
-  - [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Slash GraphQL backend.
-  - [Switching Backend Modes](/admin/backend-modes) will guide you through changing Slash GraphQL backend mode.
-- [Advanced Queries With GraphQL+-](/advanced-queries) speaks about how to interact with your database via the gRPC endpoint.
-- [One-click Deploy](/one-click-deploy) speaks about how to deploy sample apps in a fresh instance of backend to start working with them.
+</div>
+
+<style>
+  ul.contents {
+    display: none;
+  }
+</style>
 
 You might also be interested in:
 

@@ -1,5 +1,4 @@
-
-name: Netlify Preview 
+name: Netlify Preview
 
 on:
   pull_request:
@@ -19,7 +18,7 @@ jobs:
         id: netlify_preview_url
         uses: nwtgck/actions-netlify@v1.1
         with:
-          publish-dir: './public'
+          publish-dir: "./public"
           production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
@@ -37,4 +36,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ github.event.issue.number }}
           message: |
-            ${{ steps.netlify_preview_url.outputs.deploy-url }}/introduction
+            ${{ steps.netlify_preview_url.outputs.deploy-url }}
