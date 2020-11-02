@@ -36,7 +36,7 @@ weight = 4
     <a href="{{< relref "one-click-deploy.md">}}">
       <h2>One-click Deploy</h2>
       <p>
-        How to deploy sample apps in a fresh backend instance
+        Deploy sample apps in minutes from a fresh backend instance
       </p>
     </a>
   </div>
