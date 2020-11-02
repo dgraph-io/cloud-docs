@@ -11,7 +11,7 @@ weight = 4
     <p>
       Slash GraphQL provides a <code>/graphql</code> Backend for your app.
     </p>
-    <img class="hero-deco" src="/images/hero-deco.png" />
+    <img class="hero-deco" src="images/hero-deco.png" />
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-play" aria-hidden="true"></i></div>
