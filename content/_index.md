@@ -23,7 +23,7 @@ weight = 4
     </a>
   </div>
   <div class="item">
-    <div class="icon"><i class="fa fa-university" aria-hidden="true"></i></div>
+    <div class="icon"><i class="lni lni-rocket" aria-hidden="true"></i></div>
     <a href="{{< relref "advanced-queries.md">}}">
       <h2>Advanced Queries with DQL</h2>
       <p>
@@ -32,7 +32,7 @@ weight = 4
     </a>
   </div>
   <div class="item">
-    <div class="icon"><i class="fa fa-code-fork" aria-hidden="true"></i></div>
+    <div class="icon"><i class="lni lni-package" aria-hidden="true"></i></div>
     <a href="{{< relref "one-click-deploy.md">}}">
       <h2>One-click Deploy</h2>
       <p>
@@ -42,7 +42,7 @@ weight = 4
   </div>
 
   <div class="item">
-    <div class="icon"><i class="lni lni-graduation" aria-hidden="true"></i></div>
+    <div class="icon"><i class="lni lni-shield" aria-hidden="true"></i></div>
     <a href="{{< relref "security.md">}}">
       <h2>Securing your GraphQL endpoint</h2>
       <p>
@@ -51,7 +51,7 @@ weight = 4
     </a>
   </div>
   <div class="item">
-    <div class="icon"><i class="lni lni-fireworks" aria-hidden="true"></i></div>
+    <div class="icon"><i class="lni lni-cogs" aria-hidden="true"></i></div>
     <a href="{{< relref "migrating-from-hosted-dgraph.md">}}">
       <h2>Migrating from hosted Dgraph</h2>
       <p>
@@ -60,7 +60,7 @@ weight = 4
     </a>
   </div>
   <div class="item">
-    <div class="icon"><i class="fa fa-cog" aria-hidden="true"></i></div>
+    <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
     <a href="{{< relref "admin/_index.md">}}">
       <h2>Administering your Backend</h2>
       <p>
