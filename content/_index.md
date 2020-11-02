@@ -27,7 +27,7 @@ weight = 4
     <a href="{{< relref "advanced-queries.md">}}">
       <h2>Advanced Queries with DQL</h2>
       <p>
-        How to interact with your database via the gRPC endpoint
+        Generate advanced queries to interact with your database using the HTTP or gRPC endpoint 
       </p>
     </a>
   </div>
