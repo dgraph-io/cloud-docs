@@ -24,5 +24,17 @@ startLevel = 2
 # set by build script: title, baseurl
 title = "Slash GraphQL Docs"
 
+[[menu.main]]
+  name = "GraphQL Docs"
+  url = "/graphql/overview"
+  identifier = "graphql"
+  weight = 12
+
+[[menu.main]]
+  name = "DQL Docs"
+  url = "/get-started"
+  identifier = "dql"
+  weight = 10
+
 [params]
 discourse = "https://discuss.dgraph.io/"
