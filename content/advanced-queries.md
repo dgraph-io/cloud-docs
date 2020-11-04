@@ -11,7 +11,7 @@ Slash GraphQL also supports running advanced queries with `GraphQL+-`, a query l
 
 If you are getting started with Slash GraphQL, you might want to consider using our [GraphQL APIs](https://dgraph.io/docs/graphql/overview) instead. It will get you quickly started on the basics of using Slash GraphQL before you go into advanced topics.
 
-Please note that Slash GraphQL does not allow you to alter the schema or create new predicates via GraphQL+-. You will also not be able ta access the /alter endpoint or it's gRPC equivalent. Please add your schema through the GraphQL endpoint (either via the UI or via the Admin API), before accessing the data with GraphQL+-.
+Please note that Slash GraphQL does not allow you to alter the schema or create new predicates via GraphQL+-. You will also not be able to access the /alter endpoint or it's gRPC equivalent. Please add your schema through the GraphQL endpoint (either via the UI or via the Admin API), before accessing the data with GraphQL+-.
 
 ## Authentication
 
