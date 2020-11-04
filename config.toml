@@ -26,13 +26,13 @@ title = "Slash GraphQL Docs"
 
 [[menu.main]]
   name = "GraphQL Docs"
-  url = "https://dgraph.io/docs/graphql/overview/"
+  url = "https://dgraph.io/docs/graphql/"
   identifier = "graphql"
   weight = 12
 
 [[menu.main]]
   name = "DQL Docs"
-  url = "https://dgraph.io/docs/get-started"
+  url = "https://dgraph.io/docs/dql/"
   identifier = "dql"
   weight = 10
 
