@@ -1,4 +1,4 @@
-canonifyURLs = true
+canonifyURLs = false
 languageCode = "en-us"
 theme = "hugo-docs"
 
