@@ -1,17 +1,17 @@
 +++
-title = "Advanced Queries with GraphQL+-"
+title = "Advanced Queries with DQL"
 weight = 2
 [menu.main]
     parent = "slash-graphql"
 +++
 
-*It is now possible to [embed GraphQL+- queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to connect to your Slash GraphQL backend with existing Dgraph clients.*
+*It is now possible to [embed GraphQL+- queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Slash GraphQL backend with existing Dgraph clients.*
 
 Slash GraphQL also supports running advanced queries with `GraphQL+-`, a query language that is unique to Dgraph. GraphQL+- should be used by advanced users who wish to make queries and mutations using existing Dgraph client libraries, either via the HTTP or gRPC endpoints. You can learn more about existing client libraries by following this [documentation](https://dgraph.io/docs/clients/).
 
 If you are getting started with Slash GraphQL, you might want to consider using our [GraphQL APIs](https://dgraph.io/docs/graphql/overview) instead. It will get you quickly started on the basics of using Slash GraphQL before you go into advanced topics.
 
-Please note that Slash GraphQL does not allow you to alter the schema or create new predicates via GraphQL+-. You will also not be able ta access the /alter endpoint or it's gRPC equivalent. Please add your schema through the GraphQL endpoint (either via the UI or via the Admin API), before accessing the data with GraphQL+-.
+Please note that Slash GraphQL does not allow you to alter the schema or create new predicates via GraphQL+-. You will also not be able to access the /alter endpoint or it's gRPC equivalent. Please add your schema through the GraphQL endpoint (either via the UI or via the Admin API), before accessing the data with GraphQL+-.
 
 ## Authentication
 

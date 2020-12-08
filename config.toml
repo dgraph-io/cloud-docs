@@ -1,6 +1,8 @@
-canonifyURLs = true
+canonifyURLs = false
 languageCode = "en-us"
 theme = "hugo-docs"
+relativeURLs = true
+
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -23,6 +25,18 @@ startLevel = 2
 
 # set by build script: title, baseurl
 title = "Slash GraphQL Docs"
+
+[[menu.main]]
+  name = "GraphQL Docs"
+  url = "https://dgraph.io/docs/graphql/"
+  identifier = "graphql"
+  weight = 12
+
+[[menu.main]]
+  name = "DQL Docs"
+  url = "https://dgraph.io/docs/dql/"
+  identifier = "dql"
+  weight = 10
 
 [params]
 discourse = "https://discuss.dgraph.io/"
