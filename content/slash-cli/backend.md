@@ -51,14 +51,14 @@ USAGE
 OPTIONS
 ```
   -q, --quiet             Quiet output
-  -x, --extended          show extra columns
-  --columns=columns       only show provided columns (comma-separated)
-  --csv                   output is csv format [alias: --output=csv]
-  --filter=filter         filter property by partial string matching, ex: name=foo
-  --no-header             hide table header from output
-  --no-truncate           do not truncate output to fit screen
-  --output=csv|json|yaml  output in a more machine friendly format
-  --sort=sort             property to sort by (prepend '-' for descending)
+  -x, --extended          Show extra columns
+  --columns=columns       Only show provided columns (comma-separated)
+  --csv                   Output is csv format [alias: --output=csv]
+  --filter=filter         Filter property by partial string matching, ex: name=foo
+  --no-header             Hide table header from output
+  --no-truncate           Do not truncate output to fit screen
+  --output=csv|json|yaml  Output in a more machine friendly format
+  --sort=sort             Property to sort by (prepend '-' for descending)
 ```
 
 EXAMPLES

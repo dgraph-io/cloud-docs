@@ -3,7 +3,7 @@ title = "Backup"
 weight = 2
 [menu.main]
     parent = "slash-graphql-cli"
-    identifier = "list-backups"
+    identifier = "backup"
 +++
 
 ### List Backups
@@ -17,9 +17,9 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL Endpoint
-  -q, --quiet              Quiet Output
-  -t, --token=token        Slash GraphQL Backend API Tokens
+  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -q, --quiet              Quiet output
+  -t, --token=token        Slash GraphQL backend API tokens
 ```
 
 EXAMPLE

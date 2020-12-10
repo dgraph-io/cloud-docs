@@ -68,6 +68,15 @@ weight = 4
       </p>
     </a>
   </div>
+  <div class="item">
+    <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
+    <a href="{{< relref "slash-cli/_index.md">}}">
+      <h2>Slash GraphQL CLI</h2>
+      <p>
+        Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line
+      </p>
+    </a>
+  </div>
 
 </div>
 

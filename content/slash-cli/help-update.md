@@ -17,12 +17,12 @@ USAGE
 
 ARGUMENTS
 ```
-  COMMAND  command to show help for
+  COMMAND  Command to show help for
 ```
 
 OPTIONS
 ```
-  --all  see all commands in CLI
+  --all  See all commands in CLI
 ```
 
 ### Update CLI
