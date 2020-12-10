@@ -1,10 +1,12 @@
 +++
-title = "List Backups"
+title = "Backup"
 weight = 2
 [menu.main]
     parent = "slash-graphql-cli"
     identifier = "list-backups"
 +++
+
+### List Backups
 
 List all backups of the current backend.
 

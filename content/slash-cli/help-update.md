@@ -1,12 +1,14 @@
 +++
-title = "Help"
+title = "Help & Update"
 weight = 2
 [menu.main]
     parent = "slash-graphql-cli"
-    identifier = "help"
+    identifier = "help-update"
 +++
 
-Display help for slash-graphql.
+### Help
+
+Display help for the `slash-graphql` CLI.
 
 USAGE
 ```
@@ -21,4 +23,13 @@ ARGUMENTS
 OPTIONS
 ```
   --all  see all commands in CLI
+```
+
+### Update CLI
+
+Update the `slash-graphql` CLI.
+
+USAGE
+```
+  $ slash-graphql update [CHANNEL]
 ```
