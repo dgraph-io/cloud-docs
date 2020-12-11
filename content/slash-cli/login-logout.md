@@ -1,9 +1,9 @@
 +++
-title = "Login & Logout"
+title = "Login"
 weight = 2
 [menu.main]
     parent = "slash-graphql-cli"
-    identifier = "login-logout"
+    identifier = "login"
 +++
 
 ### Login
