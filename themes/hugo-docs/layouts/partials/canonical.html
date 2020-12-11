@@ -1,5 +1,5 @@
 {{- $canonicalUrl := string .Permalink -}}
 {{- if (ne (getenv "CANONICAL_PATH") "") -}}
-{{- $canonicalUrl = (replace $canonicalUrl (trim relURL "/") (trim (getenv "CANONICAL_PATH") "/")) -}}
+{{- $canonicalUrl = $canonicalUrl (trim relURL "/")  -}}
 {{- end -}}
 {{- $canonicalUrl -}}
