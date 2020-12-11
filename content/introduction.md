@@ -21,7 +21,7 @@ Please see the following topics:
   - [Backup](/slash-cli/backup) lists commands related to backup.
   - [Help](/slash-cli/help-update) lists commands to update `slash-graphql` CLI and help.
   - [Lambda](/slash-cli/lambda) lists commands related to Lambda.
-  - [Login & Logout](/slash-cli/login-logout) lists login and logout commands.
+  - [Login](/slash-cli/login) lists login and logout commands.
 
 [Schema](/slash-cli/schema) lists commands related to schema.
 - [Advanced Queries With GraphQL+-](/advanced-queries) speaks about how to interact with your database via the gRPC endpoint.
