@@ -9,7 +9,7 @@
             {{ if .Params.discuss -}}
             topicId: {{ .Params.discuss }}
             {{ else -}}
-            discourseEmbedUrl: '{{ relURL "/" }}'
+            discourseEmbedUrl: "{{.Permalink}}"
             {{ end -}}
         };
         (function() {
