@@ -1,4 +1,5 @@
-canonifyURLs = false
+canonifyURLs = true
+baseURL = "https://dgraph.io/docs/slash-graphql/"
 languageCode = "en-us"
 theme = "hugo-docs"
 relativeURLs = true
