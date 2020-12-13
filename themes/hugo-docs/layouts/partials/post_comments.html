@@ -9,7 +9,7 @@
             {{ if .Params.discuss -}}
             topicId: {{ .Params.discuss }}
             {{ else -}}
-            discourseEmbedUrl: "{{ partial "canonical.html" . }}"
+            discourseEmbedUrl: '{{ relURL "/" }}'
             {{ end -}}
         };
         (function() {
