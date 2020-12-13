@@ -2,7 +2,7 @@ canonifyURLs = true
 baseURL = "https://dgraph.io/docs/slash-graphql/"
 languageCode = "en-us"
 theme = "hugo-docs"
-relativeURLs = false
+relativeURLs = true
 
 
 [markup.goldmark.renderer]
