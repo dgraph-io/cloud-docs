@@ -40,6 +40,6 @@ Please see the following topics:
 
 * [Lambda](/slash-cli/lambda) lists commands related to Lambda.
 
-* [Login & Logout](/slash-cli/login-logout) lists login and logout commands.
+* [Login](/slash-cli/login) lists login and logout commands.
 
 * [Schema](/slash-cli/schema) lists commands related to schema.
