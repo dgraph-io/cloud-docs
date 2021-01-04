@@ -21,11 +21,13 @@ using Dgraph's [GraphQL API](https://dgraph.io/docs/graphql/overview) instead.
 Dgraph's GraphQL API lets you quickly use Slash GraphQL before moving on to the
 advanced features available using DQL.
 
-Please note that Slash GraphQL does not allow you to alter the schema or create 
+{{% notice "Note" %}}
+Slash GraphQL does not allow you to alter the schema or create 
 new predicates using DQL. You also can't access the `/alter`
 endpoint or it's gRPC equivalent. Please add your schema through the GraphQL
 endpoint (using either the UI or the Admin API), before accessing your data with 
 DQL.
+{{% /notice %}}
 
 ## Authentication
 
@@ -63,7 +65,7 @@ curl -H "Content-Type: application/rdf" -H "x-auth-token: <api-key>" -X POST "<g
 }'
 ```
 
-And here is an example of a cURL command with the `/query` endpoint:
+Here is an example of a cURL command with the `/query` endpoint:
 
 ```
 curl -H "Content-Type: application/dql" -H "x-auth-token: <api-key>" -XPOST "<graphql-endpoint>/query" -d '{
@@ -79,7 +81,7 @@ curl -H "Content-Type: application/dql" -H "x-auth-token: <api-key>" -XPOST "<gr
 
 Slash GraphQL is compatible with most existing Dgraph clients. You can use the
 helper methods from each library to connect to your backend, passing in a Slash
-GraphQL endpoint and API token.
+GraphQL endpoint and an API token.
 
 Here is an example which uses the [pydgraph client](https://github.com/dgraph-io/pydgraph) to make gRPC requests.
 
@@ -90,7 +92,7 @@ client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mang
 client = pydgraph.DgraphClient(client_stub)
 ```
 
-For mutations, you can use the following example:
+Here is an example of a mutation using the `pydgraph` client:
 ```python
 mut = {
   "Person.name": "John Doe",
@@ -105,7 +107,7 @@ finally:
   txn.discard()
 ```
 
-And for a query you can use the following example:
+Here is an example of a query using the `pydgraph` client:
 ```python
 query = """
 {
@@ -126,7 +128,8 @@ finally:
 
 #### Connecting from Dgraph Clients
 
-Below are snippets to connect to your Slash Backend from various Dgraph clients.
+Below are snippets to connect to your Slash GraphQL backend from various Dgraph
+clients.
 
 **Python**
 ```python
@@ -168,17 +171,19 @@ DgraphClient dgraphClient = new DgraphClient(stub);
 ### Visualizing your Graph with Ratel
 
 You can use Ratel to visualize your Slash GraphQL backend with DQL. You can host
-Ratel yourself, or you can use Ratel online at [Dgraph Play](https://play.dgraph.io/?latest#connection)
+Ratel yourself, or you can use Ratel online at [Dgraph Play](https://play.dgraph.io/?latest#connection).
 
 To configure Ratel:
 
 1. Click the Dgraph logo in the top left to bring up the connection screen (by default, it has the caption: play.dgraph.io)
-2. Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your `/graphql` endpoint URL. As an example, if your `/graphql` endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for Ratel is located at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
-3. Click the blue 'Connect' button. You should see a green tick check next to the word connected
-4. Click on the 'Extra Settings' tab, and enter your API token into the 'Slash API Key" field. Please see [Authentication](/admin/authentication) if you would like to create a new API token.
-5. Click on the blue 'Continue' button.
+2. Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your `/graphql` endpoint URL. For example, if your `/graphql` endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for Ratel is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
+3. Click the **Connect** button. You should see a green check mark next to the word **Connected**.
+4. Click on the **Extra Settings** tab, and then enter your API token into the
+ **Slash API Key** field. To create a new API token, see [Authentication](/admin/authentication).
+5. Click on the **Continue** button.
 
-You can now run queries and mutations using Ratel, and see visualizations of your data.
+You can now run queries and mutations using Ratel, and see visualizations of
+your data.
 
 Ratel has certain limitations; it doesn't support backups, modifying ACL or
 attempting to remove nodes from the cluster.
@@ -186,5 +191,6 @@ attempting to remove nodes from the cluster.
 ### Switching Backend Modes
 
 If you want to use DQL as your primary mode of interaction with the Slash GraphQL
-backend (as opposed to primarily using the Dgraph GraphQL API), you can switch your
-backend to flexible mode. To learn more, see [Backend Modes](/admin/backend-modes).
+backend (instead of primarily using the GraphQL API), you can switch your
+backend to flexible mode. To learn more, see
+[Backend Modes](/admin/backend-modes).
