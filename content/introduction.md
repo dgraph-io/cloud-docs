@@ -22,8 +22,7 @@ Please see the following topics:
   - [Help](/slash-cli/help-update) lists commands to update `slash-graphql` CLI and help.
   - [Lambda](/slash-cli/lambda) lists commands related to Lambda.
   - [Login](/slash-cli/login) lists login and logout commands.
-
-[Schema](/slash-cli/schema) lists commands related to schema.
+- [Schema](/slash-cli/schema) lists commands related to schema.
 - [Advanced Queries With DQL](/advanced-queries) speaks about how to interact with your database via the gRPC endpoint.
 - [One-click Deploy](/one-click-deploy) speaks about how to deploy sample apps in a fresh instance of backend to start working with them.
 
