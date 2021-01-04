@@ -7,19 +7,19 @@ weight = 2
 
 *You can now [embed DQL queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Slash GraphQL backend with existing Dgraph clients.*
 
-Slash GraphQL also supports running advanced queries using Dgraph Query Language (DQL) (previously named GraphQL+-).
+In addition to GraphQL support, Slash GraphQL also supports running advanced
+queries using Dgraph Query Language (DQL) (previously named GraphQL+-).
 DQL is based on GraphQL, but adds and removes features to better support graph
-database operations.
-Advanced users can use DQL to make queries and mutations using existing Dgraph
-client libraries, using either the the HTTP or gRPC endpoints.
-To learn more about Dgraph's client libraries, see our 
+database operations. Advanced users can use DQL to send queries and mutations
+to Slash GraphQL's HTTP or gRPC endpoints using the Dgraph client libraries.
+To learn more about the Dgraph client libraries, see the 
 [client library documentation](https://dgraph.io/docs/clients/). To learn more
 about DQL, see [DQL Fundamentals](https://dgraph.io/docs/query-language/graphql-fundamentals/)..
 
 If you are getting started with Slash GraphQL, you should probably start out by
 using Dgraph's [GraphQL API](https://dgraph.io/docs/graphql/overview) instead.
-Dgraph GraphQL API lets you quickly started using Slash GraphQL before you
-use the advanced features available using DQL.
+Dgraph's GraphQL API lets you quickly use Slash GraphQL before moving on to the
+advanced features available using DQL.
 
 Please note that Slash GraphQL does not allow you to alter the schema or create 
 new predicates using DQL. You also can't access the `/alter`
@@ -29,20 +29,16 @@ DQL.
 
 ## Authentication
 
-All the APIs documented here require an API token for access. Please see
-[Authentication](/admin/authentication) if you would like to create a new API token.
+The APIs documented here all require an API token for access. To learn how to
+create an API token, please see [Authentication](/admin/authentication).
 
 ### HTTP
 
 You can query your backend with DQL using your cluster's `/query` endpoint. As
 an example, if your GraphQL endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`,
-then the admin endpoint for the schema is at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/query`.
+then the admin endpoint for the schema is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/query`.
 
-This endpoint works identically to Dgraph's [/query](https://dgraph.io/docs/query-language/)
-endpoint, with the additional constraint of requiring authentication, as 
-described in the Authentication section above.
-
-You may also access the [`/mutate`](https://dgraph.io/docs/mutations/) and
+You can also access the [`/mutate`](https://dgraph.io/docs/mutations/) and
 `/commit` endpoints.
 
 For example, let's say you have the following GraphQL schema:
@@ -53,7 +49,9 @@ type Person {
  country: String
 }
 ```
+
 Here is an example of a cURL command with the `/mutate` endpoint:
+
 ```
 curl -H "Content-Type: application/rdf" -H "x-auth-token: <api-key>" -X POST "<graphql-endpoint>/mutate?commitNow=true" -d $'
 {
@@ -66,6 +64,7 @@ curl -H "Content-Type: application/rdf" -H "x-auth-token: <api-key>" -X POST "<g
 ```
 
 And here is an example of a cURL command with the `/query` endpoint:
+
 ```
 curl -H "Content-Type: application/dql" -H "x-auth-token: <api-key>" -XPOST "<graphql-endpoint>/query" -d '{
    queryPerson(func: type(Person))  {
@@ -127,7 +126,7 @@ finally:
 
 #### Connecting from Dgraph Clients
 
-Below are snippets to connect to your Slash Backend from various dgraph clients.
+Below are snippets to connect to your Slash Backend from various Dgraph clients.
 
 **Python**
 ```python
