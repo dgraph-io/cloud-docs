@@ -10,13 +10,13 @@ weight = 1
 
 *These are draft docs for Slash GraphQL, which is currently in beta*
 
-Here is a guide to programatically administering your Slash GraphQL backend.
+Here is a guide to programmatically administering your Slash GraphQL backend.
 
 Wherever possible, we have maintained compatibility with the corresponding Dgraph API, with the additional step of requiring authentication via the 'X-Auth-Token' header.
 
 Please see the following topics:
 
 * [Authentication](/admin/authentication) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
-* [Schema](/admin/schema) describes how to programatically query and update your GraphQL schema.
+* [Schema](/admin/schema) describes how to programmatically query and update your GraphQL schema.
 * [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Slash GraphQL backend, and how to import it into another cluster
 * [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Slash GraphQL backend.
