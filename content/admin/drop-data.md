@@ -9,9 +9,9 @@ It is possible to drop all data from your Slash GraphQL backend, and start afres
 
 In order to drop all data while retaining the schema, please click the `Drop Data` button under the [Settings](https://slash.dgraph.io/_/settings) tab in the sidebar.
 
-### Dropping Data Programatically
+### Dropping Data Programmatically
 
-In order to do this, call the `dropData` mutation on `/admin/slash`. As an example, if your graphql endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the admin endpoint for schema will be at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/admin/slash`.
+In order to do this, call the `dropData` mutation on `/admin/slash`. As an example, if your GraphQL endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the admin endpoint for schema will be at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/admin/slash`.
 
 Please note that this endpoint requires [Authentication](/admin/authentication).
 
