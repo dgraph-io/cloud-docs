@@ -7,8 +7,6 @@ weight = 1
     identifier = "Overview"
 +++
 
-*These are draft docs for Slash GraphQL, which is currently in beta*
-
 Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line!
 
 Wherever possible, we have maintained compatibility with the corresponding Dgraph API, with the additional step of requiring authentication via the 'X-Auth-Token' header.

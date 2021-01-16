@@ -8,8 +8,6 @@ weight = 1
     identifier = "slash-overview"
 +++
 
-*These are draft docs for Slash GraphQL, which is currently in beta*
-
 Here is a guide to programmatically administering your Slash GraphQL backend.
 
 Wherever possible, we have maintained compatibility with the corresponding Dgraph API, with the additional step of requiring authentication via the 'X-Auth-Token' header.
