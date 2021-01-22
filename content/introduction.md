@@ -10,9 +10,9 @@ weight = 1
 Please see the following topics:
 
 - The [QuickStart](/slash-quick-start) will help you get started with a Slash GraphQL Schema, starting with a multi tenant todo app
-- [Administering your Backend](/admin/overview) covers topics such as how to programatically set your schema, and import or export your data
+- [Administering your Backend](/admin/overview) covers topics such as how to programmatically set your schema, and import or export your data
   - [Authentication](/admin/authentication) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
-  - [Schema](/admin/schema) describes how to programatically query and update your GraphQL schema.
+  - [Schema](/admin/schema) describes how to programmatically query and update your GraphQL schema.
   - [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Slash GraphQL backend, and how to import it into another cluster
   - [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Slash GraphQL backend.
   - [Switching Backend Modes](/admin/backend-modes) will guide you through changing Slash GraphQL backend mode.

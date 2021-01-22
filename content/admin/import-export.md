@@ -9,7 +9,7 @@ It is possible to export your data from one slash backend, and then import this 
 
 ## Exporting Data
 
-It is possible to export your data via a JSON format. In order to do this, call the `export` mutation on `/admin/slash`. As an example, if your graphql endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the admin endpoint for schema will be at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/admin/slash`.
+It is possible to export your data via a JSON format. In order to do this, call the `export` mutation on `/admin/slash`. As an example, if your GraphQL endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the admin endpoint for schema will be at `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/admin/slash`.
 
 Please note that this endpoint requires [Authentication](/admin/authentication).
 
@@ -36,7 +36,7 @@ Export will usually return 3 files:
 It is possible to import data into a Slash GraphQL backend using [live loader](https://dgraph.io/docs/deploy/#live-loader). In order to import data, do the following steps
 
 1. First import your schema into your Slash GraphQL backend, using either the [Schema API](/admin/schema) or via [the Schema Page](https://slash.dgraph.io/_/schema).
-2. Find the gRPC endpoint for your cluster, as described in the [advanced queries](/advanced-queries) section. This will look like frozen-mango-42.grpc.us-west-1.aws.cloud.dgraph.io:443
+2. Find the gRPC endpoint for your cluster, as described in the [advanced queries](/advanced-queries) section. This will look like **frozen-mango-42.grpc.us-west-1.aws.cloud.dgraph.io:443**
 3. Run the live loader as follows. Do note that running this via docker requires you to use an unreleased tag (either master or v20.07-slash)
 
 ```
