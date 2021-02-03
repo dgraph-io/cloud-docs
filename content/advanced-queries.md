@@ -22,11 +22,9 @@ Dgraph's GraphQL API lets you quickly use Slash GraphQL before moving on to the
 advanced features available using DQL.
 
 {{% notice "Note" %}}
-Slash GraphQL does not allow you to alter the schema or create 
-new predicates using DQL. You also can't access the `/alter`
-endpoint or it's gRPC equivalent. Please add your schema through the GraphQL
-endpoint (using either the UI or the Admin API), before accessing your data with 
-DQL.
+Slash GraphQL's [backend modes](/docs/slash-graphql/admin/backend-modes/) let
+you configure whether and how schema changes are allowed. To alter your schema 
+using the `/alter` HTTP and GRPC endpoints, you'll need to use **Flexible Mode**.
 {{% /notice %}}
 
 ## Authentication
