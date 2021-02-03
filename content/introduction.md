@@ -16,7 +16,7 @@ Please see the following topics:
   - [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Slash GraphQL backend, and how to import it into another cluster
   - [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Slash GraphQL backend.
   - [Switching Backend Modes](/admin/backend-modes) will guide you through changing Slash GraphQL backend mode.
-- [Slash GraphQL CLI](/slash/overview) Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line
+- [Slash GraphQL CLI](/slash-cli/overview/) Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line
   - [Backend](/slash-cli/backend) lists commands related to backend.
   - [Backup](/slash-cli/backup) lists commands related to backup.
   - [Help](/slash-cli/help-update) lists commands to update `slash-graphql` CLI and help.

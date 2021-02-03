@@ -22,7 +22,7 @@ Dgraph's GraphQL API lets you quickly use Slash GraphQL before moving on to the
 advanced features available using DQL.
 
 {{% notice "Note" %}}
-Slash GraphQL's [backend modes](/docs/slash-graphql/admin/backend-modes/) let
+Slash GraphQL's [backend modes](/admin/backend-modes/) let
 you configure whether and how schema changes are allowed. To alter your schema 
 using the `/alter` HTTP and GRPC endpoints, you'll need to use **Flexible Mode**.
 {{% /notice %}}
