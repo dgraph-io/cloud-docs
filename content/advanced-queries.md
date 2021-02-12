@@ -35,7 +35,7 @@ create an API token, please see [Authentication](/admin/authentication).
 ### HTTP
 
 You can query your backend with DQL using your cluster's `/query` endpoint. As
-an example, if your GraphQL endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`,
+an example, if your GraphQL endpoint is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/graphql`,
 then the admin endpoint for the schema is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/query`.
 
 You can also access the [`/mutate`](https://dgraph.io/docs/mutations/) and
@@ -86,7 +86,7 @@ Here is an example which uses the [pydgraph client](https://github.com/dgraph-io
 ```python
 import pydgraph
 
-client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
+client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
 client = pydgraph.DgraphClient(client_stub)
 ```
 
@@ -133,7 +133,7 @@ clients.
 ```python
 import pydgraph
 
-client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
+client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
 client = pydgraph.DgraphClient(client_stub)
 ```
 
@@ -142,7 +142,7 @@ client = pydgraph.DgraphClient(client_stub)
 const dgraph = require("dgraph-js");
 
 const clientStub = dgraph.clientStubFromSlashGraphQLEndpoint(
-  "https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql",
+  "https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql",
   "<api-key>"
 );
 const dgraphClient = new dgraph.DgraphClient(clientStub);
@@ -151,7 +151,7 @@ const dgraphClient = new dgraph.DgraphClient(clientStub);
 **Go**
 ```golang
 // This example uses dgo
-conn, err := dgo.DialSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
+conn, err := dgo.DialSlashEndpoint("https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>")
 if err != nil {
   log.Fatal(err)
 }
@@ -162,7 +162,7 @@ dgraphClient := dgo.NewDgraphClient(api.NewDgraphClient(conn))
 **Java**
 ```java
 // This example uses dgraph4j
-DgraphStub stub = DgraphClient.clientStubFromSlashEndpoint("https://frozen-mango-42.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>");
+DgraphStub stub = DgraphClient.clientStubFromSlashEndpoint("https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>");
 DgraphClient dgraphClient = new DgraphClient(stub);
 ```
 
@@ -174,7 +174,7 @@ Ratel yourself, or you can use Ratel online at [Dgraph Play](https://play.dgraph
 To configure Ratel:
 
 1. Click the Dgraph logo in the top left to bring up the connection screen (by default, it has the caption: play.dgraph.io)
-2. Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your `/graphql` endpoint URL. For example, if your `/graphql` endpoint is `https://frozen-mango-42.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for Ratel is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
+2. Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your `/graphql` endpoint URL. For example, if your `/graphql` endpoint is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for Ratel is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
 3. Click the **Connect** button. You should see a green check mark next to the word **Connected**.
 4. Click on the **Extra Settings** tab, and then enter your API token into the
  **Slash API Key** field. To create a new API token, see [Authentication](/admin/authentication).
