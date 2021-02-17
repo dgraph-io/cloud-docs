@@ -6,15 +6,10 @@ weight = 6
 +++
 
 Slash GraphQL supports three different backend modes, which control how the
-underlying Dgraph instance is configured:
-- Read-only mode
-- GraphQL mode
-- Flexible mode
-
-Each mode is pre-configured keeping ease of use in mind.
-If your use case involves querying a read-only dataset, then you can switch on [Read-Only mode](#read-only-mode).
-If your use case is centered around schemas and queries based on GraphQL, then [GraphQL mode](#graphql-mode) is more suitable for you.
-Finally, [Flexible mode](#flexible-mode) supports both GraphQL and DQL, and is often preferred by users who are more familiar with DQL.
+underlying Dgraph instance is configured. Each mode is pre-configured keeping ease of use in mind:
+- [Read-Only mode](#read-only-mode), for use cases involving queries to a read-only dataset.
+- [GraphQL mode](#graphql-mode), suited for use cases centered around schemas and queries based on GraphQL.
+- [Flexible mode](#flexible-mode) supports both GraphQL and DQL, and is often preferred by users who are familiar with DQL.
 
 {{% notice "tip" %}}
 By default, your Slash backend will run in [GraphQL mode](#graphql-mode).
