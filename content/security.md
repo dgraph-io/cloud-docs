@@ -7,21 +7,112 @@ weight = 6
 
 Here are a few tips for securing your Slash GraphQL Backend
 
-### Allowing Access to your GraphQL Endpoint
+### Allowing Anonymous Access to your GraphQL Endpoint
 
-Dgraph Cloud allows you to choose which GraphQL operations are available to end users.
+To help secure your GraphQL API, Dgraph Cloud allows you to choose which GraphQL operations are available to end clients.
 
-You can visit the [access tab on the schema page](https://cloud.dgraph.io/_/schema) and choose the operations that you want to allow/deny for anonymous users.
+You can visit the [access tab on the schema page](https://cloud.dgraph.io/_/schema) and choose the operations that you want to allow/deny for anonymous users. 
 
-Please note that Anonymous Access should not be confused with the Dgraph Auth and it sits one level above the Dgraph Auth. So, when you fully block anonymous access to your backend from the schema page, none of your GraphQL requests will go through to Dgraph database and are rejected by the GraphQL Auth layer itself.
+With Anonymous Access turned off, all GraphQL operations are restricted unless the client provides a valid [API Key](admin/authentication). With Anonymous Access turned on (Default configuration), you will have a button to "Edit Permissions"
 
-The API Keys that you generate on the [settings page](https://cloud.dgraph.io/_/settings) will have full access to all the GraphQL operations. In case you need full access to all the operations, we encourage you to pass the API key in the `DG-Auth` header while sending your requests to the `/graphql` endpoint of your backend.
+In Edit Permissions, you will find options to turn on/off Anonymous Access to Lambda functions, custom Queries, and custom Mutations. For every Type defined in your GraphQL schema, Edit Permissions will show checkboxes to enable Anonymous Access to Read and Write. Checking Read will allow the anonymous end clients to access the `get<Type>` and `query<Type>` query operations. Checking Write will allow anonymous end clients to access the `add<Type>`, `update<Type>`, and `delete<Type>` mutation operations.
 
-By default all operations are accessible to anonymous users. However, this behaviour will change in the near future and old backends will remain unaffected.
+By default all operations are accessible to anonymous clients. However, this behaviour will change in the near future. When this behaviour is changed, it will apply only to newly created backends. Existing backends will remain unaffected by this future change.
+
+Anonymous Access works as an access control security one level above the [GraphQL `@auth` Directive](https://dgraph.io/docs/graphql/authorization/directive/). When you block anonymous access to your backend, the GraphQL requests from the client will not go through to the Dgraph database. When Anonymous Access is blocked, the GraphQL Auth Rules are not evaluated against the database.
+
+Anonymous Access granted on level types only applies to the parent type operations and is not meant to be a way to secure all data of that type. It is still possible to read/write data of a Type that has been set with no read/write permissions if other types are granted read/write access to anonymous clients.
+
+Consider the following Schema:
+
+```graphql
+type User {
+  id: ID
+  name: String!
+  posts: [Post] @hasInverse(field: "author")
+}
+type Post {
+  id: ID
+  title: String!
+  author: User
+}
+```
+
+If the Anonymous Access was granted Read and Write for Post but not granted Read and Write for User, it would be possible still to perform the following operations:
+
+```graphql
+mutation addPost {
+  addPost(input: [{
+    title: "New Post Title" @search(by: [hash])
+    author: { name: "New User Name" } # creates a new User node.
+  }]) {
+    numUids
+  }
+}
+mutation removeAuthor {
+  updatePost(input: {
+    filter: { title: { eq: "New Post Title" } }
+    remove: { author: null } # does not delete the User node itself, just the linked reference.
+  }) {
+    numUids
+  }
+}
+mutation addAuthor {
+  updatePost(input: {
+    filter: { title: { eq: "New Post Title" } }
+    set: { author: { name: "Another New User Name" } } # creates a new User node.
+  }) {
+    numUids
+  }
+}
+query queryPost {
+  queryPost {
+    id
+    title
+    author { # reads the User node.
+      id
+      name
+    }
+  }
+}
+```
+
+The Client and Admin API Keys that you generate on the [settings page](https://cloud.dgraph.io/_/settings) will have full access to all the GraphQL operations. To use an API key to authenticate a client, pass the API key in the `DG-Auth` header while sending your requests to the `/graphql` endpoint of your backend.
+
+Example passing headers using Apollo Client in React:
+
+```Javascript
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '<your-cloud-endpoint>/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('token'); // JWT token
+  // get the API key from local storage if it exists
+  const key = localStorage.getItem('key'); // API key
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      <your-dgraph-authorization-header-key>: token ?? undefined,
+      'DG-Auth': key ?? undefined,
+    }
+  }
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
+```
 
 ### Writing Auth Rules
 
-All GraphQL queries and mutations are unrestricted by default. In order to restrict access, please see the [the @auth directive](https://dgraph.io/docs/graphql/authorization/directive/).
+Once a client has been granted access to an operation with either Anonymous Access granted or as an authenticated client using an API Key, the GraphQL query or mutation is then unrestricted by default. In order to further restrict access, please see the [the @auth directive](https://dgraph.io/docs/graphql/authorization/directive/).
 
 ### Restricting CORS from allowlisted domains
 
