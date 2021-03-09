@@ -48,5 +48,5 @@ features such as support for Dgraph's access control list (ACL).
 ## Changing your Backend Mode
 
 To change your backend mode, go to the 
-[settings page](https://slash.dgraph.io/_/settings), click the <kbd>Advanced</kbd> tab,
+[settings page](https://cloud.dgraph.io/_/settings), click the <kbd>Advanced</kbd> tab,
 and then select a mode from the **Backend Mode** list box.

@@ -48,7 +48,7 @@ The `User` type has three fields: `username` (the email address of the user), `n
 The `username` field has the `@id` declaration, so this field is a unique identifier for objects of this type. 
 The `tasks` field associates each user with any number of `Task` objects.
 
-Let's paste the code into the [Schema tab](https://slash.dgraph.io/_/schema) of Slash GraphQL and click **Update Schema**:
+Let's paste the code into the [Schema tab](https://cloud.dgraph.io/_/schema) of Slash GraphQL and click **Update Schema**:
 
 ![Schema](/images/slash-graphql/schema.png)
 
@@ -56,7 +56,7 @@ Now we have a fully functional GraphQL API that allows us to create, query, and 
 
 ## GraphQL mutations
 
-If you head over to the [API Explorer tab](https://slash.dgraph.io/_/explorer), you'll see the **Docs** tab \(_Documentation Explorer_\), which tells you the queries and mutations that your new database supports.
+If you head over to the [API Explorer tab](https://cloud.dgraph.io/_/explorer), you'll see the **Docs** tab \(_Documentation Explorer_\), which tells you the queries and mutations that your new database supports.
 
 ![Doc Explorer](/images/slash-graphql/docexplorer.png)
 
@@ -93,7 +93,7 @@ mutation AddTasks {
 }
 ```
 
-To populate the database, just head over the [API Explorer tab](https://slash.dgraph.io/_/explorer), paste the code into the text area, and click on the **Execute Query** button:
+To populate the database, just head over the [API Explorer tab](https://cloud.dgraph.io/_/explorer), paste the code into the text area, and click on the **Execute Query** button:
 
 ![API Explorer](/images/slash-graphql/apiexplorer.png)
 
@@ -253,7 +253,7 @@ We should be getting an empty result this time, since we no longer have access t
 
 To test our work, we've built the app's frontend with [React](https://reactjs.org/), so you can use it to close the tasks off.
 
-Let's head over to our sample React app, deployed at [https://relaxed-brahmagupta-f8020f.netlify.app/](https://relaxed-brahmagupta-f8020f.netlify.app/). When running the React app, remember to use the GraphQL Endpoint shown in your Slash GraphQL [Dashboard](https://slash.dgraph.io/_/dashboard).
+Let's head over to our sample React app, deployed at [https://relaxed-brahmagupta-f8020f.netlify.app/](https://relaxed-brahmagupta-f8020f.netlify.app/). When running the React app, remember to use the GraphQL Endpoint shown in your Slash GraphQL [Dashboard](https://cloud.dgraph.io/_/dashboard).
 
 You can try creating an account with your email, or log in with the following user/password credentials:
 

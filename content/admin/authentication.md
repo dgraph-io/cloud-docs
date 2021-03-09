@@ -5,7 +5,7 @@ weight = 2
     parent = "slash-graphql-admin"
 +++
 
-All the APIs documented here require an API token for access. A new API token can be generated from Slash GraphQL by selecting the ["Settings" button](https://slash.dgraph.io/_/settings) from the sidebar, then clicking the Add API Key button. Keep your API key safe, it will not be accessible once you leave the page.
+All the APIs documented here require an API token for access. A new API token can be generated from Slash GraphQL by selecting the ["Settings" button](https://cloud.dgraph.io/_/settings) from the sidebar, then clicking the Add API Key button. Keep your API key safe, it will not be accessible once you leave the page.
 
 ![Slash-GraphQL: Add an API Key ](/images/slash-graphql-4.png)
 

@@ -7,7 +7,7 @@ weight = 7
 
 Cloning a backend allows making a copy of an existing backend. The clone will be created with all the data and schema of the original backend present at the time of cloning. The clone will have its own endpoint and will be independent of the original backend once it is created. Any further changes in either backends will not reflect in the other. Currently, a clone can only be created in the same zone as that of the original backend.
 
-In order to clone your backend, click on the **Clone Backend** button under the [Settings](https://slash.dgraph.io/_/settings) tab in the dashboard's sidebar.
+In order to clone your backend, click on the **Clone Backend** button under the [Settings](https://cloud.dgraph.io/_/settings) tab in the dashboard's sidebar.
 
 You can also clone using the [Slash GraphQL CLI](https://www.npmjs.com/package/slash-graphql) as a two step process.
 
