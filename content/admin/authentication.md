@@ -15,7 +15,7 @@ There are two types of API keys, client and admin.
 - **Admin API keys** can be used to perform both client operations and admin operations like drop data, destroy backend, update schema.
 
 {{% notice "note" %}}
-Either Client API keys or Admin API keys can be used to bypass [Anonymous Access](/settings) restrictions.
+Either Client API keys or Admin API keys can be used to bypass [Anonymous Access](/security) restrictions.
 {{% /notice %}}
 
 ![Slash-GraphQL: Select API Key Role ](/images/slash-graphql-5.png)
