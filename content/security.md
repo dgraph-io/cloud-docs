@@ -7,6 +7,18 @@ weight = 6
 
 Here are a few tips for securing your Slash GraphQL Backend
 
+### Allowing Access to your GraphQL Endpoint
+
+Dgraph Cloud allows you to choose which GraphQL operations are available to end users.
+
+You can visit the [access tab on the schema page](https://cloud.dgraph.io/_/schema) and choose the operations that you want to allow/deny for anonymous users.
+
+Please note that Anonymous Access should not be confused with the Dgraph Auth and it sits one level above the Dgraph Auth. So, when you fully block anonymous access to your backend from the schema page, none of your GraphQL requests will go through to Dgraph database and are rejected by the GraphQL Auth layer itself.
+
+The API Keys that you generate on the [settings page](https://cloud.dgraph.io/_/settings) will have full access to all the GraphQL operations. In case you need full access to all the operations, we encourage you to pass the API key in the `DG-Auth` header while sending your requests to the `/graphql` endpoint of your backend.
+
+By default all operations are accessible to anonymous users. However, this behaviour will change in the near future and old backends will remain unaffected.
+
 ### Writing Auth Rules
 
 All GraphQL queries and mutations are unrestricted by default. In order to restrict access, please see the [the @auth directive](https://dgraph.io/docs/graphql/authorization/directive/).
