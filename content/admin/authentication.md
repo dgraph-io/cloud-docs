@@ -21,11 +21,11 @@ Either Client API keys or Admin API keys can be used to bypass [Anonymous Access
 ![Slash-GraphQL: Select API Key Role ](/images/slash-graphql-5.png)
 <br>
 <br>
-All admin API requests must be authenticated by passing the API key as the 'X-Auth-Token' header to every HTTP request. You can verify that your API key works by using the following HTTP example.
+All admin API requests must be authenticated by passing the API key as the 'Dg-Auth' header to every HTTP request. You can verify that your API key works by using the following HTTP example.
 
 ```
 curl 'https://<your-backend>/admin' \
-  -H 'X-Auth-Token: <your-api-key>' \
+  -H 'Dg-Auth: <your-api-key>' \
   -H 'Content-Type: application/json' \
   --data-binary '{"query":"{ getGQLSchema { schema } }"}'
 ```
