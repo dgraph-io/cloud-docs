@@ -7,7 +7,7 @@ weight = 1
     identifier = "Overview"
 +++
 
-Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line!
+Dgraph Cloud now includes a CLI so you can manage it from the comfort of your command line!
 
 Wherever possible, we have maintained compatibility with the corresponding Dgraph API, with the additional step of requiring authentication via the 'X-Auth-Token' header.
 

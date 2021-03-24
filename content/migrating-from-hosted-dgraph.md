@@ -1,15 +1,15 @@
 +++
-title = "Migrating from Hosted Dgraph"
+title = "Migrating from Self-Managed Dgraph"
 weight = 7
 [menu.main]
     parent = "slash-graphql"
 +++
 
-Slash GraphQL and Dgraph Cloud are compatible with majority of Dgraph features,
-and you can easily migrate your existing Dgraph app over to Slash.
+Dgraph Cloud is compatible with the majority of Dgraph features, so you can easily
+migrate your existing Dgraph-powered app over to Dgraph Cloud.
 
-To get started
+### To migrate data from self-managed Dgraph to Dgraph Cloud
 
-1. Create a new backend. This can be done via the Slash GraphQL interface, or by using the [command line tool](https://www.npmjs.com/package/slash-graphql)
+1. Create a new backend. You can do this using the Dgraph Cloud interface, or by using the [Dgraph Cloud command-line tool](https://www.npmjs.com/package/slash-graphql).
 2. (optional) Switch your backend to [flexible mode](/admin/backend-modes#flexible-mode).
-3. Connect to your backend with your favorite client. Please see [Connecting from Dgraph Clients](/advanced-queries#connecting-from-dgraph-clients)
+3. Connect to your backend with your favorite client. To learn more, see [Connecting from Dgraph Clients](/advanced-queries#connecting-from-dgraph-clients).

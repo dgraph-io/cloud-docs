@@ -1,5 +1,5 @@
 +++
-title = "Slash GraphQL"
+title = "Dgraph Cloud"
 weight = 4
 [menu.main]
   identifier = "slash-graphql"
@@ -9,16 +9,16 @@ weight = 4
   <div class="hero">
     <h1></h1>
     <p>
-      Slash GraphQL provides a <code>/graphql</code> Backend for your app.
+      Dgraph Cloud provides a <code>/graphql</code> Backend for your app.
     </p>
     <img class="hero-deco" src="images/hero-deco.png" />
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-play" aria-hidden="true"></i></div>
     <a  href="{{< relref "slash-quick-start.md">}}">
-      <h2>Slash Quick Start</h2>
+      <h2>Dgraph Cloud Quick Start</h2>
       <p>
-        Get started with a simple "to-do" list app built on Slash GraphQL
+        Get started with a simple "to-do" list app built on Dgraph Cloud
       </p>
     </a>
   </div>
@@ -46,7 +46,7 @@ weight = 4
     <a href="{{< relref "security.md">}}">
       <h2>Securing your GraphQL endpoint</h2>
       <p>
-        Tips for securing your Slash GraphQL backend
+        Tips for securing your Dgraph Cloud backend
       </p>
     </a>
   </div>
@@ -55,7 +55,7 @@ weight = 4
     <a href="{{< relref "migrating-from-hosted-dgraph.md">}}">
       <h2>Migrating from hosted Dgraph</h2>
       <p>
-        Easily migrate your existing Dgraph app to Slash
+        Easily migrate your existing Dgraph app to Dgraph Cloud
       </p>
     </a>
   </div>
@@ -64,16 +64,16 @@ weight = 4
     <a href="{{< relref "admin/_index.md">}}">
       <h2>Administering your Backend</h2>
       <p>
-        Programmatically set and update your schema, import or export your data, and switch or clone your Slash backend
+        Programmatically set and update your schema, import or export your data, and switch or clone your Dgraph Cloud backend
       </p>
     </a>
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
     <a href="{{< relref "slash-cli/_index.md">}}">
-      <h2>Slash GraphQL CLI</h2>
+      <h2>Dgraph Cloud CLI</h2>
       <p>
-        Slash GraphQL now includes a CLI so you can manage it from the comfort of your command line
+        Dgraph Cloud now includes a CLI so you can manage it from the comfort of your command line
       </p>
     </a>
   </div>

@@ -17,9 +17,9 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLE

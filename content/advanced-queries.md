@@ -1,28 +1,28 @@
 +++
 title = "Advanced Queries with DQL"
-weight = 2
+weight = 3
 [menu.main]
     parent = "slash-graphql"
 +++
 
-*You can now [embed DQL queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Slash GraphQL backend with existing Dgraph clients.*
+*You can now [embed DQL queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Dgraph Cloud backend with existing Dgraph clients.*
 
-In addition to GraphQL support, Slash GraphQL also supports running advanced
+In addition to GraphQL support, Dgraph Cloud also supports running advanced
 queries using Dgraph Query Language (DQL) (previously named GraphQL+-).
 DQL is based on GraphQL, but adds and removes features to better support graph
 database operations. Advanced users can use DQL to send queries and mutations
-to Slash GraphQL's HTTP or gRPC endpoints using the Dgraph client libraries.
+to Dgraph Cloud's HTTP or gRPC endpoints using the Dgraph client libraries.
 To learn more about the Dgraph client libraries, see the 
 [client library documentation](https://dgraph.io/docs/clients/). To learn more
 about DQL, see [DQL Fundamentals](https://dgraph.io/docs/query-language/graphql-fundamentals/)..
 
-If you are getting started with Slash GraphQL, you should probably start out by
+If you are getting started with Dgraph Cloud, you should probably start out by
 using Dgraph's [GraphQL API](https://dgraph.io/docs/graphql/overview) instead.
-Dgraph's GraphQL API lets you quickly use Slash GraphQL before moving on to the
+Dgraph's GraphQL API lets you quickly use Dgraph Cloud before moving on to the
 advanced features available using DQL.
 
 {{% notice "Note" %}}
-Slash GraphQL's [backend modes](/admin/backend-modes/) let
+Dgraph Cloud's [backend modes](/admin/backend-modes/) let
 you configure whether and how schema changes are allowed. To alter your schema 
 using the `/alter` HTTP and GRPC endpoints, you'll need to use **Flexible Mode**.
 {{% /notice %}}
@@ -77,9 +77,9 @@ curl -H "Content-Type: application/dql" -H "x-auth-token: <api-key>" -XPOST "<gr
 
 ### gRPC
 
-Slash GraphQL is compatible with most existing Dgraph clients. You can use the
-helper methods from each library to connect to your backend, passing in a Slash
-GraphQL endpoint and an API token.
+Dgraph Cloud is compatible with most existing Dgraph clients. You can use the
+helper methods from each library to connect to your backend, passing in a Dgraph
+Cloud endpoint and an API token.
 
 Here is an example which uses the [pydgraph client](https://github.com/dgraph-io/pydgraph) to make gRPC requests.
 
@@ -126,7 +126,7 @@ finally:
 
 #### Connecting from Dgraph Clients
 
-Below are snippets to connect to your Slash GraphQL backend from various Dgraph
+Below are snippets to connect to your Dgraph Cloud backend from various Dgraph
 clients.
 
 **Python**
@@ -137,7 +137,7 @@ client_stub = pydgraph.DgraphClientStub.from_slash_endpoint("https://frozen-mang
 client = pydgraph.DgraphClient(client_stub)
 ```
 
-**Javascript**
+**JavaScript**
 ```javascript
 const dgraph = require("dgraph-js");
 
@@ -168,7 +168,7 @@ DgraphClient dgraphClient = new DgraphClient(stub);
 
 ### Visualizing your Graph with Ratel
 
-You can use Ratel to visualize your Slash GraphQL backend with DQL. You can host
+You can use Ratel to visualize your Dgraph Cloud backend with DQL. You can host
 Ratel yourself, or you can use Ratel online at [Dgraph Play](https://play.dgraph.io/?latest#connection).
 
 To configure Ratel:
@@ -177,7 +177,7 @@ To configure Ratel:
 2. Enter your backend's host in the Dgraph Server URL field. This is obtained by removing `/graphql` from the end of your `/graphql` endpoint URL. For example, if your `/graphql` endpoint is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io/graphql`, then the host for Ratel is `https://frozen-mango.us-west-2.aws.cloud.dgraph.io`
 3. Click the **Connect** button. You should see a green check mark next to the word **Connected**.
 4. Click on the **Extra Settings** tab, and then enter your API token into the
- **Slash API Key** field. To create a new API token, see [Authentication](/admin/authentication).
+ **API Key** field. To create a new API token, see [Authentication](/admin/authentication).
 5. Click on the **Continue** button.
 
 You can now run queries and mutations using Ratel, and see visualizations of
@@ -188,7 +188,7 @@ attempting to remove nodes from the cluster.
 
 ### Switching Backend Modes
 
-If you want to use DQL as your primary mode of interaction with the Slash GraphQL
+If you want to use DQL as your primary mode of interaction with the Dgraph Cloud
 backend (instead of primarily using the GraphQL API), you can switch your
 backend to flexible mode. To learn more, see
 [Backend Modes](/admin/backend-modes).

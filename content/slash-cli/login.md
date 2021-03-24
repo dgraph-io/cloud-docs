@@ -8,7 +8,7 @@ weight = 2
 
 ### Login
 
-Login to Slash GraphQL. Calling this function will keep you logged in for 24 hours, and you will not need to pass access tokens for any backends that you own.
+Login to Dgraph Cloud. Calling this function will keep you logged in for 24 hours, and you will not need to pass access tokens for any backends that you own.
 
 USAGE
 ```
@@ -27,7 +27,7 @@ EXAMPLE
 
 ### Logout
 
-Logout of Slash GraphQL CLI.
+Logout of Dgraph Cloud CLI.
 
 USAGE
 
