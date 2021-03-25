@@ -15,7 +15,7 @@ weight = 4
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-play" aria-hidden="true"></i></div>
-    <a  href="{{< relref "slash-quick-start.md">}}">
+    <a  href="{{< relref "cloud-quick-start.md">}}">
       <h2>Dgraph Cloud Quick Start</h2>
       <p>
         Get started with a simple "to-do" list app built on Dgraph Cloud

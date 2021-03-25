@@ -69,7 +69,7 @@ trial account and [try Dgraph Cloud](https://cloud.dgraph.io) for yourself.
 
 Please see the following topics to learn more about how to use Dgraph Cloud:
 
-- The [Quick Start](/slash-quick-start) will help you get started with a Dgraph Cloud Schema, starting with a multi tenant to-do app
+- The [Quick Start](/cloud-quick-start) will help you get started with a Dgraph Cloud Schema, starting with a multi tenant to-do app
 - [Administering your Backend](/admin/overview) covers topics such as how to programmatically set your schema, and import or export your data
   - [Authentication](/admin/authentication) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
   - [Schema](/admin/schema) describes how to programmatically query and update your GraphQL schema.
