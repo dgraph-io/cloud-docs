@@ -19,9 +19,10 @@ don’t need to configure and manage VMs, servers, firewalls, and HTTP endpoints
 to power your modern apps and websites. 
 
 Dgraph Cloud is available in several pricing tiers:
-* Free: This tier is suitable for hobbyist use and evaluation, but has significant bandwidth limitations.
-* Shared Instances (formerly *Slash GraphQL*): Backends in this tier run on a shared server cluster to provide a graph database service at a low price.
-* Dedicated Instances: Backends in this tier run on dedicated server clusters to meet the heavy workloads and other needs of enterprise customers. This tier also provides high availability and the option to run Dgraph in your own virtual private cloud (VPC) or bring your own Kubernetes (BYOK) environment.
+
+* **Free**: This tier is suitable for hobbyist use and evaluation, but has significant bandwidth limitations.
+* **Shared Instances** (formerly *Slash GraphQL*): Backends in this tier run on a shared server cluster to provide a graph database service at a low price.
+* **Dedicated Instances**: Backends in this tier run on dedicated server clusters to meet the heavy workloads and other needs of enterprise customers. This tier also provides high availability and the option to run Dgraph in your own virtual private cloud (VPC) or bring your own Kubernetes (BYOK) environment.
 
 To learn more about pricing for each tier, see the [Dgraph Pricing Page](https://dgraph.io/pricing).
 To learn more about Dgraph database, see [Dgraph Database Overview](https://dgraph.io/docs/dgraph-overview/).
@@ -31,15 +32,14 @@ To learn more about Dgraph database, see [Dgraph Database Overview](https://dgra
 
 | Feature        | Notes     |
 | :------------- | :------------- |
-| Zero learning curve | All you need to know to start building your app backend  is GraphQL, so you can start designing your app using GraphQL and then iterate from there. |
+| Production-ready | Dgraph Cloud is great for small app developers but is also built to meet the needs of your business as it grows with built-in authorization, encryption at rest, TLS, incremental backups, and more. |
+| Scale and expand your app without rebuilding your backend | Dgraph Cloud stores and distributes data to optimize the execution of GraphQL traversals, joins, and retrievals. Dgraph natively parses and executes GraphQL, achieving great performance and the ability to scale horizontally up to terabytes of data. |
 | A high-performance, graph-first database | Dgraph Cloud runs Dgraph database, which is built to support the needs of modern apps with lightning-fast queries at any depth. |
+| Custom logic | Use JavaScript to add programmatic custom logic on the backend, adding power to your apps without sacrificing client-side performance. |
 | Power your app with native GraphQL support | Dgraph is built for graph data, so you don’t need to configure and maintain a cumbersome GraphQL layer over a traditional relational database. |
 | Evolve your schema without downtime | When it comes time to deploy a new schema, you can do that in seconds, not hours. |
 | GraphQL-based authorization and management | GraphQL is used throughout Dgraph Cloud, so you don’t need to use another tool or learn another syntax to handle user authorization or database administration tasks such as schema changes and data exports. |
 | Work with the Open Source ecosystem | Because Dgraph is open-source, your app relies on a codebase that you can contribute to, not an opaque “black box”. |
-| Custom logic | Use JavaScript to add programmatic custom logic on the backend, adding power to your apps without sacrificing client-side performance. |
-| Production-ready | Dgraph Cloud is great for small app developers but is also built to meet the needs of your business as it grows with built-in authorization, encryption at rest, TLS, incremental backups, and more. |
-| Scale and expand your app without rebuilding your backend | Dgraph Cloud stores and distributes data to optimize the execution of GraphQL traversals, joins, and retrievals. Dgraph natively parses and executes GraphQL, achieving great performance and the ability to scale horizontally up to terabytes of data. |
 
 ## Architecture
 

@@ -9,8 +9,9 @@ weight = 4
   <div class="hero">
     <h1></h1>
     <p>
-      Dgraph Cloud provides a <code>/graphql</code> Backend for your app.
+      Dgraph Cloud gives you the power of Dgraph database with the convenience of a fully-managed service.
     </p>
+    <p>To learn more about Dgraph, see <a href="https://dgraph.io/docs/dgraph-overview/">Dgraph Database Overview</a>.</p>
     <img class="hero-deco" src="images/hero-deco.png" />
   </div>
   <div class="item">
@@ -34,7 +35,7 @@ weight = 4
   <div class="item">
     <div class="icon"><i class="lni lni-package" aria-hidden="true"></i></div>
     <a href="{{< relref "one-click-deploy.md">}}">
-      <h2>One-click Deploy</h2>
+      <h2>One-Click Deployment</h2>
       <p>
         Deploy sample apps in minutes from a fresh backend instance
       </p>
@@ -44,7 +45,7 @@ weight = 4
   <div class="item">
     <div class="icon"><i class="lni lni-shield" aria-hidden="true"></i></div>
     <a href="{{< relref "security.md">}}">
-      <h2>Securing your GraphQL endpoint</h2>
+      <h2>Secure Your Endpoint</h2>
       <p>
         Tips for securing your Dgraph Cloud backend
       </p>
@@ -53,16 +54,16 @@ weight = 4
   <div class="item">
     <div class="icon"><i class="lni lni-cogs" aria-hidden="true"></i></div>
     <a href="{{< relref "migrating-from-hosted-dgraph.md">}}">
-      <h2>Migrating from hosted Dgraph</h2>
+      <h2>Migrate from Self-Managed Dgraph</h2>
       <p>
-        Easily migrate your existing Dgraph app to Dgraph Cloud
+        Easily migrate your app's existing Dgraph backend to Dgraph Cloud
       </p>
     </a>
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
     <a href="{{< relref "admin/_index.md">}}">
-      <h2>Administering your Backend</h2>
+      <h2>Administer Your Backend</h2>
       <p>
         Programmatically set and update your schema, import or export your data, and switch or clone your Dgraph Cloud backend
       </p>
