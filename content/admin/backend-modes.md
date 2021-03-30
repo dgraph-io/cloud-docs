@@ -5,14 +5,14 @@ weight = 6
     parent = "slash-graphql-admin"
 +++
 
-Slash GraphQL supports three different backend modes, which control how the
+Dgraph Cloud supports three different backend modes, which control how the
 underlying Dgraph instance is configured. Each mode is pre-configured keeping ease of use in mind:
 - [Read-Only mode](#read-only-mode), for use cases involving queries to a read-only dataset.
 - [GraphQL mode](#graphql-mode), suited for use cases centered around schemas and queries based on GraphQL.
 - [Flexible mode](#flexible-mode) supports both GraphQL and DQL, and is often preferred by users who are familiar with DQL.
 
 {{% notice "tip" %}}
-By default, your Slash backend will run in [GraphQL mode](#graphql-mode).
+By default, your Dgraph Cloud backend will run in [GraphQL mode](#graphql-mode).
 If you want to have the same behavior as a local Dgraph instance, change your backend to [Flexible mode](#flexible-mode). 
 {{% /notice %}}
 
@@ -23,14 +23,14 @@ attempts to alter the schema are disallowed.
 
 ### GraphQL Mode
 
-GraphQL mode is the default setting on Slash GraphQL, and is suitable for
+GraphQL mode is the default setting on Dgraph Cloud, and is suitable for
 backends where the primary mode of interaction is using the GraphQL APIs. You
 can use DQL (formerly *GraphQL+-*) queries and mutations in this mode, as
 described in the [advanced queries](/advanced-queries/) section. However, all
 queries and mutations must be valid for the applied GraphQL schema.
 
 {{% notice "note" %}}
-In GraphQL mode, Slash will enforce a [strict schema](https://dgraph.io/docs/deploy/dgraph-administration/#restricting-mutation-operations), allowing mutations only on predicates already present in the schema.
+In GraphQL mode, Dgraph Cloud will enforce a [strict schema](https://dgraph.io/docs/deploy/dgraph-administration/#restricting-mutation-operations), allowing mutations only on predicates already present in the schema.
 Before executing a mutation on a predicate that doesn’t exist in the schema, you need to perform an `alter` operation with that predicate and its schema type.
 {{% /notice %}}
 

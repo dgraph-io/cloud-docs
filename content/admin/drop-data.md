@@ -5,7 +5,7 @@ weight = 5
     parent = "slash-graphql-admin"
 +++
 
-It is possible to drop all data from your Slash GraphQL backend, and start afresh while retaining the same endpoint. Be careful, as this operation is not reversible, and all data will be lost. It is highly recommended that you [export](/admin/import-export) your data before you drop your data.
+It is possible to drop all data from your Dgraph Cloud backend, and start afresh while retaining the same endpoint. Be careful, as this operation is not reversible, and all data will be lost. It is highly recommended that you [export](/admin/import-export) your data before you drop your data.
 
 In order to drop all data while retaining the schema, please click the `Drop Data` button under the [Settings](https://cloud.dgraph.io/_/settings) tab in the sidebar.
 

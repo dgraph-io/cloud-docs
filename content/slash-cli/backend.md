@@ -110,9 +110,9 @@ ARGUMENTS
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLE
@@ -136,9 +136,9 @@ ARGUMENTS
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
   -y, --confirm            Skip confirmation
 ```
 
@@ -183,12 +183,12 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint          Slash GraphQL endpoint
+  -e, --endpoint=endpoint          Dgraph Cloud endpoint
   -f, --backupFolder=backupFolder  Backup folder retrieved from list-backups. Defaults to ""(latest).
   -n, --backupNum=backupNum        Backup number retrieved from list-backups. Defaults to 0(latest).
   -q, --quiet                      Quiet output
   -s, --source=source              (required) Source backend ID or url to get the data to be restored
-  -t, --token=token                Slash GraphQL backend API tokens
+  -t, --token=token                Dgraph Cloud backend API tokens
   -y, --confirm                    Skip confirmation
 ```
 
@@ -214,9 +214,9 @@ ARGUMENTS
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLE
@@ -238,11 +238,11 @@ OPTIONS
   -F, --drop-fields=drop-fields  Drop types
   -T, --drop-types=drop-types    Drop types
   -d, --drop-data                Drop data and leave the schema
-  -e, --endpoint=endpoint        Slash GraphQL endpoint
+  -e, --endpoint=endpoint        Dgraph Cloud endpoint
   -l, --list-unused              List unused types and fields
   -q, --quiet                    Quiet output
   -s, --drop-schema              Drop schema along with the data
-  -t, --token=token              Slash GraphQL backend API tokens
+  -t, --token=token              Dgraph Cloud backend API tokens
   -u, --drop-unused              Drops all unused types and fields
   -y, --confirm                  Skip confirmation
 ```

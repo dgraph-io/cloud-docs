@@ -336,6 +336,10 @@ pre.collapsed .showmore span {
   opacity: 0.99;
 }
 
+#header .logo {
+  width: 100px;
+}
+
 #header .menu-search {
   width: 250px;
 }

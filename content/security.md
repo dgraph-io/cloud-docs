@@ -5,7 +5,7 @@ weight = 6
     parent = "slash-graphql"
 +++
 
-Here are a few tips for securing your Slash GraphQL Backend
+Here are a few tips for securing your Dgraph Cloud Backend
 
 ### Allowing Anonymous Access to your GraphQL Endpoint
 
@@ -15,9 +15,9 @@ You can visit the [access tab on the schema page](https://cloud.dgraph.io/_/sche
 
 With Anonymous Access turned off, all GraphQL operations are restricted unless the client provides a valid [API Key](/admin/authentication). With Anonymous Access turned on (Default configuration), you will have a button to "Edit Permissions"
 
-In Edit Permissions, you will find options to turn on/off Anonymous Access to Lambda functions, custom Queries, and custom Mutations. For every Type defined in your GraphQL schema, Edit Permissions will show checkboxes to enable Anonymous Access to Read and Write. Checking Read will allow the anonymous end clients to access the `get<Type>` and `query<Type>` query operations. Checking Write will allow anonymous end clients to access the `add<Type>`, `update<Type>`, and `delete<Type>` mutation operations.
+In Edit Permissions, you will find options to turn on/off Anonymous Access to Lambda functions, custom Queries, and custom Mutations. For every Type defined in your GraphQL schema, Edit Permissions will show check boxes to enable Anonymous Access to Read and Write. Checking Read will allow the anonymous end clients to access the `get<Type>` and `query<Type>` query operations. Checking Write will allow anonymous end clients to access the `add<Type>`, `update<Type>`, and `delete<Type>` mutation operations.
 
-By default all operations are accessible to anonymous clients. However, this behaviour will change in the near future. When this behaviour is changed, it will apply only to newly created backends. Existing backends will remain unaffected by this future change.
+By default all operations are accessible to anonymous clients. However, this behavior will change in the near future. When this behavior is changed, it will apply only to newly created backends. Existing backends will remain unaffected by this future change.
 
 Anonymous Access works as an access control security one level above the [GraphQL `@auth` Directive](https://dgraph.io/docs/graphql/authorization/directive/). When you block anonymous access to your backend, the GraphQL requests from the client will not go through to the Dgraph database. When Anonymous Access is blocked, the GraphQL Auth Rules are not evaluated against the database.
 
@@ -114,9 +114,9 @@ const client = new ApolloClient({
 
 Once a client has been granted access to an operation with either Anonymous Access granted or as an authenticated client using an API Key, the GraphQL query or mutation is then unrestricted by default. In order to further restrict access, please see the [the @auth directive](https://dgraph.io/docs/graphql/authorization/directive/).
 
-### Restricting CORS from allowlisted domains
+### Restricting CORS from `allowlisted` domains
 
-Restricting the origins that your Slash GraphQL responds to is a an important step in preventing XSS exploits. Your Slash GraphQL backend will prevent any origins that are not in the allowlist from accessing your GraphQL endpoint.
+Restricting the origins that your Dgraph Cloud responds to is a an important step in preventing XSS exploits. Your Dgraph Cloud backend will prevent any origins that are not in the allowlist from accessing your GraphQL endpoint.
 
 In order to add origins to the allow list, please see the [settings page](https://cloud.dgraph.io/_/settings), under the **CORS** tab. By default, we allow all origins to connect to your endpoint (`Access-Control-Allow-Origin: *`), and adding an origin will prevent this default behavior. On adding your first origin, we automatically add `https://cloud.dgraph.io`  as well, so that the API explorer continues to work.
 

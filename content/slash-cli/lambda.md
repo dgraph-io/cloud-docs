@@ -17,9 +17,9 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLES
@@ -39,10 +39,10 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -h, --hours=hours        [default: 1] Show lambda logs for last given hours. Defaults to 1 hour.
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLES
@@ -62,10 +62,10 @@ USAGE
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -f, --file=file          (required) Lambda script file path.
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
 ```
 
 EXAMPLES
@@ -84,9 +84,9 @@ USAGE
 ```
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Slash GraphQL endpoint
+  -e, --endpoint=endpoint  Dgraph Cloud endpoint
   -q, --quiet              Quiet output
-  -t, --token=token        Slash GraphQL backend API tokens
+  -t, --token=token        Dgraph Cloud backend API tokens
   -y, --confirm            Skip confirmation
 ```
 EXAMPLES
