@@ -2,7 +2,7 @@
 title = "Switching Backend Modes"
 weight = 6
 [menu.main]
-    parent = "slash-graphql-admin"
+    parent = "cloud-admin"
 +++
 
 Dgraph Cloud supports three different backend modes, which control how the

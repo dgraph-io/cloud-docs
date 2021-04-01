@@ -2,7 +2,7 @@
 title = "One-click Deploy"
 weight = 2
 [menu.main]
-    parent = "slash-graphql"
+    parent = "cloud"
 +++
 
 We love building GraphQL apps at Dgraph! In order to help you get started quickly, we are making it easy to launch a few apps with a single click. We'll create a fresh backend for you, load it with the right schema, and even launch a front end that's ready for you to use.

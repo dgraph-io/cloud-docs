@@ -2,12 +2,12 @@
 title = "Dgraph Cloud Quick Start"
 weight = 2   
 [menu.main]
-    parent = "slash-graphql"
+    parent = "cloud"
 +++
 
 ## Introduction
 
-Welcome to [Dgraph Cloud](https://dgraph.io/slash-graphql), the world’s most advanced, hosted GraphQL backend. By now, you should have created your first deployment, and you're looking for a quick-start guide to test it out. Don't worry, in this document we got you covered.
+Welcome to [Dgraph Cloud](https://dgraph.io/cloud), the world’s most advanced, hosted GraphQL backend. By now, you should have created your first deployment, and you're looking for a quick-start guide to test it out. Don't worry, in this document we got you covered.
 
 In this guide, we will create a database for a small app from the ground up using Dgraph Cloud. The easy steps you will learn in this tutorial are fundamental to using Dgraph Cloud, and mastering them will give you a better understanding of the powerful features available.
 
@@ -50,7 +50,7 @@ The `tasks` field associates each user with any number of `Task` objects.
 
 Let's paste the code into the [Schema tab](https://cloud.dgraph.io/_/schema) of Dgraph Cloud and click **Update Schema**:
 
-![Schema](/images/slash-graphql/schema.png)
+![Schema](/images/cloud/schema.png)
 
 Now we have a fully functional GraphQL API that allows us to create, query, and modify records of these two types. That's all; there's nothing else to do. It's there, serving GraphQL, ready to be used.
 
@@ -58,7 +58,7 @@ Now we have a fully functional GraphQL API that allows us to create, query, and 
 
 If you head over to the [API Explorer tab](https://cloud.dgraph.io/_/explorer), you'll see the **Docs** tab \(_Documentation Explorer_\), which tells you the queries and mutations that your new database supports.
 
-![Doc Explorer](/images/slash-graphql/docexplorer.png)
+![Doc Explorer](/images/cloud/docexplorer.png)
 
 Next, let's go ahead and populate some data into our fresh database.
 
@@ -95,7 +95,7 @@ mutation AddTasks {
 
 To populate the database, just head over the [API Explorer tab](https://cloud.dgraph.io/_/explorer), paste the code into the text area, and click on the **Execute Query** button:
 
-![API Explorer](/images/slash-graphql/apiexplorer.png)
+![API Explorer](/images/cloud/apiexplorer.png)
 
 ### Querying the database
 
@@ -262,7 +262,7 @@ You can try creating an account with your email, or log in with the following us
 
 Once you have logged in, you should see something like:
 
-![React](/images/slash-graphql/todos.png)
+![React](/images/cloud/todos.png)
 
 Congratulations! You have completed the Dgraph Cloud quick-start guide, and you are ready to use the world’s most advanced, hosted GraphQL backend in your applications.
 

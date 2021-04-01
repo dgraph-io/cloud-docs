@@ -1,5 +1,5 @@
 canonifyURLs = true
-baseURL = "https://dgraph.io/docs/slash-graphql/"
+baseURL = "https://dgraph.io/docs/cloud/"
 languageCode = "en-us"
 theme = "hugo-docs"
 relativeURLs = true
@@ -25,7 +25,7 @@ ordered = false
 startLevel = 2
 
 # set by build script: title, baseurl
-title = "Slash GraphQL Docs"
+title = "Dgraph Cloud Docs"
 
 [[menu.main]]
   name = "GraphQL Docs"
