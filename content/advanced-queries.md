@@ -24,7 +24,7 @@ advanced features available using DQL.
 {{% notice "Note" %}}
 Dgraph Cloud's [backend modes](/admin/backend-modes/) let
 you configure whether and how schema changes are allowed. To alter your schema 
-using the `/alter` HTTP and GRPC endpoints, you'll need to use **Flexible Mode**.
+using the `/alter` HTTP and GRPC endpoints, you'll need to use **DQL + GraphQL Mode**.
 {{% /notice %}}
 
 ## Authentication
@@ -190,5 +190,5 @@ attempting to remove nodes from the cluster.
 
 If you want to use DQL as your primary mode of interaction with the Dgraph Cloud
 backend (instead of primarily using the GraphQL API), you can switch your
-backend to flexible mode. To learn more, see
+backend to DQL+GraphQL mode. To learn more, see
 [Backend Modes](/admin/backend-modes).

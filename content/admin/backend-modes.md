@@ -9,11 +9,11 @@ Dgraph Cloud supports three different backend modes, which control how the
 underlying Dgraph instance is configured. Each mode is pre-configured keeping ease of use in mind:
 - [Read-Only mode](#read-only-mode), for use cases involving queries to a read-only dataset.
 - [GraphQL mode](#graphql-mode), suited for use cases centered around schemas and queries based on GraphQL.
-- [Flexible mode](#flexible-mode) supports both GraphQL and DQL, and is often preferred by users who are familiar with DQL.
+- [DQL+GraphQL mode](#dql+graphql-mode) supports both GraphQL and DQL, and is often preferred by users who are familiar with DQL.
 
 {{% notice "tip" %}}
 By default, your Dgraph Cloud backend will run in [GraphQL mode](#graphql-mode).
-If you want to have the same behavior as a local Dgraph instance, change your backend to [Flexible mode](#flexible-mode). 
+If you want to have the same behavior as a local Dgraph instance, change your backend to [DQL+GraphQL mode](#dql-+-graphql-mode). 
 {{% /notice %}}
 
 ### Read-only Mode
@@ -34,15 +34,15 @@ In GraphQL mode, Dgraph Cloud will enforce a [strict schema](https://dgraph.io/d
 Before executing a mutation on a predicate that doesn’t exist in the schema, you need to perform an `alter` operation with that predicate and its schema type.
 {{% /notice %}}
 
-### Flexible Mode
+### DQL + GraphQL mode
 
-Flexible mode is suitable for users who are already familiar with Dgraph, and
-plan to interact with their backend using DQL. Flexible mode removes any
+DQL + GraphQL mode is suitable for users who are already familiar with Dgraph, and
+plan to interact with their backend using DQL. DQL + GraphQL mode removes any
 restrictions on queries and mutations, and also provides users access to
 advanced Dgraph features like directly altering the schema with the `/alter`
 HTTP and GRPC endpoints.
 
-Running your backend in flexible mode is also a requirement for upcoming
+Running your backend in DQL + GraphQL mode is also a requirement for upcoming
 features such as support for Dgraph's access control list (ACL).
 
 ## Changing your Backend Mode
