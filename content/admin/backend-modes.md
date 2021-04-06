@@ -10,7 +10,7 @@ underlying Dgraph instance is configured. Each mode is pre-configured keeping ea
 
 - [Read-Only mode](#read-only-mode), where no schema changes or mutations are allowed.
 - [Strict mode](#strict-mode), only allowing mutations on predicates that are already present in the schema.
-- [Flexible mode](#flexible-mode) removes any restriction on queries and mutations, and provides access to advanced Dgraph features.
+- [Flexible mode](#flexible-mode) removes any restriction on schemas and mutations, and provides access to advanced Dgraph features.
 
 {{% notice "tip" %}}
 By default, your Dgraph Cloud schema will run in [Strict mode](#strict-mode).
