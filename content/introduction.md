@@ -75,7 +75,7 @@ Please see the following topics to learn more about how to use Dgraph Cloud:
   - [Schema](/admin/schema) describes how to programmatically query and update your GraphQL schema.
   - [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Dgraph Cloud backend, and how to import it into another cluster
   - [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Dgraph Cloud backend.
-  - [Switching Backend Modes](/admin/backend-modes) will guide you through changing Dgraph Cloud backend mode.
+  - [Switching Schema Modes](/admin/schema-modes) will guide you through changing Dgraph Cloud schema mode.
 - [Dgraph Cloud CLI](/slash-cli/overview/) Dgraph Cloud now includes a CLI so you can manage it from the comfort of your command line
   - [Backend](/slash-cli/backend) lists commands related to backend.
   - [Backup](/slash-cli/backup) lists commands related to backup.

@@ -22,7 +22,7 @@ Dgraph's GraphQL API lets you quickly use Dgraph Cloud before moving on to the
 advanced features available using DQL.
 
 {{% notice "Note" %}}
-Dgraph Cloud's [backend modes](/admin/backend-modes/) let
+Dgraph Cloud's [schema modes](/admin/schema-modes/) let
 you configure whether and how schema changes are allowed. To alter your schema 
 using the `/alter` HTTP and GRPC endpoints, you'll need to use **Flexible Mode**.
 {{% /notice %}}
@@ -186,9 +186,9 @@ your data.
 Ratel has certain limitations; it doesn't support backups, modifying ACL or
 attempting to remove nodes from the cluster.
 
-### Switching Backend Modes
+### Switching Schema Modes
 
 If you want to use DQL as your primary mode of interaction with the Dgraph Cloud
 backend (instead of primarily using the GraphQL API), you can switch your
 backend to flexible mode. To learn more, see
-[Backend Modes](/admin/backend-modes).
+[Schema Modes](/admin/schema-modes).
