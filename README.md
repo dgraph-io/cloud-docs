@@ -1,11 +1,11 @@
-## [Slash GraphQL Documentation](https://dgraph.io/docs/slash-graphql/introduction/)
+## [Dgraph Cloud Documentation](https://dgraph.io/docs/cloud/)
 
 ### Steps to build
 
-```
+```sh
 hugo server
 ```
 
 ### Theme
 
-Documentation use hugo theme which stays in repo itself inside `themes` dir
+The documentation uses a `hugo` theme which stays in the repo itself, inside the `themes` folder.
