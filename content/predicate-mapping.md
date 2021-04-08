@@ -19,7 +19,7 @@ interface Human {
    age: Int
 }
 
-type Person {
+type Person implements Human {
     name: String @search(by: [hash])
 }
 
@@ -43,7 +43,8 @@ type Movie {
 	Movie.name
 }
 
-type Person {
+type <Person> {
+	Human.age
 	Person.name
 }
 ```
