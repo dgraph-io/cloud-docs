@@ -2,7 +2,7 @@
 title = "Importing and Exporting data from Dgraph Cloud"
 weight = 4   
 [menu.main]
-    parent = "slash-graphql-admin"
+    parent = "cloud-admin"
 +++
 
 You can export your data from one Dgraph Cloud backend, and then import this data back into another Dgraph instance or Dgraph Cloud Backend.

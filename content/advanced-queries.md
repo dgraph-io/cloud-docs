@@ -2,7 +2,7 @@
 title = "Advanced Queries with DQL"
 weight = 3
 [menu.main]
-    parent = "slash-graphql"
+    parent = "cloud"
 +++
 
 *You can now [embed DQL queries inside your GraphQL schema](https://dgraph.io/docs/graphql/custom/graphqlpm), which is recommended for most use cases. The rest of this document covers how to connect to your Dgraph Cloud backend with existing Dgraph clients.*

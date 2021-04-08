@@ -2,7 +2,7 @@
 title = "Dgraph Cloud Overview"
 weight = 1   
 [menu.main]
-    parent = "slash-graphql"
+    parent = "cloud"
 +++
 
 

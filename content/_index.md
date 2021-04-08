@@ -2,7 +2,7 @@
 title = "Dgraph Cloud"
 weight = 4
 [menu.main]
-  identifier = "slash-graphql"
+  identifier = "cloud"
 +++
 
 <div class="landing">
@@ -66,15 +66,6 @@ weight = 4
       <h2>Administer Your Backend</h2>
       <p>
         Programmatically set and update your schema, import or export your data, and switch or clone your Dgraph Cloud backend
-      </p>
-    </a>
-  </div>
-  <div class="item">
-    <div class="icon"><i class="lni lni-control-panel" aria-hidden="true"></i></div>
-    <a href="{{< relref "slash-cli/_index.md">}}">
-      <h2>Dgraph Cloud CLI</h2>
-      <p>
-        Dgraph Cloud now includes a CLI so you can manage it from the comfort of your command line
       </p>
     </a>
   </div>

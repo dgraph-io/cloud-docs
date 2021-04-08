@@ -3,9 +3,9 @@ date = "2017-03-20T22:25:17+11:00"
 title = "Overview"
 weight = 1   
 [menu.main]
-    parent = "slash-graphql-admin"
+    parent = "cloud-admin"
     name = "Overview"
-    identifier = "slash-overview"
+    identifier = "cloud-overview"
 +++
 
 Here is a guide to programmatically administering your Dgraph Cloud backend.
