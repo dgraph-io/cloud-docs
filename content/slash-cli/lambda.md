@@ -6,91 +6,113 @@ weight = 2
     identifier = "lambda"
 +++
 
-### Get Lambda Script
+## Get Lambda Script
 
 Get the Lambda script associated with the backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql get-lambda
+/graphql
 ```
 
-OPTIONS
-```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+### API Command
+
+1. Get backends 
+2. Match the backend id /endpoint url 
+3. Return the deployment.lambdascript value to the user
+
+### Example
+
 ```
 
-EXAMPLES
-```
-  $ slash-graphql get-lambda -e https://frozen-mango.cloud.dgraph.io/graphql
-  $ slash-graphql get-lambda -e 0x1234
 ```
 
-### Lambda Logs
+## Lambda Logs
 
 Get the Lambda logs associated with the backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql lambda-logs
+/graphql
+```
+
+### API Command
+
+```graphql
+query GetLambdaLogs($input: LambdaLogsInput!) {
+  getLambdaLogs(input: $input)
+}
 ```
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -h, --hours=hours        [default: 1] Show lambda logs for last given hours. Defaults to 1 hour.
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+
 ```
 
-EXAMPLES
-```
-  $ slash-graphql lambda-logs -e https://frozen-mango.cloud.dgraph.io/graphql
-  $ slash-graphql lambda-logs -e 0x1234 -h 5
+### Example
+
 ```
 
-### Update Lambda
+```
+
+## Update Lambda
 
 Get the Lambda script associated with the backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql update-lambda
+/graphql
 ```
+
+### API Command
+
+```graphql
+mutation UpdateDeployment($input: UpdateDeploymentInput!) {
+    updateDeployment(input: $input)
+}
+```
+
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -f, --file=file          (required) Lambda script file path.
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+
 ```
 
-EXAMPLES
-```
-  $ slash-graphql update-lambda -e https://frozen-mango.cloud.dgraph.io/graphql -f <filepath>
-  $ slash-graphql update-lambda -e 0x1234 -f /home/user/Downloads/script.js
+### Example
+
 ```
 
-### Delete Lambda
+```
+
+## Delete Lambda
 
 Delete the Lambda script associated with the backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql delete-lambda
+/graphql
 ```
+
+### API Command
+
+```graphql
+mutation UpdateDeployment($input: UpdateDeploymentInput!) {
+    updateDeployment(input: $input)
+}
+```
+
 OPTIONS
+
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
-  -y, --confirm            Skip confirmation
+
 ```
-EXAMPLES
+
+### Example
+
 ```
-  $ slash-graphql delete-lambda -e https://frozen-mango.cloud.dgraph.io/graphql
-  $ slash-graphql delete-lambda -e 0x1234
+
 ```

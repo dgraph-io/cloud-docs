@@ -6,249 +6,257 @@ weight = 2
     identifier = "backend"
 +++
 
-### Deploy Backend
+## Deploy Backend
 
 Launch a new backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql deploy-backend NAME
+/graphql
 ```
 
-ARGUMENTS
-```
-  NAME  Backend Name
+### API Command
+
+```graphql
+mutation CreateDeployment($dep: NewDeployment!) {
+  createDeployment(input: $dep) {
+      uid
+      name
+      url
+      owner
+      jwtToken
+      deploymentMode
+      lambdaScript
+    }
+}
 ```
 
 OPTIONS
 ```
-  -m, --deployment-mode=readonly|graphql|flexible  [default: graphql] Deployment Mode
-  -q, --quiet                                      Quiet Output
-  -r, --region=region                              [default: us-west-2] Region
-  -s, --subdomain=subdomain                        Subdomain
+
 ```
 
-ALIASES
-```
-  $ slash-graphql create-backend
-  $ slash-graphql launch-backend
+### Example
+
 ```
 
-EXAMPLE
-```
-  $ slash-graphql deploy-backend "My New Backend"
 ```
 
-### List Backends
+## List Backends
 
 List your backends.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql list-backends
+/graphql
+```
+
+### API Command
+
+```graphql
+{
+  deployments {
+    uid
+    name
+    zone
+    url
+    owner
+    jwtToken
+    deploymentMode
+    lambdaScript
+  }
+}
 ```
 
 OPTIONS
 ```
-  -q, --quiet             Quiet output
-  -x, --extended          Show extra columns
-  --columns=columns       Only show provided columns (comma-separated)
-  --csv                   Output is csv format [alias: --output=csv]
-  --filter=filter         Filter property by partial string matching, ex: name=foo
-  --no-header             Hide table header from output
-  --no-truncate           Do not truncate output to fit screen
-  --output=csv|json|yaml  Output in a more machine friendly format
-  --sort=sort             Property to sort by (prepend '-' for descending)
+
 ```
 
-EXAMPLES
-```
-  $ slash-graphql list-backends
-  $ slash-graphql list-backends --csv
+### Example
+
 ```
 
-### Update Backend
+```
+
+## Update Backend
 
 Update backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql update-backend ID
+/graphql
 ```
 
-ARGUMENTS
-```
-  ID  Backend UID
-```
+### API Command
 
-OPTIONS
-```
-  -m, --deployment-mode=readonly|graphql|flexible  Deployment mode
-  -n, --name=name                                  Name
-  -q, --quiet                                      Quiet output
-  -y, --confirm                                    Skip confirmation
-```
-
-EXAMPLE
-```
-  $ slash-graphql update-backend -n "New Name" 0xid
-```
-
-### Export Data
-
-Export data from your backend.
-
-USAGE
-```
-  $ slash-graphql export-data OUTPUTDIR
-```
-
-ARGUMENTS
-```
-  OUTPUTDIR  Output directory
+```graphql
+mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
+  updateDeployment(input: $dep)
+}
 ```
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+
 ```
 
-EXAMPLE
-```
-  $ slash-graphql export-data -e https://frozen-mango.cloud.dgraph.io/graphql -t <apiToken> ./output-directory
+### Example
+
 ```
 
-### Import Data
-
-Import your data back using Dgraph Live Loader (requires docker).
-
-USAGE
-```
-  $ slash-graphql import-data INPUT
 ```
 
-ARGUMENTS
-```
-  INPUT  Input directory
-```
-
-OPTIONS
-```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
-  -y, --confirm            Skip confirmation
-```
-
-EXAMPLE
-```
-  $ slash-graphql import-data -e https://frozen-mango.cloud.dgraph.io/graphql -t <apiToken> ./import-directory
-```
-
-### Destroy Backend
+## Destroy Backend
 
 Destroy (i.e., delete) a backend by id.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql destroy-backend ID
+/graphql
 ```
 
-ARGUMENTS
-```
-  ID  Backend id
+### API Command
+
+```graphql
+mutation DeleteDeployment($deploymentID: String!) {
+  deleteDeployment(deploymentID: $deploymentID)
+}
 ```
 
 OPTIONS
 ```
-  -q, --quiet    Quiet output
-  -y, --confirm  Skip confirmation
+
 ```
 
-EXAMPLE
-```
-  $ slash-graphql destroy-backend "0xid"
+### Example
+
 ```
 
-### Restore Backends
+```
+
+## Restore Backends
 
 Restore into a backend by source backend ID.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql restore-backend
+/admin/slash
+```
+
+### API Command
+
+```graphql
+mutation($uid: String!, $backupFolder: String, $backupNum: Int) {
+  restore(uid: $uid, backupFolder: $backupFolder, backupNum: $backupNum) {
+    response {
+      code
+      message
+      restoreId
+    }, errors {
+      message
+    }
+  }
+}
 ```
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint          Dgraph Cloud endpoint
-  -f, --backupFolder=backupFolder  Backup folder retrieved from list-backups. Defaults to ""(latest).
-  -n, --backupNum=backupNum        Backup number retrieved from list-backups. Defaults to 0(latest).
-  -q, --quiet                      Quiet output
-  -s, --source=source              (required) Source backend ID or url to get the data to be restored
-  -t, --token=token                Dgraph Cloud backend API tokens
-  -y, --confirm                    Skip confirmation
+
 ```
 
-EXAMPLE
-```
-  $ slash-graphql restore-backend -e https://clone.cloud.dgraph.io/graphql -t <apiToken> --source <source backend id or 
-  url> [-f <backup folder> -n <backup number>]
+### Example
+
 ```
 
-### Restore Backend Status
+```
+
+## Restore Backend Status
 
 Retrieve the status of a restore operation.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql restore-backend-status RESTOREID
+/admin/slash
 ```
 
-ARGUMENTS
-```
-  RESTOREID  Restore ID
+### API Command
+
+```graphql
+query($restoreId: Int!) {
+  restoreStatus(restoreId: $restoreId) {
+    response {status errors}
+  }
+}
 ```
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+
 ```
 
-EXAMPLE
-```
-  $ slash-graphql restore-backend-status -e https://clone.cloud.dgraph.io/graphql -t <apiToken> "restoreID"
+### Example
+
 ```
 
-### Drop
+```
+
+## Drop
 
 Drop (i.e., delete) all data in your backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql drop
+/admin/slash
+```
+
+### API Command
+
+```graphql
+DROP_DATA  = 
+mutation {
+  dropData(allData: true) {
+    response { code message }
+  }
+}`
+
+DROP_SCHEMA  = 
+mutation {
+  dropData(allDataAndSchema: true) {
+    response { code message }
+  }
+}
+
+DROP_TYPES = 
+mutation($types: [String!]) {
+  dropData(types: $types) {
+    response { code message }
+  }
+}
+
+
+DROP_FIELDS = 
+mutation($fields: [String!]) {
+  dropData(fields: $fields) {
+    response { code message }
+  }
+}
 ```
 
 OPTIONS
 ```
-  -F, --drop-fields=drop-fields  Drop types
-  -T, --drop-types=drop-types    Drop types
-  -d, --drop-data                Drop data and leave the schema
-  -e, --endpoint=endpoint        Dgraph Cloud endpoint
-  -l, --list-unused              List unused types and fields
-  -q, --quiet                    Quiet output
-  -s, --drop-schema              Drop schema along with the data
-  -t, --token=token              Dgraph Cloud backend API tokens
-  -u, --drop-unused              Drops all unused types and fields
-  -y, --confirm                  Skip confirmation
+
 ```
 
-EXAMPLE
+### Example
+
 ```
-  $ slash-graphql drop -e https://frozen-mango.cloud.dgraph.io/graphql -t <apiToken> [-l] [-d] [-s] [-T <types>] [-F 
-  <fields>]
+
 ```

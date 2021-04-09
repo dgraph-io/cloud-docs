@@ -6,23 +6,95 @@ weight = 2
     identifier = "backup"
 +++
 
-### List Backups
+## List Backups
 
 List all backups of the current backend.
 
-USAGE
+### Cloud Endpoint
+
 ```
-  $ slash-graphql list-backups
+/admin/slash
+```
+
+### API Command
+
+```graphql
+query {
+    listBackups {
+        response {
+            type
+            backupNum
+            folder
+            timestamp
+        }, errors {
+            message
+        }
+    }
+}
 ```
 
 OPTIONS
 ```
-  -e, --endpoint=endpoint  Dgraph Cloud endpoint
-  -q, --quiet              Quiet output
-  -t, --token=token        Dgraph Cloud backend API tokens
+
 ```
 
-EXAMPLE
+### Example
+
 ```
-  $ slash-graphql list-backups -e https://frozen-mango.cloud.dgraph.io/graphql -t <apiToken>
+
 ```
+
+## Export Data
+
+Export data from your backend.
+
+### Cloud Endpoint
+```
+/admin/slash
+```
+
+### API Command
+
+```graphql
+mutation {
+  export {
+    signedUrls
+  }
+}
+```
+
+OPTIONS
+```
+
+```
+
+### Example
+
+```
+
+```
+
+## Import Data
+
+Import your data back using Dgraph Live Loader (requires docker).
+
+### Shell Command
+
+Live loader (via docker)
+
+```sh
+docker run -it --rm -v `${inputFile}:/tmp/g01.json.gz` dgraph/dgraph:v20.07-slash
+dgraph live `--slash_grpc_endpoint=${backend.getGRPCEndpoint()}` -f /tmp/g01.json.gz -t backend.getToken()
+```
+
+OPTIONS
+```
+
+```
+
+### Example
+
+```
+
+```
+
