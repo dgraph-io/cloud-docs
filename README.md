@@ -8,10 +8,7 @@ please visit [dgraph.io/docs/cloud/](https://dgraph.io/docs/cloud/).
 As a contributor to Dgraph documentation, we ask that you do the following:
 - **Label your PR for easy management**: Your PR title should be in the following format: **Topic (area): details**. The **topic** is either "Docs", "Nav" (aka, navigation), or "Chore" (for build fixes, cherry-picks, etc). The **area** is the feature (i.e. "GraphQL"), area of the docs (i.e., "Deployment"), or "Other" (for typo fixes and other bugfix PRs). So, example PR names include:
  *Docs(GraphQL): Document the @deprecated annotation* or *Chore(Other): cherry-pick updates from master to release/v20.11*
-- **Develop in the `master` branch first**: Make any changes applicable to the current (recently-released) version of Dgraph in the `master` branch first, and then cherry-pick those changes to the correct release branch (for example, `release/v20.11`).
-
- **Exception**: Changes that *only* apply to older Dgraph versions (for example `release/v20.07`), can occur directly in a release branch, but will not be cherry-picked forward.
-- **Note planned cherry-pick(s) in your PR description**: If you are creating a PR in `master` and you know it needs to be cherry-picked to a release branch, please mention that in your PR description (for example: "cherry-pick to v20.07"). Cherry-pick PRs should reference the original PR.
+- **Develop in the `master` branch first**: Make any changes applicable to the current (recently-released) version of Dgraph in the `master` branch first.
 
 - **Link to discuss.dgraph.io posts when applicable**: If your PR is based on discussions on Discuss, feel free to include a link to the relevant discussion in your PR description.
 
