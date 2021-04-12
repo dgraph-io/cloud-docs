@@ -2,7 +2,7 @@
 title = "Switching Schema Modes"
 weight = 6
 [menu.main]
-    parent = "slash-graphql-admin"
+    parent = "cloud-admin"
 +++
 
 Dgraph Cloud supports three different schema modes, which control how the
