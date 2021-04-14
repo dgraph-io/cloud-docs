@@ -2,7 +2,7 @@
 title = "Lambda"
 weight = 2
 [menu.main]
-    parent = "slash-graphql-cli"
+    parent = "dgraph-cloud-api"
     identifier = "lambda"
 +++
 
@@ -18,8 +18,8 @@ Get the Lambda script associated with the backend.
 
 ### API Command
 
-1. Get backends 
-2. Match the backend id /endpoint url 
+1. Get backends
+2. Match the backend id /endpoint url
 3. Return the deployment.lambdascript value to the user
 
 ### Example

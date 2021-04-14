@@ -2,7 +2,7 @@
 title = "Login"
 weight = 2
 [menu.main]
-    parent = "slash-graphql-cli"
+    parent = "dgraph-cloud-api"
     identifier = "login"
 +++
 

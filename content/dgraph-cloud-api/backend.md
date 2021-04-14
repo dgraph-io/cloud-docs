@@ -2,7 +2,7 @@
 title = "Backend"
 weight = 2
 [menu.main]
-    parent = "slash-graphql-cli"
+    parent = "dgraph-cloud-api"
     identifier = "backend"
 +++
 
@@ -220,21 +220,21 @@ Drop (i.e., delete) all data in your backend.
 ### API Command
 
 ```graphql
-DROP_DATA  = 
+DROP_DATA  =
 mutation {
   dropData(allData: true) {
     response { code message }
   }
 }`
 
-DROP_SCHEMA  = 
+DROP_SCHEMA  =
 mutation {
   dropData(allDataAndSchema: true) {
     response { code message }
   }
 }
 
-DROP_TYPES = 
+DROP_TYPES =
 mutation($types: [String!]) {
   dropData(types: $types) {
     response { code message }
@@ -242,7 +242,7 @@ mutation($types: [String!]) {
 }
 
 
-DROP_FIELDS = 
+DROP_FIELDS =
 mutation($fields: [String!]) {
   dropData(fields: $fields) {
     response { code message }

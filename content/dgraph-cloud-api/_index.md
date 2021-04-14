@@ -2,6 +2,6 @@
 title = "Dgraph Cloud CLI"
 weight = 15
 [menu.main]
-  identifier = "slash-graphql-cli"
+  identifier = "dgraph-cloud-api"
   parent = "cloud"
 +++
