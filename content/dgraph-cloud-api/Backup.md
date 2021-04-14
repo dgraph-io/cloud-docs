@@ -1,6 +1,6 @@
 +++
 title = "Backup"
-weight = 2
+weight = 3
 [menu.main]
     parent = "dgraph-cloud-api"
     identifier = "backup"

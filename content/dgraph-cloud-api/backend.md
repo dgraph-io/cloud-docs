@@ -1,56 +1,21 @@
 +++
 title = "Backend"
-weight = 2
+weight = 3
 [menu.main]
     parent = "dgraph-cloud-api"
     identifier = "backend"
 +++
 
-## Deploy Backend
-
-Launch a new backend.
-
-### Cloud Endpoint
-
-```
-/graphql
-```
-
-### API Command
-
-```graphql
-mutation CreateDeployment($dep: NewDeployment!) {
-  createDeployment(input: $dep) {
-      uid
-      name
-      url
-      owner
-      jwtToken
-      deploymentMode
-      lambdaScript
-    }
-}
-```
-
-OPTIONS
-```
-
-```
-
-### Example
-
-```
-
-```
-
 ## List Backends
 
-List your backends.
+List backends that you have access to.
+
+This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
 
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -70,25 +35,101 @@ List your backends.
 }
 ```
 
-OPTIONS
+### Example
+
+```shell
+curl 'https://cerebro.cloud.dgraph.io/graphql' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <jwt-token>' \
+  --data-binary '{"query":"{\n  deployments {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{}}' \
+  --compressed
 ```
 
+Below is an example response
+
+```{
+  "data": {
+    "deployments": [
+      {
+        "uid": "0x42",
+        "name": "frozen-mango",
+        "url": "frozen-mango-42.us-west-2.aws.cloud.dgraph.io",
+        "jwtToken": "<token-for-calls-for-the-backend>"
+      }
+    ]
+  }
+}
+```
+
+The JWT token returned in the above call may be used in place of an API key for all API calls to `https://<your-backend>/admin/slash` or `https://<your-backend>/admin`.
+
+## Deploy Backend
+
+Launch a new backend.
+
+This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+
+### Cloud Endpoint
+
+```
+https://cerebro.cloud.dgraph.io/graphql
+```
+
+### API Command
+
+```graphql
+mutation CreateDeployment($dep: NewDeployment!) {
+  createDeployment(input: $dep) {
+      uid
+      name
+      url
+      jwtToken
+    }
+}
+```
+
+Variables
+```
+deployment - parameters for the new deployment
+  name - name of the deployment
+  zone - region to launch
+  deploymentType - The type of the deployment (free|shared|dedicated)
 ```
 
 ### Example
 
+```shell
+curl 'https://cerebro.cloud.dgraph.io/graphql' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <jwt-token>' \
+  --data-binary '{"query":"mutation CreateDeployment($deployment: NewDeployment!) {\n  createDeployment(input: $deployment) {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{"deployment":{"name":"My New Deployment","zone":"us-east-1","deploymentType":"dedicated"}}}' \
+  --compressed
 ```
 
+Below is an example response
+```
+{
+  "data": {
+    "createDeployment": {
+      "uid": "0x42",
+      "name": "My New Deployment",
+      "url": "my-new-deployment.us-east-1.aws.cloud.dgraph.io",
+      "jwtToken": "<api-token-for-backend>"
+    }
+  }
+}
 ```
 
 ## Update Backend
 
 Update backend.
 
+This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -114,10 +155,12 @@ OPTIONS
 
 Destroy (i.e., delete) a backend by id.
 
+This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -135,8 +178,21 @@ OPTIONS
 
 ### Example
 
+```shell
+curl 'https://cerebro.cloud.dgraph.io/graphql' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <jwt-token>' \
+  --data-binary '{"query":"mutation DeleteDeployment($deploymentUid: String!) {\n  deleteDeployment(deploymentID: $deploymentUid)\n}","variables":{"deploymentUid":"0x42"}}' --compressed
 ```
 
+Please see the example response below
+
+```
+{
+  "data": {
+    "deleteDeployment": "Successfully deleted the Deployment"
+  }
+}
 ```
 
 ## Restore Backends
