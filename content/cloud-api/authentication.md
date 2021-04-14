@@ -2,8 +2,8 @@
 title = "Authentication"
 weight = 2
 [menu.main]
-    parent = "dgraph-cloud-api"
-    identifier = "Authentication"
+    parent = "cloud-api"
+    identifier = "api-authentication"
 +++
 
 ## Login
@@ -29,10 +29,9 @@ query Login($email: String!, $password: String!) {
 ```
 
 Variables
-```
-email - your email address
-password - your password
-```
+
+- `email`: your email address
+- `password`: your password
 
 ### Example
 
@@ -45,7 +44,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 
 Below is an example response. The token below must be passed to all future API calls as a bearer token in the `Authorization` header.
 
-```
+```json
 {
   "data": {
     "login": {

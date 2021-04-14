@@ -2,7 +2,7 @@
 title = "Schema"
 weight = 2
 [menu.main]
-    parent = "dgraph-cloud-api"
+    parent = "cloud-api"
     identifier = "schema"
 +++
 
@@ -13,7 +13,7 @@ Fetch the schema from your backend.
 ### Cloud Endpoint
 
 ```
-/admin
+https://cerebro.cloud.dgraph.io/admin
 ```
 
 ### API Command
@@ -47,7 +47,7 @@ Update the schema in your backend.
 ### Cloud Endpoint
 
 ```
-/admin
+https://cerebro.cloud.dgraph.io/admin
 ```
 
 ### API Command

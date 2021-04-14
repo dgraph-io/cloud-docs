@@ -2,7 +2,7 @@
 title = "Backup"
 weight = 3
 [menu.main]
-    parent = "dgraph-cloud-api"
+    parent = "cloud-api"
     identifier = "backup"
 +++
 
@@ -13,7 +13,7 @@ List all backups of the current backend.
 ### Cloud Endpoint
 
 ```
-/admin/slash
+https://cerebro.cloud.dgraph.io/admin/slash
 ```
 
 ### API Command
@@ -49,8 +49,9 @@ OPTIONS
 Export data from your backend.
 
 ### Cloud Endpoint
+
 ```
-/admin/slash
+https://cerebro.cloud.dgraph.io/admin/slash
 ```
 
 ### API Command

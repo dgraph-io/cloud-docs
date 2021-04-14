@@ -2,7 +2,7 @@
 title = "Lambda"
 weight = 3
 [menu.main]
-    parent = "dgraph-cloud-api"
+    parent = "cloud-api"
     identifier = "lambda"
 +++
 
@@ -13,7 +13,7 @@ Get the Lambda script associated with the backend.
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -35,7 +35,7 @@ Get the Lambda logs associated with the backend.
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -64,7 +64,7 @@ Get the Lambda script associated with the backend.
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command
@@ -94,7 +94,7 @@ Delete the Lambda script associated with the backend.
 ### Cloud Endpoint
 
 ```
-/graphql
+https://cerebro.cloud.dgraph.io/graphql
 ```
 
 ### API Command

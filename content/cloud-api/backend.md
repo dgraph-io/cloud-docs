@@ -2,7 +2,7 @@
 title = "Backend"
 weight = 3
 [menu.main]
-    parent = "dgraph-cloud-api"
+    parent = "cloud-api"
     identifier = "backend"
 +++
 
@@ -204,7 +204,7 @@ Restore into a backend by source backend ID.
 ### Cloud Endpoint
 
 ```
-/admin/slash
+https://cerebro.cloud.dgraph.io/admin/slash
 ```
 
 ### API Command
@@ -241,7 +241,7 @@ Retrieve the status of a restore operation.
 ### Cloud Endpoint
 
 ```
-/admin/slash
+https://cerebro.cloud.dgraph.io/admin/slash
 ```
 
 ### API Command
@@ -272,7 +272,7 @@ Drop (i.e., delete) all data in your backend.
 ### Cloud Endpoint
 
 ```
-/admin/slash
+https://cerebro.cloud.dgraph.io/admin/slash
 ```
 
 ### API Command
