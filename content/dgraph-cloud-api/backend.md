@@ -30,6 +30,7 @@ https://cerebro.cloud.dgraph.io/graphql
     owner
     jwtToken
     deploymentMode
+    deploymentType
     lambdaScript
   }
 }
@@ -41,7 +42,7 @@ https://cerebro.cloud.dgraph.io/graphql
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <jwt-token>' \
-  --data-binary '{"query":"{\n  deployments {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{}}' \
+  --data-binary '{"query":"{\n  deployments {\n    uid\n    name\n    url\n    deploymentType\n    jwtToken\n  }\n}","variables":{}}' \
   --compressed
 ```
 
@@ -54,6 +55,7 @@ Below is an example response
         "uid": "0x42",
         "name": "frozen-mango",
         "url": "frozen-mango-42.us-west-2.aws.cloud.dgraph.io",
+        "deploymentType": "dedicated",
         "jwtToken": "<token-for-calls-for-the-backend>"
       }
     ]
