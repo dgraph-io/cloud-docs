@@ -338,17 +338,38 @@ query($restoreId: Int!) {
 
 **Arguments**
 
+* `restoreId` (required): the id of the restore operation returned from [Restore Backends](#restore-backends) request
 
 ### Example
 
 **Request**
 
 ```bash
+#!/usr/bin/env bash
+
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.stage.thegaas.com"
+DEPLOYMENT_JWT="<deployment-jwt>"
+
+curl "https://${DEPLOYMENT_URL}/admin/slash" \
+  -H 'Content-Type: application/json' \
+  -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
+  --data-binary '{"query":"query($restoreId: Int!) {\n restoreStatus(restoreId: $restoreId) {\n response {status errors}\n}\n}","variables":{"restoreId":1}}' \
+  --compressed
 ```
 
 **Response**
 
 ```json
+{
+  "data": {
+    "restoreStatus": {
+      "response": {
+        "errors": [],
+        "status": "OK"
+      }
+    }
+  }
+}
 ```
 
 ## Drop
