@@ -40,7 +40,7 @@ TODO
 
 ### Example
 
-#### Request
+**Request**
 
 ```shell
 curl "https://<deployment.url>/admin/slash" \
@@ -50,9 +50,9 @@ curl "https://<deployment.url>/admin/slash" \
   --compressed
 ```
 
-#### Response
+**Response**
 
-```
+```json
 {
   "data": {
     "listBackups": {
@@ -94,13 +94,35 @@ mutation {
 
 OPTIONS
 ```
-
+TODO
 ```
 
 ### Example
 
+**Request**
+
+```shell
+curl "https://<deployment.url>/admin/slash" \
+  -H 'Content-Type: application/json' \
+  -H "X-Auth-Token: <deployment-jwt-token>" \
+  --data-binary '{"query":"mutation {\n export {\n signedUrls\n }\n }","variables":{}}' \
+  --compressed
 ```
 
+**Response**
+
+```json
+{
+  "data": {
+    "export": {
+      "signedUrls": [
+        "<export-url>",
+        "<export-url>",
+        "<export-url>"
+      ]
+    }
+  }
+}
 ```
 
 ## Import Data

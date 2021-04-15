@@ -38,7 +38,7 @@ https://cerebro.cloud.dgraph.io/graphql
 
 ### Example
 
-#### Request
+**Request**
 
 ```shell
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
@@ -48,9 +48,9 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-#### Response
+**Response**
 
-```
+```json
 {
   "data": {
     "deployments": [
@@ -60,7 +60,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
         "zone": "us-east-1",
         "url": "polished-violet.us-east-1.aws.cloud.dgraph.io",
         "owner": "486c69b4-e09b-48f9-a28a-86314fe232cd",
-        "jwtToken": "<jwt-token>",
+        "jwtToken": "<deployment-jwt-token>",
         "deploymentMode": "graphql",
         "deploymentType": "free",
         "lambdaScript": ""
@@ -70,7 +70,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 }
 ```
 
-The JWT token returned in the above call may be used in place of an API key for all API calls to `https://<deployment.url>/admin/slash` or `https://<deployment.url>/admin`.
+For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you **must use the `<deployment-jwt-token>` returned above in the `X-Auth-Token` header** instead of the Login JWT token in the `Authorization` header.
 
 ## Deploy Backend
 
@@ -107,6 +107,8 @@ deployment - parameters for the new deployment
 
 ### Example
 
+**Request**
+
 ```shell
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
@@ -115,16 +117,16 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-Below is an example response:
+**Response**
 
-```
+```json
 {
   "data": {
     "createDeployment": {
       "uid": "0x42",
       "name": "My New Deployment",
       "url": "my-new-deployment.us-east-1.aws.cloud.dgraph.io",
-      "jwtToken": "<api-token-for-backend>"
+      "jwtToken": "<deployment-jwt-token>"
     }
   }
 }
@@ -156,6 +158,13 @@ OPTIONS
 ```
 
 ### Example
+
+**Request**
+
+```shell
+```
+
+**Response**
 
 ```
 
