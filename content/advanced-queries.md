@@ -168,7 +168,7 @@ DgraphClient dgraphClient = new DgraphClient(stub);
 
 **C# / .NET**
 ```c#
-var client = new DgraphClient(SlashChannel.Create("https://frozen-mango.eu-central-1.aws.cloud.dgraph.io/graphql", "<api-key>"));
+var client = new DgraphClient(SlashChannel.Create("frozen-mango.eu-central-1.aws.cloud.dgraph.io:443", "<api-key>"));
 ```
 
 ### Visualizing your Graph with Ratel
