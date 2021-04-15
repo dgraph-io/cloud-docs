@@ -417,14 +417,36 @@ mutation($fields: [String!]) {
 
 **Arguments**
 
+`TODO`
+
 ### Example
 
 **Request**
 
 ```bash
+#!/usr/bin/env bash
+
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.stage.thegaas.com"
+DEPLOYMENT_JWT="<deployment-jwt>"
+
+curl "https://${DEPLOYMENT_URL}/admin/slash" \
+  -H 'Content-Type: application/json' \
+  -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
+  --data-binary '{"query":"mutation {\n dropData(allDataAndSchema: true) {\n response { code message }\n}\n}","variables":{}}' \
+  --compressed
 ```
 
 **Response**
 
 ```json
+{
+  "data": {
+    "dropData": {
+      "response": {
+        "code": "Success",
+        "message": "Done"
+      }
+    }
+  }
+}
 ```
