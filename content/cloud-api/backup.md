@@ -12,8 +12,8 @@ List all backups of the current backend.
 
 ### Cloud Endpoint
 
-```
-https://<deployment.url>/admin/slash
+```bash
+https://${DEPLOYMENT_URL}/admin/slash
 ```
 
 ### API Command
@@ -33,11 +33,6 @@ query {
 }
 ```
 
-OPTIONS
-```
-TODO
-```
-
 ### Example
 
 **Request**
@@ -46,7 +41,7 @@ TODO
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
-DEPLOYMENT_JWT="<deployment-jwt-token>"
+DEPLOYMENT_JWT="<deployment-jwt>"
 
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
@@ -89,8 +84,8 @@ Export data from your backend.
 
 ### Cloud Endpoint
 
-```
-https://<deployment.url>/admin/slash
+```bash
+https://${DEPLOYMENT_URL}/admin/slash
 ```
 
 ### API Command
@@ -103,11 +98,6 @@ mutation {
 }
 ```
 
-OPTIONS
-```
-TODO
-```
-
 ### Example
 
 **Request**
@@ -116,7 +106,7 @@ TODO
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
-DEPLOYMENT_JWT="<deployment-jwt-token>"
+DEPLOYMENT_JWT="<deployment-jwt>"
 
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
@@ -154,14 +144,19 @@ docker run -it --rm -v `${inputFile}:/tmp/g01.json.gz` dgraph/dgraph:v20.07-slas
 dgraph live `--slash_grpc_endpoint=${backend.getGRPCEndpoint()}` -f /tmp/g01.json.gz -t backend.getToken()
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
+`TODO`
 
 ### Example
 
+**Request**
+
+```bash
 ```
 
+**Response**
+
+```json
 ```
 

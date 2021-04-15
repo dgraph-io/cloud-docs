@@ -40,7 +40,7 @@ https://cerebro.cloud.dgraph.io/graphql
 
 **Request**
 
-NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
@@ -115,7 +115,7 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 **Request**
 
-NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
@@ -167,13 +167,14 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 **Arguments**
 
 * `dep`: parameter object for update deployment
-  * `uid` (required): deployment `uid` returned from [List Backends](#list-backends) request
+  * `dep.uid` (required): deployment `uid`
 
 ### Example
 
 **Request**
 
-NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<deployment-uid>` is the UID returned from [List Backends](#list-backends).
 
 ```bash
 #!/usr/bin/env bash
@@ -225,7 +226,7 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 **Request**
 
-NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
@@ -275,21 +276,44 @@ mutation($uid: String!, $backupFolder: String, $backupNum: Int) {
 }
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
+* `uid` (required): the deployment `uid` from List Backends
+* `backupFolder` (required): TODO
+* `backupNum` (required): TODO
 
 ### Example
 
 **Request**
 
 ```bash
+#!/usr/bin/env bash
+
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
+DEPLOYMENT_JWT="<deployment-jwt>"
+
+curl "https://${DEPLOYMENT_URL}/admin/slash" \
+  -H 'Content-Type: application/json' \
+  -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
+  --data-binary '{"query":"mutation($uid: String!, $backupFolder: String, $backupNum: Int) {\n restore(uid: $uid, backupFolder: $backupFolder, backupNum: $backupNum) {\n response {\n code\n message\n restoreId\n }, errors {\n message\n }\n}\n}","variables":{"uid":"<deployment-uid>","backupFolder":"<backup-folder>","backupNum":<backup-num>}}' \
+  --compressed
 ```
 
 **Response**
 
 ```json
+{
+  "data": {
+    "restore": {
+      "errors": null,
+      "response": {
+        "code": "Success",
+        "message": "Restore operation started.",
+        "restoreId": 1
+      }
+    }
+  }
+}
 ```
 
 ## Restore Backend Status

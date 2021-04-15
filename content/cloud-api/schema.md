@@ -35,7 +35,7 @@ https://${DEPLOYMENT_URL}/admin
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
-DEPLOYMENT_JWT="<deployment-jwt-token>"
+DEPLOYMENT_JWT="<deployment-jwt>"
 
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
@@ -121,7 +121,7 @@ mutation($sch: String!) {
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
-DEPLOYMENT_JWT="<deployment-jwt-token>"
+DEPLOYMENT_JWT="<deployment-jwt>"
 
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
