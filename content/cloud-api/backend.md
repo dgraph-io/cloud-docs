@@ -39,24 +39,29 @@ https://cerebro.cloud.dgraph.io/graphql
 ### Example
 
 ```shell
-curl 'https://cerebro.cloud.dgraph.io/graphql' \
+curl 'https://cerebro.stage.thegaas.com/graphql' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <jwt-token>' \
-  --data-binary '{"query":"{\n  deployments {\n    uid\n    name\n    url\n    deploymentType\n    jwtToken\n  }\n}","variables":{}}' \
+  -H "Authorization: Bearer <jwt-token>" \
+  --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
 
 Below is an example response
 
-```{
+```
+{
   "data": {
     "deployments": [
       {
-        "uid": "0x42",
-        "name": "frozen-mango",
-        "url": "frozen-mango-42.us-west-2.aws.cloud.dgraph.io",
-        "deploymentType": "dedicated",
-        "jwtToken": "<token-for-calls-for-the-backend>"
+        "uid": "0xf0ffe9",
+        "name": "testing",
+        "zone": "us-east-1",
+        "url": "polished-violet.us-east-1.aws.stage.thegaas.com",
+        "owner": "486c69b4-e09b-48f9-a28a-86314fe232cd",
+        "jwtToken": "<jwt-token>",
+        "deploymentMode": "graphql",
+        "deploymentType": "free",
+        "lambdaScript": ""
       }
     ]
   }
