@@ -13,7 +13,7 @@ Fetch the schema from your backend.
 ### Cloud Endpoint
 
 ```
-https://cerebro.cloud.dgraph.io/admin
+https://<deployment.url>/admin
 ```
 
 ### API Command
@@ -33,15 +33,14 @@ ARGUMENTS
 TODO
 ```
 
-
 ### Example
 
 **Request**
 
-```shell
+```bash
 #!/usr/bin/env bash
 
-DEPLOYMENT_URL="polished-violet.us-east-1.aws.stage.thegaas.com"
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt-token>"
 
 curl "https://${DEPLOYMENT_URL}/admin" \

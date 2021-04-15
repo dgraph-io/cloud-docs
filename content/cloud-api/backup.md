@@ -13,7 +13,7 @@ List all backups of the current backend.
 ### Cloud Endpoint
 
 ```
-https://cerebro.cloud.dgraph.io/admin/slash
+https://<deployment.url>/admin/slash
 ```
 
 ### API Command
@@ -43,9 +43,14 @@ TODO
 **Request**
 
 ```shell
-curl "https://<deployment.url>/admin/slash" \
+#!/usr/bin/env bash
+
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
+DEPLOYMENT_JWT="<deployment-jwt-token>"
+
+curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
-  -H "X-Auth-Token: <deployment.jwtToken>" \
+  -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"{\n listBackups {\n response {\n type\n backupNum\n folder\n timestamp\n }, errors {\n message\n }\n} \n}","variables":{}}' \
   --compressed
 ```
@@ -64,6 +69,12 @@ curl "https://<deployment.url>/admin/slash" \
             "folder": "2021-15",
             "timestamp": "2021-04-15T18:00:58+0000",
             "type": "full"
+          },
+          {
+            "backupNum": 2,
+            "folder": "2021-15",
+            "timestamp": "2021-04-15T18:04:29+0000",
+            "type": "incremental"
           }
         ]
       ]
@@ -101,10 +112,15 @@ TODO
 
 **Request**
 
-```shell
-curl "https://<deployment.url>/admin/slash" \
+```bash
+#!/usr/bin/env bash
+
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
+DEPLOYMENT_JWT="<deployment-jwt-token>"
+
+curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
-  -H "X-Auth-Token: <deployment-jwt-token>" \
+  -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"mutation {\n export {\n signedUrls\n }\n }","variables":{}}' \
   --compressed
 ```
