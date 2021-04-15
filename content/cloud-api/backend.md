@@ -38,15 +38,17 @@ https://cerebro.cloud.dgraph.io/graphql
 
 ### Example
 
+#### Request
+
 ```shell
-curl 'https://cerebro.stage.thegaas.com/graphql' \
+curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer <jwt-token>" \
   --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
 
-Below is an example response
+#### Response
 
 ```
 {
@@ -56,7 +58,7 @@ Below is an example response
         "uid": "0xf0ffe9",
         "name": "testing",
         "zone": "us-east-1",
-        "url": "polished-violet.us-east-1.aws.stage.thegaas.com",
+        "url": "polished-violet.us-east-1.aws.cloud.dgraph.io",
         "owner": "486c69b4-e09b-48f9-a28a-86314fe232cd",
         "jwtToken": "<jwt-token>",
         "deploymentMode": "graphql",
@@ -68,7 +70,7 @@ Below is an example response
 }
 ```
 
-The JWT token returned in the above call may be used in place of an API key for all API calls to `https://<your-backend>/admin/slash` or `https://<your-backend>/admin`.
+The JWT token returned in the above call may be used in place of an API key for all API calls to `https://<deployment.url>/admin/slash` or `https://<deployment.url>/admin`.
 
 ## Deploy Backend
 
@@ -113,7 +115,8 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-Below is an example response
+Below is an example response:
+
 ```
 {
   "data": {

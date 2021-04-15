@@ -35,13 +35,41 @@ query {
 
 OPTIONS
 ```
-
+TODO
 ```
 
 ### Example
 
+#### Request
+
+```shell
+curl "https://<deployment.url>/admin/slash" \
+  -H 'Content-Type: application/json' \
+  -H "X-Auth-Token: <deployment.jwtToken>" \
+  --data-binary '{"query":"{\n listBackups {\n response {\n type\n backupNum\n folder\n timestamp\n }, errors {\n message\n }\n} \n}","variables":{}}' \
+  --compressed
 ```
 
+#### Response
+
+```
+{
+  "data": {
+    "listBackups": {
+      "errors": [],
+      "response": [
+        [
+          {
+            "backupNum": 1,
+            "folder": "2021-15",
+            "timestamp": "2021-04-15T18:00:58+0000",
+            "type": "full"
+          }
+        ]
+      ]
+    }
+  }
+}
 ```
 
 ## Export Data
