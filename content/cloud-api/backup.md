@@ -79,7 +79,7 @@ Export data from your backend.
 ### Cloud Endpoint
 
 ```
-https://cerebro.cloud.dgraph.io/admin/slash
+https://<deployment.url>/admin/slash
 ```
 
 ### API Command
