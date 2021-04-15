@@ -12,8 +12,8 @@ Fetch the schema from your backend.
 
 ### Cloud Endpoint
 
-```
-https://<deployment.url>/admin
+```bash
+https://${DEPLOYMENT_URL}/admin
 ```
 
 ### API Command
@@ -25,12 +25,6 @@ https://<deployment.url>/admin
     generatedSchema
   }
 }
-```
-
-ARGUMENTS
-
-```
-TODO
 ```
 
 ### Example
@@ -55,14 +49,17 @@ curl "https://${DEPLOYMENT_URL}/admin" \
 ```json
 {
   "data": {
-    "getGQLSchema": null
+    "getGQLSchema": {
+      "schema": "type Person { name: String! }",
+      "generatedSchema": "<very-long-string>",
+    }
   },
   "extensions": {
     "tracing": {
       "version": 1,
-      "startTime": "2021-04-15T18:37:06.44358101Z",
-      "endTime": "2021-04-15T18:37:06.443779787Z",
-      "duration": 198788,
+      "startTime": "2021-04-15T19:58:33.412544782Z",
+      "endTime": "2021-04-15T19:58:33.412851891Z",
+      "duration": 307129,
       "execution": {
         "resolvers": [
           {
@@ -72,13 +69,13 @@ curl "https://${DEPLOYMENT_URL}/admin" \
             "parentType": "Query",
             "fieldName": "getGQLSchema",
             "returnType": "GQLSchema",
-            "startOffset": 148681,
-            "duration": 34247,
+            "startOffset": 115909,
+            "duration": 159961,
             "dgraph": [
               {
                 "label": "query",
-                "startOffset": 151025,
-                "duration": 1452
+                "startOffset": 118110,
+                "duration": 53165
               }
             ]
           }
@@ -96,7 +93,7 @@ Update the schema in your backend.
 ### Cloud Endpoint
 
 ```bash
-https://{$DEPLOYMENT_URL}/admin
+https://${DEPLOYMENT_URL}/admin
 ```
 
 ### API Command
@@ -114,7 +111,7 @@ mutation($sch: String!) {
 
 **Arguments**
 
-* `sch`: graphql schema file contents
+* `sch`: your desired schema string in graphql format
 
 ### Example
 
