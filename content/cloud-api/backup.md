@@ -42,7 +42,7 @@ TODO
 
 **Request**
 
-```shell
+```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"

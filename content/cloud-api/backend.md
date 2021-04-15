@@ -40,10 +40,16 @@ https://cerebro.cloud.dgraph.io/graphql
 
 **Request**
 
-```shell
+Where `<login-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+
+```bash
+#!/usr/bin/env bash
+
+LOGIN_JWT="<login-jwt>"
+
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer <jwt-token>" \
+  -H "Authorization: Bearer ${LOGIN_JWT}" \
   --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
