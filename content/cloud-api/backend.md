@@ -115,10 +115,16 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 **Request**
 
+NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+
 ```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <cerebro-jwt>' \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation CreateDeployment($deployment: NewDeployment!) {\n  createDeployment(input: $deployment) {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{"deployment":{"name":"My New Deployment","zone":"us-east-1","deploymentType":"dedicated"}}}' \
   --compressed
 ```
@@ -161,18 +167,20 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 **Arguments**
 
 * `dep`: parameter object for update deployment
-  * `uid` (required): deployment `uid` returned from the [List Backends](#list-backends) request
+  * `uid` (required): deployment `uid` returned from [List Backends](#list-backends) request
 
 ### Example
 
 **Request**
+
+NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
 
-curl 'https://cerebro.stage.thegaas.com/graphql' \
+curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation UpdateDeployment($dep: UpdateDeploymentInput!) {\n updateDeployment(input: $dep)\n}","variables":{"dep":{"uid":"<deployment.uid>","name":"My Deployment!"}}}' \
@@ -211,17 +219,27 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 **Arguments**
 
+* `deploymentUid` (required): deployment `uid` returned from [List Backends](#list-backends) request
 
 ### Example
 
-```shell
+**Request**
+
+NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+
+```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <jwt-token>' \
-  --data-binary '{"query":"mutation DeleteDeployment($deploymentUid: String!) {\n  deleteDeployment(deploymentID: $deploymentUid)\n}","variables":{"deploymentUid":"0x42"}}' --compressed
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
+  --data-binary '{"query":"mutation DeleteDeployment($deploymentUid: String!) {\n  deleteDeployment(deploymentID: $deploymentUid)\n}","variables":{"deploymentUid":"<deployment.uid>"}}' \
+  --compressed
 ```
 
-Please see the example response below
+**Response**
 
 ```
 {
@@ -237,8 +255,8 @@ Restore into a backend by source backend ID.
 
 ### Cloud Endpoint
 
-```
-https://cerebro.cloud.dgraph.io/admin/slash
+```bash
+https://${DEPLOYMENT_URL}/admin/slash
 ```
 
 ### API Command
@@ -264,8 +282,14 @@ OPTIONS
 
 ### Example
 
+**Request**
+
+```bash
 ```
 
+**Response**
+
+```json
 ```
 
 ## Restore Backend Status
@@ -274,8 +298,8 @@ Retrieve the status of a restore operation.
 
 ### Cloud Endpoint
 
-```
-https://cerebro.cloud.dgraph.io/admin/slash
+```bash
+https://${DEPLOYMENT_URL}/admin/slash
 ```
 
 ### API Command
@@ -288,15 +312,19 @@ query($restoreId: Int!) {
 }
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
 
 ### Example
 
+**Request**
+
+```bash
 ```
 
+**Response**
+
+```json
 ```
 
 ## Drop
@@ -305,8 +333,8 @@ Drop (i.e., delete) all data in your backend.
 
 ### Cloud Endpoint
 
-```
-https://cerebro.cloud.dgraph.io/admin/slash
+```bash
+https://${DEPLOYMENT_URL}/admin/slash
 ```
 
 ### API Command
@@ -342,13 +370,16 @@ mutation($fields: [String!]) {
 }
 ```
 
-OPTIONS
-```
-
-```
+**Arguments**
 
 ### Example
 
+**Request**
+
+```bash
 ```
 
+**Response**
+
+```json
 ```
