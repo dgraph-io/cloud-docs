@@ -40,16 +40,16 @@ https://cerebro.cloud.dgraph.io/graphql
 
 **Request**
 
-Where `<login-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+NOTE: `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
 
-LOGIN_JWT="<login-jwt>"
+CEREBRO_JWT="<cerebro-jwt>"
 
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer ${LOGIN_JWT}" \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
@@ -66,7 +66,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
         "zone": "us-east-1",
         "url": "polished-violet.us-east-1.aws.cloud.dgraph.io",
         "owner": "486c69b4-e09b-48f9-a28a-86314fe232cd",
-        "jwtToken": "<deployment-jwt-token>",
+        "jwtToken": "<deployment-jwt>",
         "deploymentMode": "graphql",
         "deploymentType": "free",
         "lambdaScript": ""
@@ -76,13 +76,13 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 }
 ```
 
-For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you **must use the `<deployment-jwt-token>` returned above in the `X-Auth-Token` header** instead of the Login JWT token in the `Authorization` header.
+For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you **must use the `<deployment-jwt>` returned above in the `X-Auth-Token` header.** The Cerebro JWT is only used in the `Authorization` header for requests to `https://cerebro.cloud.dgraph.io/graphql`.
 
 ## Deploy Backend
 
 Launch a new backend.
 
-This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT to the API.
 
 ### Cloud Endpoint
 
@@ -103,22 +103,22 @@ mutation CreateDeployment($dep: NewDeployment!) {
 }
 ```
 
-Variables
-```
-deployment - parameters for the new deployment
-  name - name of the deployment
-  zone - region to launch
-  deploymentType - The type of the deployment (free|shared|dedicated)
-```
+**Arguments**
+
+* `deployment`: parameter object for new deployment
+  * `name`: name of the deployment
+  * `zone`: region to launch
+  * `deploymentType`: type of deployment `(free|shared|dedicated)`
+
 
 ### Example
 
 **Request**
 
-```shell
+```bash
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <jwt-token>' \
+  -H 'Authorization: Bearer <cerebro-jwt>' \
   --data-binary '{"query":"mutation CreateDeployment($deployment: NewDeployment!) {\n  createDeployment(input: $deployment) {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{"deployment":{"name":"My New Deployment","zone":"us-east-1","deploymentType":"dedicated"}}}' \
   --compressed
 ```
@@ -132,7 +132,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
       "uid": "0x42",
       "name": "My New Deployment",
       "url": "my-new-deployment.us-east-1.aws.cloud.dgraph.io",
-      "jwtToken": "<deployment-jwt-token>"
+      "jwtToken": "<deployment-jwt>"
     }
   }
 }
@@ -158,22 +158,35 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 }
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
+* `dep`: parameter object for update deployment
+  * `uid` (required): deployment `uid` returned from the [List Backends](#list-backends) request
 
 ### Example
 
 **Request**
 
-```shell
+```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
+curl 'https://cerebro.stage.thegaas.com/graphql' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
+  --data-binary '{"query":"mutation UpdateDeployment($dep: UpdateDeploymentInput!) {\n updateDeployment(input: $dep)\n}","variables":{"dep":{"uid":"<deployment.uid>","name":"My Deployment!"}}}' \
+  --compressed
 ```
 
 **Response**
 
-```
-
+```json
+{
+  "data": {
+    "updateDeployment": "Successfully Updated the backend"
+  }
+}
 ```
 
 ## Destroy Backend
@@ -196,10 +209,8 @@ mutation DeleteDeployment($deploymentID: String!) {
 }
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
 
 ### Example
 
