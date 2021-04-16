@@ -51,7 +51,7 @@ See [List Backends](/cloud-api/backend#list-backends).
 }
 ```
 
-#### 2. Decode `deployment.lambdaScript`
+#### 2. Decode `lambdaScript`
 
 ```bash
 $ echo "Ly8gWW91IGNhbiB0eXBlL3Bhc3RlIHlvdXIgc2NyaXB0IGhlcmUKY29uc3QgTmFtZVJlc29sdmVyID0gKHtwYXJlbnQ6IHtuYW1lfX0pID0+IGBNeSBuYW1lIGlzICR7bmFtZX0uYAoKc2VsZi5hZGRHcmFwaFFMUmVzb2x2ZXJzKHsKICAgICJQZXJzb24ubmFtZSI6IE5hbWVSZXNvbHZlcgp9KQ==" | base64 -d
@@ -93,8 +93,28 @@ OPTIONS
 
 ### Example
 
+**Request**
+
+```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
+curl "https://cerebro.stage.thegaas.com/graphql" \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
+  --data-binary '{"query":"query GetLambdaLogs($input: LambdaLogsInput!) {\n getLambdaLogs(input: $input)\n}","variables":{"input":{"deploymentID":"0xf0ffe9"}}}' \
+  --compressed
 ```
 
+**Response**
+
+```json
+{
+  "data": {
+    "getLambdaLogs": []
+  }
+}
 ```
 
 ## Update Lambda
