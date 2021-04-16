@@ -58,6 +58,8 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 
 **Response**
 
+* `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas](/lambda) on your backend
+
 ```json
 {
   "data": {
@@ -71,7 +73,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
         "jwtToken": "<deployment-jwt>",
         "deploymentMode": "graphql",
         "deploymentType": "free",
-        "lambdaScript": ""
+        "lambdaScript": "<lambda-token>"
       }
     ]
   }
