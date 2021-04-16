@@ -86,10 +86,12 @@ query GetLambdaLogs($input: LambdaLogsInput!) {
 }
 ```
 
-OPTIONS
-```
+**Arguments**
 
-```
+* `input`: a LambdaLogsInput object
+  * `input.deploymentID`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+  * `input.start`: start time
+  * `input.end`: end time
 
 ### Example
 
@@ -135,16 +137,42 @@ mutation UpdateDeployment($input: UpdateDeploymentInput!) {
 }
 ```
 
+**Arguments**
 
-OPTIONS
-```
-
-```
+* `input`: an UpdateDeploymentInput object
+  * `input.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+  * `input.lambdaScript`: the base64-encoded Javascript string containing your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/)
 
 ### Example
 
+**Request**
+
+Setting our `lambdaScript` to:
+
+```js
+//your lambda resolver
 ```
 
+```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
+curl "https://cerebro.cloud.dgraph.io/graphql" \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
+  --data-binary '{"query":"mutation UpdateDeployment($input: UpdateDeploymentInput!) {\n updateDeployment(input: $input)\n}","variables":{"input":{"uid":"0xf0ffe9", "lambdaScript":"Ly95b3VyIGxhbWJkYSByZXNvbHZlcgo="}}}' \
+  --compressed
+```
+
+**Response**
+
+```json
+{
+  "data": {
+    "updateDeployment": "Successfully Updated the backend"
+  }
+}
 ```
 
 ## Delete Lambda
@@ -165,14 +193,34 @@ mutation UpdateDeployment($input: UpdateDeploymentInput!) {
 }
 ```
 
-OPTIONS
+**Arguments**
 
-```
-
-```
+* `input`: an UpdateDeploymentInput object
+  * `input.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+  * `input.lambdaScript`: an empty string to delete the script
 
 ### Example
 
+**Request**
+
+```bash
+#!/usr/bin/env bash
+
+CEREBRO_JWT="<cerebro-jwt>"
+
+curl "https://cerebro.cloud.dgraph.io/graphql" \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer ${CEREBRO_JWT}" \
+  --data-binary '{"query":"mutation UpdateDeployment($input: UpdateDeploymentInput!) {\n updateDeployment(input: $input)\n}","variables":{"input":{"uid":"0xf0ffe9", "lambdaScript":""}}}' \
+  --compressed
 ```
 
+**Response**
+
+```json
+{
+  "data": {
+    "updateDeployment": "Successfully Updated the backend"
+  }
+}
 ```
