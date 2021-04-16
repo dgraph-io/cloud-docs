@@ -43,7 +43,7 @@ See [List Backends](/cloud-api/backend#list-backends).
       "name": "My Deployment!",
       "owner": "486c69b4-e09b-48f9-a28a-86314fe232cd",
       "uid": "0xf0ffe9",
-      "url": "polished-violet.us-east-1.aws.stage.thegaas.com",
+      "url": "polished-violet.us-east-1.aws.cloud.dgraph.io",
       "zone": "us-east-1"
       }
     ]
@@ -100,7 +100,7 @@ OPTIONS
 
 CEREBRO_JWT="<cerebro-jwt>"
 
-curl "https://cerebro.stage.thegaas.com/graphql" \
+curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"query GetLambdaLogs($input: LambdaLogsInput!) {\n getLambdaLogs(input: $input)\n}","variables":{"input":{"deploymentID":"0xf0ffe9"}}}' \
