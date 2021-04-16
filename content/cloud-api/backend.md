@@ -11,7 +11,7 @@ weight = 3
 List backends that you have access to.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication](/cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -42,7 +42,7 @@ https://cerebro.cloud.dgraph.io/graphql
 
 **Request**
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
@@ -89,7 +89,7 @@ For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you *
 Launch a new backend.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT to the API.
+This API requires authentication, please see [Authentication](/cloud-api/authentication) for instructions on issuing and passing a JWT to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -123,7 +123,7 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 **Request**
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
@@ -157,7 +157,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 Update backend.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication](/cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -183,7 +183,7 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 
 **Request**
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 * `<deployment-uid>` is the UID returned from [List Backends](#list-backends).
 
 ```bash
@@ -213,7 +213,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 Destroy (i.e., delete) a backend by id.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication](/cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -238,7 +238,7 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 **Request**
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](/dgraph-cloud-api/authentication).
+* `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
 ```bash
 #!/usr/bin/env bash
