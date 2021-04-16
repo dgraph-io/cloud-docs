@@ -113,14 +113,14 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
 
 ```json
 {
-	"data": {
-		"getLambdaLogs": [
-			"2021-04-16 19:03:54.009209524 +0000 UTC Server Listening on port 8686!",
-			"2021-04-16 19:03:54.202216548 +0000 UTC Server Listening on port 8686!",
-			"2021-04-16 19:03:54.51171317 +0000 UTC Server Listening on port 8686!",
-			"2021-04-16 19:03:54.707496343 +0000 UTC Server Listening on port 8686!"
-		]
-	}
+  "data": {
+    "getLambdaLogs": [
+      "2021-04-16 19:03:54.009209524 +0000 UTC Server Listening on port 8686!",
+      "2021-04-16 19:03:54.202216548 +0000 UTC Server Listening on port 8686!",
+      "2021-04-16 19:03:54.51171317 +0000 UTC Server Listening on port 8686!",
+      "2021-04-16 19:03:54.707496343 +0000 UTC Server Listening on port 8686!"
+    ]
+  }
 }
 ```
 
@@ -150,13 +150,13 @@ mutation UpdateDeployment($input: UpdateDeploymentInput!) {
 
 ### Example
 
-1. Create your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/) script
+1) Create your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/) script
 
 ```js
 //your lambda resolver
 ```
 
-2. Base64 encode your script
+2) Base64 encode your script
 
 ```bash
 $ echo "//your lambda resolver" | base64
