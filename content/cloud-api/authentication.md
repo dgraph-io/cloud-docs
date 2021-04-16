@@ -60,4 +60,4 @@ Below is an example response. The token below must be passed to all future API c
 
 ## Using the authentication token
 
-The token returned from the login api must be passed to all future API calls as a bearer token in the `Authorization` header.
+The token returned from the login API must be passed to all future API calls as a bearer token in the `Authorization` header.

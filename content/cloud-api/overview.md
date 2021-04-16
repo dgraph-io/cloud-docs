@@ -16,11 +16,7 @@ The majority of these APIs use `https://cerebro.cloud.dgraph.io/graphql` as the 
 Please see the following topics:
 
 * [Authentication]({{< relref "authentication.md" >}}) describes how to authenticate with the Dgraph Cloud API.
-
 * [Backend]({{< relref "backend.md" >}}) lists commands related to backend.
-
 * [Backup]({{< relref "backup.md" >}}) lists commands related to backup.
-
 * [Lambda]({{< relref "lambda.md" >}}) lists commands related to Lambda.
-
 * [Schema]({{< relref "schema.md" >}}) lists commands related to schema.

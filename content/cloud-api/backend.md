@@ -10,7 +10,9 @@ weight = 3
 
 List backends that you have access to.
 
+{{% notice "note" %}}
 This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+{{% /notice %}}
 
 ### Cloud Endpoint
 
@@ -76,13 +78,17 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 }
 ```
 
+{{% notice "note" %}}
 For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you **must use the `<deployment-jwt>` returned above in the `X-Auth-Token` header.** The Cerebro JWT is only used in the `Authorization` header for requests to `https://cerebro.cloud.dgraph.io/graphql`.
+{{% /notice %}}
 
 ## Deploy Backend
 
 Launch a new backend.
 
+{{% notice "note" %}}
 This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT to the API.
+{{% /notice %}}
 
 ### Cloud Endpoint
 
@@ -148,7 +154,9 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 
 Update backend.
 
+{{% notice "note" %}}
 This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+{{% /notice %}}
 
 ### Cloud Endpoint
 
@@ -202,7 +210,9 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 
 Destroy (i.e., delete) a backend by id.
 
+{{% notice "note" %}}
 This API requires authentication, please see [Authentication](/dgraph-cloud-api/authentication) for instructions on issuing and passing a JWT token to the API.
+{{% /notice %}}
 
 ### Cloud Endpoint
 
@@ -384,30 +394,39 @@ https://${DEPLOYMENT_URL}/admin/slash
 
 ### API Command
 
+#### Drop Data
+
 ```graphql
-DROP_DATA  =
 mutation {
   dropData(allData: true) {
     response { code message }
   }
-}`
+}
+```
 
-DROP_SCHEMA  =
+#### Drop Schema
+
+```graphql
 mutation {
   dropData(allDataAndSchema: true) {
     response { code message }
   }
 }
+```
 
-DROP_TYPES =
+#### Drop Types
+
+```graphql
 mutation($types: [String!]) {
   dropData(types: $types) {
     response { code message }
   }
 }
+```
 
+#### Drop Fields
 
-DROP_FIELDS =
+```graphql
 mutation($fields: [String!]) {
   dropData(fields: $fields) {
     response { code message }
