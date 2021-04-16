@@ -18,7 +18,7 @@ https://cerebro.cloud.dgraph.io/graphql
 
 ### API Command
 
-1. [List Backends](/backend/#list-backends)
+1. [List Backends](/cloud-api/backend#list-backends)
 2. Decode the base64 encoded `deployment.lambdaScript` value
 
 ### Example
@@ -27,7 +27,7 @@ https://cerebro.cloud.dgraph.io/graphql
 
 **Request**
 
-See [List Backends](/backend/#list-backends).
+See [List Backends](/cloud-api/backend#list-backends).
 
 **Response**
 
@@ -53,9 +53,14 @@ See [List Backends](/backend/#list-backends).
 
 #### 2. Decode `deployment.lambdaScript`
 
-```console
-user@host:~$ echo "Ly8gWW91IGNhbiB0eXBlL3Bhc3RlIHlvdXIgc2NyaXB0IGhlcmUKY29uc3QgTmFtZVJlc29sdmVyID0gKHtwYXJlbnQ6IHtuYW1lfX0pID0+IGBNeSBuYW1lIGlzICR7bmFtZX0uYAoKc2VsZi5hZGRHcmFwaFFMUmVzb2x2ZXJzKHsKICAgICJQZXJzb24ubmFtZSI6IE5hbWVSZXNvbHZlcgp9KQ==" | base64 -d
+```bash
+$ echo "Ly8gWW91IGNhbiB0eXBlL3Bhc3RlIHlvdXIgc2NyaXB0IGhlcmUKY29uc3QgTmFtZVJlc29sdmVyID0gKHtwYXJlbnQ6IHtuYW1lfX0pID0+IGBNeSBuYW1lIGlzICR7bmFtZX0uYAoKc2VsZi5hZGRHcmFwaFFMUmVzb2x2ZXJzKHsKICAgICJQZXJzb24ubmFtZSI6IE5hbWVSZXNvbHZlcgp9KQ==" | base64 -d
+```
 
+**Output**
+
+```js
+// You can type/paste your script here
 const NameResolver = ({parent: {name}}) => `My name is ${name}.`
 
 self.addGraphQLResolvers({
