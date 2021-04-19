@@ -29,7 +29,7 @@ https://${DEPLOYMENT_URL}/admin
 
 ### Example
 
-**Request**
+{{% tabs %}} {{% tab "request" %}}
 
 ```bash
 #!/usr/bin/env bash
@@ -44,14 +44,14 @@ curl "https://${DEPLOYMENT_URL}/admin" \
   --compressed
 ```
 
-**Response**
+{{% /tab %}} {{% tab "response" %}}
 
 ```json
 {
   "data": {
     "getGQLSchema": {
       "schema": "type Person { name: String! }",
-      "generatedSchema": "<very-long-string>",
+      "generatedSchema": "<very-long-string>"
     }
   },
   "extensions": {
@@ -63,9 +63,7 @@ curl "https://${DEPLOYMENT_URL}/admin" \
       "execution": {
         "resolvers": [
           {
-            "path": [
-              "getGQLSchema"
-            ],
+            "path": ["getGQLSchema"],
             "parentType": "Query",
             "fieldName": "getGQLSchema",
             "returnType": "GQLSchema",
@@ -86,6 +84,8 @@ curl "https://${DEPLOYMENT_URL}/admin" \
 }
 ```
 
+{{% /tab %}} {{% /tabs %}}
+
 ## Update Schema
 
 Update the schema in your backend.
@@ -100,8 +100,7 @@ https://${DEPLOYMENT_URL}/admin
 
 ```graphql
 mutation($sch: String!) {
-  updateGQLSchema(input: { set: { schema: $sch } })
-  {
+  updateGQLSchema(input: { set: { schema: $sch } }) {
     gqlSchema {
       schema
     }
@@ -111,11 +110,11 @@ mutation($sch: String!) {
 
 **Arguments**
 
-* `sch`: your desired schema string in graphql format
+- `sch`: your desired schema string in graphql format
 
 ### Example
 
-**Request**
+{{% tabs %}} {{% tab "request" %}}
 
 ```bash
 #!/usr/bin/env bash
@@ -130,7 +129,7 @@ curl "https://${DEPLOYMENT_URL}/admin" \
   --compressed
 ```
 
-**Response**
+{{% /tab %}} {{% tab "response" %}}
 
 ```json
 {
@@ -151,3 +150,5 @@ curl "https://${DEPLOYMENT_URL}/admin" \
   }
 }
 ```
+
+{{% /tabs %}} {{% /tab %}}
