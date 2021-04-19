@@ -30,13 +30,14 @@ https://${DEPLOYMENT_URL}/admin
 ### Example
 
 {{% tabs %}} {{% tab "request" %}}
-
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -45,7 +46,6 @@ curl "https://${DEPLOYMENT_URL}/admin" \
 ```
 
 {{% /tab %}} {{% tab "response" %}}
-
 ```json
 {
   "data": {
@@ -83,7 +83,6 @@ curl "https://${DEPLOYMENT_URL}/admin" \
   }
 }
 ```
-
 {{% /tab %}} {{% /tabs %}}
 
 ## Update Schema
@@ -115,13 +114,14 @@ mutation($sch: String!) {
 ### Example
 
 {{% tabs %}} {{% tab "request" %}}
-
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -130,7 +130,6 @@ curl "https://${DEPLOYMENT_URL}/admin" \
 ```
 
 {{% /tab %}} {{% tab "response" %}}
-
 ```json
 {
   "data": {
@@ -150,5 +149,4 @@ curl "https://${DEPLOYMENT_URL}/admin" \
   }
 }
 ```
-
-{{% /tabs %}} {{% /tab %}}
+{{% /tab %}} {{% /tabs %}}

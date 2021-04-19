@@ -40,15 +40,17 @@ https://cerebro.cloud.dgraph.io/graphql
 
 ### Example
 
-**Request**
-
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
+* `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas](/lambda) on your backend
 
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -56,10 +58,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-**Response**
-
-* `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas](/lambda) on your backend
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -79,6 +78,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 {{% notice "note" %}}
 For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you **must use the `<deployment-jwt>` returned above in the `X-Auth-Token` header.** The Cerebro JWT is only used in the `Authorization` header for requests to `https://cerebro.cloud.dgraph.io/graphql`.
@@ -121,15 +121,16 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 ### Example
 
-**Request**
-
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -137,8 +138,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -151,6 +151,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Update Backend
 
@@ -181,16 +182,17 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 
 ### Example
 
-**Request**
-
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 * `<deployment-uid>` is the UID returned from [List Backends](#list-backends).
 
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -198,8 +200,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -207,6 +208,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Destroy Backend
 
@@ -236,15 +238,16 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 ### Example
 
-**Request**
-
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -252,8 +255,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```
 {
   "data": {
@@ -261,6 +263,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Restore Backends
 
@@ -296,14 +299,15 @@ mutation($uid: String!, $backupFolder: String, $backupNum: Int) {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -311,8 +315,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -327,6 +330,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Restore Backend Status
 
@@ -354,14 +358,15 @@ query($restoreId: Int!) {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
-DEPLOYMENT_URL="polished-violet.us-east-1.aws.stage.thegaas.com"
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -369,8 +374,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -383,6 +387,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Drop
 
@@ -442,14 +447,15 @@ mutation($fields: [String!]) {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
-DEPLOYMENT_URL="polished-violet.us-east-1.aws.stage.thegaas.com"
+DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -457,8 +463,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -471,3 +476,4 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
