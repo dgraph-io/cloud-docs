@@ -35,14 +35,15 @@ query {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -50,8 +51,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -77,6 +77,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Export Data
 
@@ -100,14 +101,15 @@ mutation {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
+```
 
+```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
@@ -115,8 +117,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -130,6 +131,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Import Data
 
@@ -150,13 +152,11 @@ dgraph live `--slash_grpc_endpoint=${backend.getGRPCEndpoint()}` -f /tmp/g01.jso
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 ```
-
+{{% /tab %}} {{% /tabs %}}

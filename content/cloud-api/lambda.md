@@ -25,8 +25,6 @@ https://cerebro.cloud.dgraph.io/graphql
 
 #### 1. List Backends
 
-**Request**
-
 See [List Backends](/cloud-api/backend#list-backends).
 
 **Response**
@@ -95,13 +93,14 @@ query GetLambdaLogs($input: LambdaLogsInput!) {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -109,8 +108,7 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -123,6 +121,7 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Update Lambda
 
@@ -164,13 +163,14 @@ $ echo "//your lambda resolver" | base64
 Ly95b3VyIGxhbWJkYSByZXNvbHZlcgo=
 ```
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -178,8 +178,7 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -187,6 +186,7 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
 
 ## Delete Lambda
 
@@ -214,13 +214,14 @@ mutation UpdateDeployment($input: UpdateDeploymentInput!) {
 
 ### Example
 
-**Request**
-
+{{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
+```
 
+```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
@@ -228,8 +229,7 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   --compressed
 ```
 
-**Response**
-
+{{% /tab %}} {{% tab "response" %}}
 ```json
 {
   "data": {
@@ -237,3 +237,4 @@ curl "https://cerebro.cloud.dgraph.io/graphql" \
   }
 }
 ```
+{{% /tab %}} {{% /tabs %}}
