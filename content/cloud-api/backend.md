@@ -431,6 +431,10 @@ mutation($types: [String!]) {
 }
 ```
 
+**Arguments**
+
+* `types`: string array containing type Names
+
 #### Drop Fields
 
 ```graphql
@@ -443,7 +447,7 @@ mutation($fields: [String!]) {
 
 **Arguments**
 
-`TODO`
+* `fields`: string array containing field Names
 
 ### Example
 

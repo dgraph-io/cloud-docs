@@ -41,9 +41,7 @@ query {
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
