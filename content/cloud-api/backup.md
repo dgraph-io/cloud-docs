@@ -50,7 +50,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
 ```
 {{< /tab >}} 
 
-{{< tab "response" >}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -76,7 +76,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
-{{< /tab >}} {{% /tabs %}}
+{{% /tab %}} {{% /tabs %}}
 
 ## Export Data
 
