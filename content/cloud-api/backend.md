@@ -43,7 +43,7 @@ https://cerebro.cloud.dgraph.io/graphql
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 * `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas](/lambda) on your backend
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -55,7 +55,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
@@ -122,7 +122,7 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -134,7 +134,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --data-binary '{"query":"mutation CreateDeployment($deployment: NewDeployment!) {\n  createDeployment(input: $deployment) {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{"deployment":{"name":"My New Deployment","zone":"us-east-1","deploymentType":"dedicated"}}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
@@ -183,7 +183,7 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 * `<deployment-uid>` is the UID returned from [List Backends](#list-backends).
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -195,7 +195,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --data-binary '{"query":"mutation UpdateDeployment($dep: UpdateDeploymentInput!) {\n updateDeployment(input: $dep)\n}","variables":{"dep":{"uid":"<deployment.uid>","name":"My Deployment!"}}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
@@ -237,7 +237,7 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 * `<cerebro-jwt>` is the JWT returned from [Authentication](/cloud-api/authentication).
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -249,7 +249,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
   --data-binary '{"query":"mutation DeleteDeployment($deploymentUid: String!) {\n  deleteDeployment(deploymentID: $deploymentUid)\n}","variables":{"deploymentUid":"<deployment.uid>"}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```
@@ -295,7 +295,7 @@ mutation($uid: String!, $backupFolder: String, $backupNum: Int) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -308,7 +308,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --data-binary '{"query":"mutation($uid: String!, $backupFolder: String, $backupNum: Int) {\n restore(uid: $uid, backupFolder: $backupFolder, backupNum: $backupNum) {\n response {\n code\n message\n restoreId\n }, errors {\n message\n }\n}\n}","variables":{"uid":"<deployment-uid>","backupFolder":"<backup-folder>","backupNum":<backup-num>}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
@@ -353,7 +353,7 @@ query($restoreId: Int!) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -366,7 +366,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --data-binary '{"query":"query($restoreId: Int!) {\n restoreStatus(restoreId: $restoreId) {\n response {status errors}\n}\n}","variables":{"restoreId":1}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
@@ -445,7 +445,7 @@ mutation($fields: [String!]) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -458,7 +458,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --data-binary '{"query":"mutation {\n dropData(allDataAndSchema: true) {\n response { code message }\n}\n}","variables":{}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json

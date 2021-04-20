@@ -100,7 +100,7 @@ mutation {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -113,7 +113,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --data-binary '{"query":"mutation {\n export {\n signedUrls\n }\n }","variables":{}}' \
   --compressed
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
