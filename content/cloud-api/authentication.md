@@ -41,17 +41,16 @@ query Login($email: String!, $password: String!) {
 Below is an example request and response. The token below must be passed to all
 future API calls as a bearer token in the `Authorization` header.
 
-{{% tabs %}} {{% tab "request" %}}
-
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   --data-binary '{"query":"query Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {    \n    token\n  }\n}","variables":{"email":"<your-email>","password":"<your-password>"}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
-
+{{% tab "response" %}}
 ```json
 {
   "data": {

@@ -29,23 +29,22 @@ https://${DEPLOYMENT_URL}/admin
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"{\n getGQLSchema {\n schema\n generatedSchema\n }\n}","variables":{}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -113,23 +112,22 @@ mutation($sch: String!) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"mutation($sch: String!) {\n updateGQLSchema(input: { set: { schema: $sch } })\n {\n gqlSchema {\n schema\n }\n }\n}","variables":{"sch": "type Person { name: String! }"}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {

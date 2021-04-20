@@ -93,22 +93,21 @@ query GetLambdaLogs($input: LambdaLogsInput!) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"query GetLambdaLogs($input: LambdaLogsInput!) {\n getLambdaLogs(input: $input)\n}","variables":{"input":{"deploymentID":"0xf0ffe9"}}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -163,22 +162,21 @@ $ echo "//your lambda resolver" | base64
 Ly95b3VyIGxhbWJkYSByZXNvbHZlcgo=
 ```
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation UpdateDeployment($input: UpdateDeploymentInput!) {\n updateDeployment(input: $input)\n}","variables":{"input":{"uid":"0xf0ffe9", "lambdaScript":"Ly95b3VyIGxhbWJkYSByZXNvbHZlcgo="}}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -214,22 +212,21 @@ mutation UpdateDeployment($input: UpdateDeploymentInput!) {
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl "https://cerebro.cloud.dgraph.io/graphql" \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation UpdateDeployment($input: UpdateDeploymentInput!) {\n updateDeployment(input: $input)\n}","variables":{"input":{"uid":"0xf0ffe9", "lambdaScript":""}}}' \
   --compressed
 ```
+{{< /tab >}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
