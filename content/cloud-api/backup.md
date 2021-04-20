@@ -38,16 +38,13 @@ query {
 {{% tabs %}} {{% tab "request" %}}
 ```bash
 #!/usr/bin/env bash
-
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"{\n listBackups {\n response {\n type\n backupNum\n folder\n timestamp\n }, errors {\n message\n }\n} \n}","variables":{}}' \
   --compressed
-```
 {{% /tab %}} 
 
 {{% tab "response" %}}
