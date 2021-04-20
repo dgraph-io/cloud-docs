@@ -48,17 +48,16 @@ https://cerebro.cloud.dgraph.io/graphql
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"{\n deployments {\n uid\n name\n zone\n url\n owner\n jwtToken\n deploymentMode\n deploymentType\n lambdaScript\n }\n}","variables":{}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -128,17 +127,16 @@ mutation CreateDeployment($dep: NewDeployment!) {
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation CreateDeployment($deployment: NewDeployment!) {\n  createDeployment(input: $deployment) {\n    uid\n    name\n    url\n    jwtToken\n  }\n}","variables":{"deployment":{"name":"My New Deployment","zone":"us-east-1","deploymentType":"dedicated"}}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -190,17 +188,16 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation UpdateDeployment($dep: UpdateDeploymentInput!) {\n updateDeployment(input: $dep)\n}","variables":{"dep":{"uid":"<deployment.uid>","name":"My Deployment!"}}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -245,17 +242,16 @@ mutation DeleteDeployment($deploymentID: String!) {
 #!/usr/bin/env bash
 
 CEREBRO_JWT="<cerebro-jwt>"
-```
 
-```sh
 curl 'https://cerebro.cloud.dgraph.io/graphql' \
   -H 'Content-Type: application/json' \
   -H "Authorization: Bearer ${CEREBRO_JWT}" \
   --data-binary '{"query":"mutation DeleteDeployment($deploymentUid: String!) {\n  deleteDeployment(deploymentID: $deploymentUid)\n}","variables":{"deploymentUid":"<deployment.uid>"}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```
 {
   "data": {
@@ -305,17 +301,16 @@ mutation($uid: String!, $backupFolder: String, $backupNum: Int) {
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"mutation($uid: String!, $backupFolder: String, $backupNum: Int) {\n restore(uid: $uid, backupFolder: $backupFolder, backupNum: $backupNum) {\n response {\n code\n message\n restoreId\n }, errors {\n message\n }\n}\n}","variables":{"uid":"<deployment-uid>","backupFolder":"<backup-folder>","backupNum":<backup-num>}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -364,17 +359,16 @@ query($restoreId: Int!) {
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"query($restoreId: Int!) {\n restoreStatus(restoreId: $restoreId) {\n response {status errors}\n}\n}","variables":{"restoreId":1}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -457,17 +451,16 @@ mutation($fields: [String!]) {
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"mutation {\n dropData(allDataAndSchema: true) {\n response { code message }\n}\n}","variables":{}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {

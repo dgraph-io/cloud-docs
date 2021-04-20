@@ -48,8 +48,9 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   --data-binary '{"query":"{\n listBackups {\n response {\n type\n backupNum\n folder\n timestamp\n }, errors {\n message\n }\n} \n}","variables":{}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -105,17 +106,16 @@ mutation {
 
 DEPLOYMENT_URL="polished-violet.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
-```
 
-```sh
 curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H 'Content-Type: application/json' \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"mutation {\n export {\n signedUrls\n }\n }","variables":{}}' \
   --compressed
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 {
   "data": {
@@ -153,8 +153,9 @@ dgraph live `--slash_grpc_endpoint=${backend.getGRPCEndpoint()}` -f /tmp/g01.jso
 {{% tabs %}} {{% tab "request" %}}
 ```bash
 ```
+{{% /tab %}} 
 
-{{% /tab %}} {{% tab "response" %}}
+{{% tab "response" %}}
 ```json
 ```
 {{% /tab %}} {{% /tabs %}}
