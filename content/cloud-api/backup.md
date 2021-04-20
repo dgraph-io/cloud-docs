@@ -45,6 +45,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   -H "X-Auth-Token: ${DEPLOYMENT_JWT}" \
   --data-binary '{"query":"{\n listBackups {\n response {\n type\n backupNum\n folder\n timestamp\n }, errors {\n message\n }\n} \n}","variables":{}}' \
   --compressed
+```
 {{% /tab %}} 
 
 {{% tab "response" %}}
