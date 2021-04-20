@@ -35,7 +35,7 @@ query {
 
 ### Example
 
-{{< tabs >}} {{< tab "request" >}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -76,7 +76,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
   }
 }
 ```
-{{< /tab >}} {{< /tabs >}}
+{{< /tab >}} {{% /tabs %}}
 
 ## Export Data
 
