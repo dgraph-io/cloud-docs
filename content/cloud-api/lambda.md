@@ -162,6 +162,8 @@ $ echo "//your lambda resolver" | base64
 Ly95b3VyIGxhbWJkYSByZXNvbHZlcgo=
 ```
 
+3) Send request
+
 {{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
