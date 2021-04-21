@@ -4,6 +4,8 @@ languageCode = "en-us"
 theme = "hugo-docs"
 relativeURLs = true
 
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -41,3 +43,4 @@ title = "Dgraph Cloud Docs"
 
 [params]
 discourse = "https://discuss.dgraph.io/"
+site = "cloud-docs"

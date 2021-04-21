@@ -18,6 +18,7 @@ PUBLIC="${PUBLIC:-public}"
 LOOP="${LOOP:-true}"
 # Binary of hugo command to run.
 HUGO="${HUGO:-hugo}"
+THEME_BRANCH="${THEME_BRANCH:-master}"
 
 # TODO - Maybe get list of released versions from Github API and filter
 # those which have docs.
@@ -53,7 +54,7 @@ rebuild() {
 	export CURRENT_VERSION=${2}
 	export VERSIONS=${VERSION_STRING}
 	
-	HUGO_TITLE="Badger Doc ${2}"\
+	HUGO_TITLE="Dgraph Doc ${2}"\
 		VERSIONS=${VERSION_STRING}\
 		CURRENT_BRANCH=${1}\
 		CURRENT_VERSION=${2} ${HUGO} \
@@ -127,6 +128,15 @@ while true; do
 	popd > /dev/null
 
 	# Now lets check the theme.
+	pushd themes/hugo-docs > /dev/null
+	git remote update > /dev/null
+	themeUpdated=1
+	if branchUpdated "${THEME_BRANCH}" ; then
+		echo -e "$(date) $GREEN THEME has been updated. Now will update the docs.$RESET"
+		themeUpated=0
+	fi
+	popd > /dev/null
+
 	echo -e "$(date)  Starting to check branches."
 	git remote update > /dev/null
 
