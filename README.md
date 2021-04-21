@@ -37,10 +37,30 @@ We use [Hugo](https://gohugo.io/) for our documentation. You can use Hugo to loc
 
 ### Steps to build
 
-```sh
-hugo server
-```
+1. Download and install the latest patch of hugo version v0.79.x from [here](https://github.com/gohugoio/hugo/releases).
+  ```bash
+  pushd ~/Downloads
+  VERSION=v0.79
+  TAG=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases | jq '.[].tag_name' -r | grep $VERSION | head -1)
+  OS=$(uname -s)
+  if [[ ${OS,,} == "darwin" ]]; then
+     PKG=hugo_${TAG##v}_macOS-64bit.tar.gz
+     curl -sLO https://github.com/gohugoio/hugo/releases/download/${TAG}/${PKG}
+     tar xvzf $PKG hugo
+     sudo mv hugo /usr/local/bin/
+   else
+     PKG=hugo_${TAG##v}_Linux-64bit.deb
+     curl -sLO https://github.com/gohugoio/hugo/releases/download/${TAG}/${PKG}
+     sudo apt install $PKG
+   fi
+   popd
+   ``` 
+2. Run the command below to get the theme.
+   ```bash
+   pushd themes && git clone https://github.com/dgraph-io/hugo-docs && popd
+   ```
+3. Run `./scripts/local.sh` and visit [http://localhost:1313](http://localhost:1313) to see the documentation site running on your local machine.
 
 ### Theme
 
-The documentation uses a `hugo` theme which stays in the repo itself, inside the `themes` folder.
+The documentation uses a `hugo` theme which can be found at https://github.com/dgraph-io/hugo-docs.
