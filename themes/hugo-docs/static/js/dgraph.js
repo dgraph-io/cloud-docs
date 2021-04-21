@@ -87,29 +87,17 @@ function getPathAfterVersionName(location, versionName) {
   let path;
   if (location.pathname.startsWith("/docs")) {
     if (versionName === "") {
-      path = location.pathname
-        .split("/")
-        .slice(2)
-        .join("/");
+      path = location.pathname.split("/").slice(2).join("/");
     } else {
-      path = location.pathname
-        .split("/")
-        .slice(3)
-        .join("/");
+      path = location.pathname.split("/").slice(3).join("/");
     }
     return path + location.hash;
   }
 
   if (versionName === "") {
-    path = location.pathname
-      .split("/")
-      .slice(1)
-      .join("/");
+    path = location.pathname.split("/").slice(1).join("/");
   } else {
-    path = location.pathname
-      .split("/")
-      .slice(2)
-      .join("/");
+    path = location.pathname.split("/").slice(2).join("/");
   }
 
   return path + location.hash;
@@ -127,23 +115,17 @@ function getPathAfterVersionName(location, versionName) {
         var text;
         var clip = new Clipboard(".copy-btn", {
           text: function (trigger) {
-            text = $(trigger)
-              .prev("code")
-              .text();
+            text = $(trigger).prev("code").text();
             return text.replace(/^\$\s/gm, "");
-          }
+          },
         });
 
         clip.on("success", function (e) {
           e.clearSelection();
-          $(e.trigger)
-            .text("Copied to clipboard!")
-            .addClass("copied");
+          $(e.trigger).text("Copied to clipboard!").addClass("copied");
 
           window.setTimeout(function () {
-            $(e.trigger)
-              .text("Copy")
-              .removeClass("copied");
+            $(e.trigger).text("Copy").removeClass("copied");
           }, 2000);
         });
 
@@ -283,18 +265,17 @@ function getPathAfterVersionName(location, versionName) {
     });
   }
 
-  document.querySelectorAll(".topics .sub-topic").forEach(function(topic) {
-    topic.addEventListener("click", function(e) {
+  document.querySelectorAll(".topics .sub-topic").forEach(function (topic) {
+    topic.addEventListener("click", function (e) {
       // If we have children, then toggle the menu. Else, follow the link
-      if(e.currentTarget.querySelectorAll(".sub-topic").length) {
+      if (e.currentTarget.querySelectorAll(".sub-topic").length) {
         e.preventDefault();
         e.currentTarget.classList.toggle("active");
       } else {
-        e.stopPropagation()
+        e.stopPropagation();
       }
-    })
-  })
-
+    });
+  });
 
   // setActiveMainTopic updates the active mainopic on the sidebar based on the
   // id
@@ -317,7 +298,6 @@ function getPathAfterVersionName(location, versionName) {
     //   }
     // }
   }
-
 
   // var subTopics = document.querySelectorAll(".sub-topics .sub-topic");
   // for (var i = 0; i < subTopics.length; i++) {
@@ -373,9 +353,9 @@ function getPathAfterVersionName(location, versionName) {
 
   // version selector
   var currentVersion = getCurrentVersion(location.pathname);
-  document
-    .getElementsByClassName("version-selector")[0]
-    .addEventListener("change", function (e) {
+  const versionSelectors = document.getElementsByClassName("version-selector");
+  if (Array.isArray(versionSelector) && versionSelector.length) {
+    versionSelectors[0].addEventListener("change", function (e) {
       // targetVersion: '', 'master', 'v0.7.7', 'v0.7.6', etc.
       var targetVersion = e.target.value;
 
@@ -394,22 +374,23 @@ function getPathAfterVersionName(location, versionName) {
       }
     });
 
-  var versionSelector = document.getElementsByClassName("version-selector")[0],
-    options = versionSelector.options;
+    var versionSelector = versionSelectors[0],
+      options = versionSelector.options;
 
-  for (var i = 0; i < options.length; i++) {
-    if (options[i].value.indexOf("latest") != -1) {
-      options[i].value = options[i].value.replace(/\s\(latest\)/, "");
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].value.indexOf("latest") != -1) {
+        options[i].value = options[i].value.replace(/\s\(latest\)/, "");
+      }
     }
-  }
 
-  for (var i = 0; i < options.length; i++) {
-    if (options[i].value === currentVersion) {
-      options[i].selected = true;
-      break;
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].value === currentVersion) {
+        options[i].selected = true;
+        break;
+      }
     }
+    (" ");
   }
-  (" ");
 
   // Add target = _blank to all external links.
   var links = document.links;
@@ -428,3 +409,32 @@ function getPathAfterVersionName(location, versionName) {
   //   activeTopic.scrollIntoView();
   // }
 })();
+
+$(document).ready(function () {
+  $(".tab-content")
+    .find(".tab-pane")
+    .each(function (idx, item) {
+      const navTabs = $(this).closest(".tabs").find(".nav-tabs");
+      const title = $(this).attr("title");
+      navTabs.append(`<li><a href="#">${title}</a></li>`);
+    });
+
+  $(".tabs ul.nav-tabs").each(function () {
+    $(this).find("li:first").addClass("active");
+  });
+
+  $(".tabs .tab-content").each(function () {
+    $(this).find("div:first").addClass("active");
+  });
+
+  $(".nav-tabs a").click(function (e) {
+    e.preventDefault();
+    const tab = $(this).parent();
+    const tabIndex = tab.index();
+    const tabPanel = $(this).closest(".tabs");
+    const tabPane = tabPanel.find(".tab-pane").eq(tabIndex);
+    tabPanel.find(".active").removeClass("active");
+    tab.addClass("active");
+    tabPane.addClass("active");
+  });
+});
