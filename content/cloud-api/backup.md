@@ -133,7 +133,7 @@ curl "https://${DEPLOYMENT_URL}/admin/slash" \
 
 ## Import Data
 
-Import your data back using Dgraph Live Loader (requires Docker).
+Import your data back using Dgraph [Live Loader]({{< relref "import-export.md#importing-data-with-live-loader" >}}) (requires Docker).
 
 ### Shell Command
 
@@ -146,7 +146,7 @@ docker run -it --rm -v /tmp/file:/tmp/g01.json.gz dgraph/dgraph:v20.11-slash \
 
 ### Example
 
-{{% tabs %}} {{% tab "request" %}}
+{{% tabs %}} {{< tab "request" >}}
 ```bash
 #!/usr/bin/env bash
 
@@ -156,7 +156,7 @@ DEPLOYMENT_JWT="<deployment-jwt>"
 docker run -it --rm -v /users/dgraph/downloads:/tmp dgraph/dgraph:v20.11-slash \
   dgraph live --slash_grpc_endpoint=${DEPLOYMENT_URL}:443 -f /tmp/1million.rdf.gz -t ${DEPLOYMENT_JWT}
 ```
-{{% /tab %}} 
+{{< /tab >}} 
 
 {{% tab "response" %}}
 ```json
