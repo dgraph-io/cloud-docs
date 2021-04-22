@@ -11,7 +11,7 @@ weight = 3
 List backends that you have access to.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](< relref "/cloud-api/authentication" >) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication]({{< relref "/cloud-api/authentication" >}}) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -40,8 +40,8 @@ https://cerebro.cloud.dgraph.io/graphql
 
 ### Example
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](< relref "/cloud-api/authentication" >).
-* `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas](< relref "cloud-api/lambda" >) on your backend
+* `<cerebro-jwt>` is the JWT returned from [Authentication]({{< relref "/cloud-api/authentication" >}}).
+* `<lambda-token>` is a base64 string that will be non-empty if you have saved [Lambdas]({{< relref "cloud-api/lambda" >}}) on your backend
 
 {{% tabs %}} {{< tab "request" >}}
 ```bash
@@ -88,7 +88,7 @@ For any `/admin` or `/admin/slash` requests to `https://<deployment.url>`, you *
 Launch a new backend.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](< relref "/cloud-api/authentication" >) for instructions on issuing and passing a JWT to the API.
+This API requires authentication, please see [Authentication]({{< relref "/cloud-api/authentication" >}}) for instructions on issuing and passing a JWT to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -120,7 +120,7 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 ### Example
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](< relref "/cloud-api/authentication" >).
+* `<cerebro-jwt>` is the JWT returned from [Authentication]({{< relref "/cloud-api/authentication" >}}).
 
 {{% tabs %}} {{< tab "request" >}}
 ```bash
@@ -156,7 +156,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 Update backend.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](< relref "/cloud-api/authentication" >) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication]({{< relref "/cloud-api/authentication" >}}) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -180,7 +180,7 @@ mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
 
 ### Example
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](< relref "/cloud-api/authentication" >).
+* `<cerebro-jwt>` is the JWT returned from [Authentication]({{< relref "/cloud-api/authentication" >}}).
 * `<deployment-uid>` is the UID returned from [List Backends](#list-backends).
 
 {{% tabs %}} {{< tab "request" >}}
@@ -212,7 +212,7 @@ curl 'https://cerebro.cloud.dgraph.io/graphql' \
 Destroy (i.e., delete) a backend by id.
 
 {{% notice "note" %}}
-This API requires authentication, please see [Authentication](< relref "/cloud-api/authentication" >) for instructions on issuing and passing a JWT token to the API.
+This API requires authentication, please see [Authentication]({{< relref "/cloud-api/authentication" >}}) for instructions on issuing and passing a JWT token to the API.
 {{% /notice %}}
 
 ### Cloud Endpoint
@@ -235,7 +235,7 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 ### Example
 
-* `<cerebro-jwt>` is the JWT returned from [Authentication](< relref "/cloud-api/authentication" >).
+* `<cerebro-jwt>` is the JWT returned from [Authentication]({{< relref "/cloud-api/authentication" >}}).
 
 {{% tabs %}} {{< tab "request" >}}
 ```bash
