@@ -6,7 +6,7 @@ weight = 13
   parent = "cloud"
 +++
 
-Dgraph allows type and edge names that aren't valid in GraphQL, so, often, you'll need to expose valid GraphQL names. Dgraph admits special characters and even different languages ([see here](https://dgraph.io/docs/query-language/#predicate-name-rules)), while the GraphQL Spec requires that type and field (predicate) names are generated from `/[_A-Za-z][_0-9A-Za-z]*/`.
+Dgraph allows type and edge names that aren't valid in GraphQL, so, often, you'll need to expose valid GraphQL names. Dgraph admits special characters and even different languages ([see Predicate Name Rules](https://dgraph.io/docs/query-language/#predicate-name-rules)), while the GraphQL Spec requires that type and field (predicate) names are generated from `/[_A-Za-z][_0-9A-Za-z]*/`.
 
 ## Mapping GraphQL to a Dgraph schema
 
@@ -55,5 +55,5 @@ This behavior can be customized with the `@dgraph` directive.
 * `field: SomeType @dgraph(pred: "DgraphPredicate")` controls what Dgraph predicate is mapped to a GraphQL field.
 
 {{% notice "tip" %}}
-You can find additional mapping examples in the [GraphQL on Existing Dgraph](/docs/graphql/dgraph/#mapping-graphql-to-a-dgraph-schema) article.
+You can find additional mapping examples in the [GraphQL on Existing Dgraph](https://dgraph.io/docs/graphql/dgraph/#mapping-graphql-to-a-dgraph-schema) article.
 {{% /notice %}}
