@@ -100,8 +100,8 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-mutation CreateDeployment($dep: NewDeployment!) {
-  createDeployment(input: $dep) {
+mutation CreateDeployment($newDeployment: NewDeployment!) {
+  createDeployment(input: $newDeployment) {
       uid
       name
       url
@@ -112,7 +112,7 @@ mutation CreateDeployment($dep: NewDeployment!) {
 
 **Arguments**
 
-* `deployment`: parameter object for new deployment
+* `newDeployment`: parameter object for new deployment
   * `name`: name of the deployment
   * `zone`: region to launch
   * `deploymentType`: type of deployment `(free|shared|dedicated)`
@@ -168,15 +168,15 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-mutation UpdateDeployment($dep: UpdateDeploymentInput!) {
-  updateDeployment(input: $dep)
+mutation UpdateDeployment($updateDeploymentInput: UpdateDeploymentInput!) {
+  updateDeployment(input: $updateDeploymentInput)
 }
 ```
 
 **Arguments**
 
-* `dep`: parameter object for update deployment
-  * `dep.uid` (required): deployment `uid`
+* `updateDeploymentInput`: parameter object for update deployment
+  * `updateDeploymentInput.uid` (required): deployment `uid`
 
 ### Example
 
