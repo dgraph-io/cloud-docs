@@ -231,7 +231,7 @@ mutation DeleteDeployment($deploymentID: String!) {
 
 **Arguments**
 
-* `deploymentUid` (required): deployment `uid` returned from [List Backends](#list-backends) request
+* `deploymentID` (required): deployment `uid` returned from a [List Backends](#list-backends) request
 
 ### Example
 
