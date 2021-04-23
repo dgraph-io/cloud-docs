@@ -79,17 +79,17 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-query GetLambdaLogs($input: LambdaLogsInput!) {
-  getLambdaLogs(input: $input)
+query GetLambdaLogs($lambdaLogsInput: LambdaLogsInput!) {
+  getLambdaLogs(input: $lambdaLogsInput)
 }
 ```
 
 **Arguments**
 
-* `input`: a LambdaLogsInput object
-  * `input.deploymentID`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
-  * `input.start`: start time
-  * `input.end`: end time
+* `lambdaLogsInput`: a LambdaLogsInput object
+  * `lambdaLogsInput.deploymentID`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+  * `lambdaLogsInput.start`: start time
+  * `lambdaLogsInput.end`: end time
 
 ### Example
 
