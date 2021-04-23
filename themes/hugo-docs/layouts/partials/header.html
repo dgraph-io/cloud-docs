@@ -378,7 +378,7 @@
     var redirectPaths = ["clients", "query-language", "mutations", "deploy", "enterprise-features", "howto", "design-concepts"];
     var pathSplit = document.URL.split("/");
     // Example: ["https:", "", "dgraph.io", "docs", "deploy", "#bulk-loader"]
-    console.log(pathSplit);
+    // console.log(pathSplit);
     if (redirectPaths.includes(pathSplit[pathSplit.length - 2])) {
       var urlSplit = pathSplit[pathSplit.length - 1].split("#");
       console.log(urlSplit);
@@ -389,7 +389,7 @@
         location.href = "{{ .Site.BaseURL }}" + subPaths[origPath];
       }
 	else if (urlSplit[1]) { // an anchor tag
-	    if (urlSplit[1]) === "sidebar"{
+	    if (urlSplit[1] === "sidebar"){
 		location.href = "{{ .Site.BaseURL }}" + pathSplit[4]
 	    } else {
 		location.href = "{{ .Site.BaseURL }}" + pathSplit[4] + "/" + urlSplit[1];
@@ -453,6 +453,8 @@
   <link href='{{ relURL "css/theme.css"}}?{{ md5 (readFile "themes/hugo-docs/static/css/theme.css") }}'
   rel="stylesheet" />
 <link href='{{ relURL "css/runnable.css"}}?{{ md5 (readFile "themes/hugo-docs/static/css/runnable.css") }}'
+  rel="stylesheet" />
+<link href='{{ relURL "css/tabs.css"}}?{{ md5 (readFile "themes/hugo-docs/static/css/tabs.css") }}'
   rel="stylesheet" />
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">

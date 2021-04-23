@@ -14,7 +14,7 @@ Wherever possible, we have maintained compatibility with the corresponding Dgrap
 
 Please see the following topics:
 
-* [Authentication](/admin/authentication) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
-* [Schema](/admin/schema) describes how to programmatically query and update your GraphQL schema.
-* [Import and Exporting Data](/admin/import-export) is a guide for exporting your data from a Dgraph Cloud backend, and how to import it into another cluster
-* [Dropping Data](/admin/drop-data) will guide you through dropping all data from your Dgraph Cloud backend.
+* [Authentication]({{< relref "admin/authentication" >}}) will guide you in creating a API token. Since all admin APIs require an auth token, this is a good place to start.
+* [Schema]({{< relref "admin/schema" >}}) describes how to programmatically query and update your GraphQL schema.
+* [Import and Exporting Data]({{< relref "admin/import-export" >}}) is a guide for exporting your data from a Dgraph Cloud backend, and how to import it into another cluster
+* [Dropping Data]({{< relref "admin/drop-data" >}}) will guide you through dropping all data from your Dgraph Cloud backend.
