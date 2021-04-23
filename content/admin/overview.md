@@ -10,7 +10,12 @@ weight = 1
 
 Here is a guide to programmatically administering your Dgraph Cloud backend.
 
-Wherever possible, we have maintained compatibility with the corresponding Dgraph API, with the additional step of requiring authentication via the 'X-Auth-Token' header.
+Wherever possible, we have maintained compatibility with the corresponding Dgraph API,
+with the additional step of requiring [authentication]({{< relref "admin/authentication" >}}) via the `X-Auth-Token` header.
+
+{{% notice "note" %}}
+Keep in mind that free Dgraph Cloud backends will be frozen automatically after 4 hours of inactivity.
+{{% /notice %}}
 
 Please see the following topics:
 
