@@ -1,8 +1,8 @@
-[buid]
+[build]
   base = "/"
   command = "./scripts/build.sh"
   publish = "./public"
-  ignore = "git diff --queit HEAD^ HEAD ."
+  ignore = "git diff --quiet HEAD^ HEAD ."
 
 [context.production.environment]
   HUGO_VERSION = "0.79.0"
