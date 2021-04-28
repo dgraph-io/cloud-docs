@@ -97,7 +97,7 @@ https://${DEPLOYMENT_URL}/admin
 ### API Command
 
 ```graphql
-mutation($sch: String!) {
+mutation($schema: String!) {
   updateGQLSchema(input: { set: { schema: $schema } }) {
     gqlSchema {
       schema
