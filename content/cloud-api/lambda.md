@@ -79,17 +79,17 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-query GetLambdaLogs($input: LambdaLogsInput!) {
-  getLambdaLogs(input: $input)
+query GetLambdaLogs($lambdaLogsInput: LambdaLogsInput!) {
+  getLambdaLogs(input: $lambdaLogsInput)
 }
 ```
 
 **Arguments**
 
-* `input`: a LambdaLogsInput object
-  * `input.deploymentID`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
-  * `input.start`: start time
-  * `input.end`: end time
+* `lambdaLogsInput`: a LambdaLogsInput object
+* `lambdaLogsInput.deploymentID`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+* `lambdaLogsInput.start`: start time
+* `lambdaLogsInput.end`: end time
 
 ### Example
 
@@ -135,16 +135,16 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-mutation UpdateDeployment($input: UpdateDeploymentInput!) {
-    updateDeployment(input: $input)
+mutation UpdateDeployment($lambdaLogsInput: UpdateDeploymentInput!) {
+    updateDeployment(input: $lambdaLogsInput)
 }
 ```
 
 **Arguments**
 
-* `input`: an UpdateDeploymentInput object
-  * `input.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
-  * `input.lambdaScript`: the base64-encoded Javascript string containing your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/)
+* `lambdaLogsInput`: an UpdateDeploymentInput object
+* `lambdaLogsInput.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+* `lambdaLogsInput.lambdaScript`: the base64-encoded Javascript string containing your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/)
 
 ### Example
 
@@ -201,16 +201,16 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-mutation UpdateDeployment($input: UpdateDeploymentInput!) {
-    updateDeployment(input: $input)
+mutation UpdateDeployment($lambdaLogsInput: UpdateDeploymentInput!) {
+    updateDeployment(input: $lambdaLogsInput)
 }
 ```
 
 **Arguments**
 
-* `input`: an UpdateDeploymentInput object
-  * `input.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
-  * `input.lambdaScript`: an empty string to delete the script
+* `lambdaLogsInput`: an UpdateDeploymentInput object
+* `lambdaLogsInput.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+* `lambdaLogsInput.lambdaScript`: an empty string to delete the script
 
 ### Example
 
