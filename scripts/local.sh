@@ -9,6 +9,8 @@ run() {
   export CURRENT_BRANCH="master"
   export CURRENT_VERSION="preview"
   export HUGO_TITLE="Dgrah Doc - Preview"
+  export VERSIONS="preview"
+  export DGRAPH_ENDPOINT=${DGRAPH_ENDPOINT:-"https://play.dgraph.io/query?latency=true"}
 
   pushd "$(dirname "$0")/.." > /dev/null
   pushd themes > /dev/null
@@ -19,7 +21,7 @@ run() {
   else
     echo -e "$(date) $GREEN Hugo-docs repository found. Pulling the latest version from master. $RESET"
     pushd hugo-docs > /dev/null
-    git checkout verneleem/merge-themes
+    git checkout master
     git pull
     popd > /dev/null
   fi
