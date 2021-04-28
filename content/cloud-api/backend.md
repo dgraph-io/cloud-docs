@@ -113,9 +113,9 @@ mutation CreateDeployment($newDeployment: NewDeployment!) {
 **Arguments**
 
 * `newDeployment`: parameter object for new deployment
-  * `name`: name of the deployment
-  * `zone`: region to launch
-  * `deploymentType`: type of deployment `(free|shared|dedicated)`
+* `newDeployment.name`: name of the deployment
+* `newDeployment.zone`: region to launch
+* `newDeployment.deploymentType`: type of deployment `(free|shared|dedicated)`
 
 
 ### Example
@@ -176,7 +176,7 @@ mutation UpdateDeployment($updateDeploymentInput: UpdateDeploymentInput!) {
 **Arguments**
 
 * `updateDeploymentInput`: parameter object for update deployment
-  * `updateDeploymentInput.uid` (required): deployment `uid`
+* `updateDeploymentInput.uid` (required): deployment `uid`
 
 ### Example
 
