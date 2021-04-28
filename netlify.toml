@@ -1,6 +1,6 @@
 [build]
   base = "/"
-  command = "sh ./scripts/build.sh"
+  command = "./scripts/build.sh"
   publish = "./public"
   ignore = "git diff --quiet HEAD^ HEAD ."
 
@@ -9,7 +9,7 @@
   LOOP = "false"
 
 [context.deploy-preview]
-  command = "sh ./scripts/local.sh --preview $DEPLOY_PRIME_URL"
+  command = "./scripts/local.sh --preview $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.79.0"
