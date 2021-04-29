@@ -9,102 +9,50 @@
 
 set -e
 
+# Important for clean builds on Netlify
+if ! git remote | grep -q origin ; then
+    git remote add origin https://github.com/dgraph-io/cloud-docs.git
+    git fetch --all
+fi
+
 GREEN='\033[32;1m'
 RESET='\033[0m'
-HOST="${HOST:-https://dgraph.io/docs/slash-graphql}"
+HOST="${HOST:-https://dgraph.io/docs/cloud}"
 # Name of output public directory
 PUBLIC="${PUBLIC:-public}"
 # LOOP true makes this script run in a loop to check for updates
 LOOP="${LOOP:-true}"
 # Binary of hugo command to run.
 HUGO="${HUGO:-hugo}"
-
-# TODO - Maybe get list of released versions from Github API and filter
-# those which have docs.
-
-# Place the latest version at the beginning so that version selector can
-# append '(latest)' to the version string, followed by the master version,
-# and then the older versions in descending order, such that the
-# build script can place the artifact in an appropriate location.
-VERSIONS_ARRAY=(
-	'master'
-)
-
-joinVersions() {
-	versions=$(printf ",%s" "${VERSIONS_ARRAY[@]}")
-	echo "${versions:1}"
-}
-
-function version { echo "$@" | gawk -F. '{ printf("%03d%03d%03d\n", $1,$2,$3); }'; }
+THEME_BRANCH="${THEME_BRANCH:-master}"
 
 rebuild() {
-	echo -e "$(date) $GREEN Updating docs for branch: $1.$RESET"
+	echo -e "$(date) $GREEN Updating docs for branch: master.$RESET"
 
-	# The latest documentation is generated in the root of /public dir
-	# Older documentations are generated in their respective `/public/vx.x.x` dirs
-	dir=''
-	if [[ $2 != "${VERSIONS_ARRAY[0]}" ]]; then
-		dir=$2
-	fi
-
-	VERSION_STRING=$(joinVersions)
+	VERSION_STRING="master"
 	# In Unix environments, env variables should also be exported to be seen by Hugo
-	export CURRENT_BRANCH=${1}
-	export CURRENT_VERSION=${2}
-	export VERSIONS=${VERSION_STRING}
+	export CURRENT_BRANCH="master"
+	export CURRENT_VERSION="master"
+	export VERSIONS="master"
 	
-	HUGO_TITLE="Badger Doc ${2}"\
-		VERSIONS=${VERSION_STRING}\
-		CURRENT_BRANCH=${1}\
-		CURRENT_VERSION=${2} ${HUGO} \
-		--destination="${PUBLIC}"/"$dir"\
-		--baseURL="$HOST"/"$dir" 1> /dev/null
+	HUGO_TITLE="Dgraph Cloud Docs"\
+		VERSIONS="master"\
+		CURRENT_BRANCH="master"\
+		CURRENT_VERSION="master" ${HUGO} \
+		--destination=$PUBLIC/\
+		--baseURL=$HOST/ 1> /dev/null
 }
 
 branchUpdated()
 {
-	local branch="$1"
-	git checkout -q "$1"
 	UPSTREAM=$(git rev-parse "@{u}")
 	LOCAL=$(git rev-parse "@")
 
 	if [ "$LOCAL" != "$UPSTREAM" ] ; then
-		git merge -q origin/"$branch"
+		git merge -q origin/master
 		return 0
 	else
 		return 1
-	fi
-}
-
-publicFolder()
-{
-	dir=''
-	if [[ $1 == "${VERSIONS_ARRAY[0]}" ]]; then
-		echo "${PUBLIC}"
-	else
-		echo "${PUBLIC}/$1"
-	fi
-}
-
-checkAndUpdate()
-{
-	local version="$1"
-	local branch=""
-
-	if [[ $version == "master" ]]; then
-		branch="master"
-	else
-		branch="release/$version"
-	fi
-
-	if branchUpdated "$branch" ; then
-		git merge -q origin/"$branch"
-		rebuild "$branch" "$version"
-	fi
-
-	folder=$(publicFolder "$version")
-	if [ "$firstRun" = 1 ] || [ "$themeUpdated" = 0 ] || [ ! -d "$folder" ] ; then
-		rebuild "$branch" "$version"
 	fi
 }
 
@@ -114,35 +62,43 @@ while true; do
 	# Lets move to the docs directory.
 	pushd "$(dirname "$0")/.." > /dev/null
 
-	currentBranch=$(git rev-parse --abbrev-ref HEAD)
+	if [ "$firstRun" = 1 ];
+	then
+		# clone the hugo-docs theme if not already there
+		[ ! -d 'themes/hugo-docs' ] && git clone https://github.com/dgraph-io/hugo-docs themes/hugo-docs
+	  echo -e "Cloned dgraph-io/hugo-docs repo into themes/hugo-docs"
+	fi
 
 	# Lets check if the theme was updated.
 	pushd themes/hugo-docs > /dev/null
 	git remote update > /dev/null
 	themeUpdated=1
-	if branchUpdated "master" ; then
-		echo -e "$(date) $GREEN Theme has been updated. Now will update the docs.$RESET"
+	if branchUpdated ; then
+		echo -e "$GREEN Theme has been updated. Now will update the docs.$RESET"
 		themeUpdated=0
 	fi
 	popd > /dev/null
 
-	# Now lets check the theme.
-	echo -e "$(date)  Starting to check branches."
+	echo -e "$(date) Starting to check if need to (re)build."
 	git remote update > /dev/null
 
-	for version in "${VERSIONS_ARRAY[@]}"
-	do
-		checkAndUpdate "$version"
-	done
+	if branchUpdated ; then
+		git merge -q origin/master
+		rebuild
+	fi
 
-	echo -e "$(date)  Done checking branches.\n"
+	folder=$PUBLIC
+	if [ "$firstRun" = 1 ] || [ "$themeUpdated" = 0 ] || [ ! -d "$folder" ] ; then
+		rebuild
+	fi
 
-	git checkout -q "$currentBranch"
+	echo -e "$(date) Done (re)building."
+
 	popd > /dev/null
 
 	firstRun=0
-        if ! $LOOP; then
-            exit
-        fi
+  if ! $LOOP; then
+    exit
+  fi
 	sleep 60
 done
