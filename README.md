@@ -63,4 +63,4 @@ We use [Hugo](https://gohugo.io/) for our documentation. You can use Hugo to loc
 
 ### Theme
 
-The documentation uses a `hugo` theme which can be found at https://github.com/dgraph-io/hugo-docs.
+The documentation uses a `hugo` theme which can be found at [github.com/dgraph-io/hugo-docs](https://github.com/dgraph-io/hugo-docs).
