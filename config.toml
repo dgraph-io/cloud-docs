@@ -31,13 +31,13 @@ title = "Dgraph Cloud Docs"
 
 [[menu.main]]
   name = "GraphQL Docs"
-  url = "https://dgraph.io/docs/graphql/"
+  url = "https://dgraph.io/docs/v20.11/graphql/"
   identifier = "graphql"
   weight = 12
 
 [[menu.main]]
   name = "DQL Docs"
-  url = "https://dgraph.io/docs/dql/"
+  url = "https://dgraph.io/docs/v20.11/dql/"
   identifier = "dql"
   weight = 10
 
