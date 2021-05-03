@@ -27,7 +27,6 @@ Dgraph Cloud is available in several pricing tiers:
 To learn more about pricing for each tier, see the [Dgraph Pricing Page](https://dgraph.io/pricing).
 To learn more about Dgraph database, see [Dgraph Database Overview](https://dgraph.io/docs/dgraph-overview/).
 
-
 ## Key features
 
 | Feature        | Notes     |
