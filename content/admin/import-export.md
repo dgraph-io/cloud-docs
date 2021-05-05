@@ -52,5 +52,5 @@ The gRPC endpoint URL must have the string `.grpc.` added after the domain prefi
     ```
 
 {{% notice "note" %}}
-Running this via Docker requires you to use an unreleased tag (either `master` or `v20.07-slash`).
+Running this via Docker requires you to use an unreleased tag (either `master` or `v20.11-slash`).
 {{% /notice %}}
