@@ -135,16 +135,16 @@ https://cerebro.cloud.dgraph.io/graphql
 ### API Command
 
 ```graphql
-mutation UpdateDeployment($lambdaLogsInput: UpdateDeploymentInput!) {
-    updateDeployment(input: $lambdaLogsInput)
+mutation UpdateDeployment($updateDeploymentInput: UpdateDeploymentInput!) {
+    updateDeployment(input: $updateDeploymentInput)
 }
 ```
 
 **Arguments**
 
-* `lambdaLogsInput`: an UpdateDeploymentInput object
-* `lambdaLogsInput.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
-* `lambdaLogsInput.lambdaScript`: the base64-encoded Javascript string containing your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/)
+* `updateDeploymentInput`: an UpdateDeploymentInput object
+* `updateDeploymentInput.uid`: the deployment UID returned from [List Backends](/cloud-api/backend#list-backends)
+* `updateDeploymentInput.lambdaScript`: the base64-encoded Javascript string containing your [Lambda Resolver](https://dgraph.io/docs/graphql/lambda/overview/)
 
 ### Example
 
