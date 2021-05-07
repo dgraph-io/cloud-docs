@@ -34,10 +34,10 @@ weight = 4
   </div>
   <div class="item">
     <div class="icon"><i class="lni lni-package" aria-hidden="true"></i></div>
-    <a href="{{< relref "one-click-deploy.md">}}">
-      <h2>One-Click Deployment</h2>
+    <a href="{{< relref "cloud-api/overview.md">}}">
+      <h2>Dgraph Cloud API</h2>
       <p>
-        Deploy sample apps in minutes from a fresh backend instance
+        Programmatically launch and manage your Cloud backups.
       </p>
     </a>
   </div>
