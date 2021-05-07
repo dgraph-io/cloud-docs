@@ -83,7 +83,6 @@ Please see the following topics to learn more about how to use Dgraph Cloud:
 - [Dgraph Cloud API]({{< relref "/cloud-api/overview" >}}) Dgraph Cloud now includes a API so you can programmatically manage your backends
 - [Schema]({{< relref "/cloud-api/schema" >}}) lists commands related to schema.
 - [Advanced Queries With DQL]({{< relref "/advanced-queries" >}}) covers interacting with your database using the gRPC endpoint.
-- [One-click Deploy]({{< relref "/one-click-deploy" >}}) speaks about how to deploy sample apps in a fresh instance of backend to start working with them.
 
 You might also be interested in:
 
