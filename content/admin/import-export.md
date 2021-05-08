@@ -38,7 +38,7 @@ Export will usually return 3 files:
 It is possible to import data into a Dgraph Cloud backend using [live loader](https://dgraph.io/docs/deploy/#live-loader). In order to import data, do the following steps:
 
 1. First import your schema into your Dgraph Cloud backend, using either the [Schema API](/admin/schema) or via [the Schema Page](https://cloud.dgraph.io/_/schema).
-2. Find the gRPC endpoint for your cluster, as described in the [advanced queries](/advanced-queries) section. This will look like `frozen-mango.grpc.us-west-1.aws.cloud.dgraph.io:443`
+2. Login to Dgraph Cloud, and find the `gRPC Endpoint` for your backend on the Settings page. This will look like `frozen-mango.grpc.us-west-1.aws.cloud.dgraph.io:443`
 
 {{% notice "note" %}}
 The gRPC endpoint URL must have the string `.grpc.` added after the domain prefix. Without this change, Live Loader will not be able to find the endpoint.
