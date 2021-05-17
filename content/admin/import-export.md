@@ -21,7 +21,7 @@ The following is an example of a GraphQL mutation to export data to JSON.
 mutation {
   export {
     response { code message }
-    signedUrls
+    taskId
   }
 }
 ```
