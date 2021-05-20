@@ -5,11 +5,6 @@ weight = 1
     parent = "cloud"
 +++
 
-{{% notice "tip" %}}
-Dgraph Cloud currently runs release v20.11. 
-[Click here to see docs for Dgraph v20.11](https://dgraph.io/docs/v20.11/dgraph-overview/).
-{{% /notice %}}
-
 Dgraph Cloud, powered by Dgraph database, is a fully-managed GraphQL database
 service that lets you focus on building apps, not managing infrastructure. Dgraph
 Cloud is built from the ground up to support GraphQL, and uses a graph database
@@ -29,7 +24,11 @@ Dgraph Cloud is available in several pricing tiers:
 * **Dedicated Instances**: Backends in this tier run on dedicated server clusters to meet the heavy workloads and other needs of enterprise customers. This tier also provides high availability and the option to run Dgraph in your own virtual private cloud (VPC) or bring your own Kubernetes (BYOK) environment.
 
 To learn more about pricing for each tier, see the [Dgraph Pricing Page](https://dgraph.io/pricing).
-To learn more about Dgraph database, see [Dgraph Database Overview](https://dgraph.io/docs/v20.11/dgraph-overview/) (*v20.11 doc version*).
+To learn more about Dgraph database, see [Dgraph Database Overview](https://dgraph.io/docs/dgraph-overview/).
+
+{{% notice "tip" %}}
+You can check which Dgraph database release version is running on your Dgraph Cloud backend in [Dgraph Cloud Settings](https://cloud.dgraph.io/_/settings).
+{{% /notice %}}
 
 ## Key features
 
@@ -61,8 +60,7 @@ Dgraph Alpha server nodes.
    endpoints.
 
 To learn more about the Dgraph clusters that power Dgraph Cloud, see
-[Understanding Dgraph Cluster](https://dgraph.io/docs/v20.11/deploy/cluster-setup/#understanding-dgraph-cluster)
-(*v20.11 doc version*).
+[Understanding Dgraph Cluster](https://dgraph.io/docs/deploy/cluster-setup/#understanding-dgraph-cluster).
 
 ## Next steps
 
@@ -86,5 +84,5 @@ Please see the following topics to learn more about how to use Dgraph Cloud:
 
 You might also be interested in:
 
-- [Dgraph GraphQL Schema Reference](https://dgraph.io/docs/v20.11/graphql/schema/schema-overview) (*v20.11 doc version*), which lists all the types and directives supported by Dgraph
-- [Dgraph GraphQL API Reference](https://dgraph.io/docs/v20.11/graphql/api/api-overview) (*v20.11 doc version*), which serves as a guide to using your new `/graphql` endpoint
+- [Dgraph GraphQL Schema Reference](https://dgraph.io/docs/graphql/schema/schema-overview), which lists all the types and directives supported by Dgraph
+- [Dgraph GraphQL API Reference](https://dgraph.io/docs/graphql/api/api-overview), which serves as a guide to using your new `/graphql` endpoint
