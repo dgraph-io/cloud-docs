@@ -6,16 +6,18 @@ weight = 6
 +++
 
 Dgraph Cloud supports three different schema modes, which control how the
-underlying Dgraph instance is configured. Each mode is pre-configured keeping ease of use in mind:
+underlying Dgraph instance is configured. Each mode is pre-configured to provide
+simplicity and ease-of-use. 
 
-- [Read-Only mode](#read-only-mode), where no schema changes or mutations are allowed.
-- [Strict mode](#strict-mode), only allowing mutations on predicates that are already present in the schema.
-- [Flexible mode](#flexible-mode) removes any restriction on schemas and mutations, and provides access to advanced Dgraph features.
+The schema modes are as follows:
 
-{{% notice "tip" %}}
+- [Read-Only mode](#read-only-mode): In this mode, no schema changes or mutations are allowed.
+- [Strict mode](#strict-mode): In this mode, only mutations on predicates that are already present in the schema are allowed.
+- [Flexible mode](#flexible-mode): In this mode, there are no global restrictions on schemas and mutations;
+   this mode also provides access to advanced Dgraph features.
+
 By default, your Dgraph Cloud schema will run in [Strict mode](#strict-mode).
 If you want to have the same behavior as a local Dgraph instance, change your schema to [Flexible mode](#flexible-mode). 
-{{% /notice %}}
 
 ## Read-only Mode
 
@@ -39,14 +41,28 @@ In **Strict mode**, before executing a mutation on a predicate that doesn’t ex
 
 Flexible mode is suitable for users who are already familiar with Dgraph. Flexible mode removes any
 restrictions on schemas and mutations, and also provides access to
-advanced Dgraph features like directly altering the schema with the `/alter`
-HTTP and GRPC endpoints.
+advanced Dgraph features like:
 
-Running your backend in flexible mode is also a requirement for upcoming
-features such as support for access control lists (ACL).
+* Directly altering the schema with the `/alter` HTTP and GRPC endpoints.
+* Support for access control lists (ACLs).
 
 ## Changing your Schema Mode
 
 To change your schema mode, go to the 
 [settings page](https://cloud.dgraph.io/_/settings), click the <kbd>Advanced</kbd> tab,
 and then select a mode from the **Schema Mode** list box.
+
+### Changing your Schema Mode with the `/alter` endpoint
+
+{{% notice "tip" %}}
+Dgraph Labs recommends using the Dgraph Cloud [settings page](https://cloud.dgraph.io/_/settings)
+to alter your schema mode for most scenarios, instead of using the `/alter` endpoint.
+{{% /notice %}}
+
+You can alter your schema mode directly in the schema using the `/alter` HTTP
+and GRPC endpoints. To set your schema mode, configure `UpdateOption` to use one
+ of the following values in your schema:
+
+* To use Read Only mode, set `UpdateOption` to `readonly`
+* To use Strict mode, set `UpdateOption` to `graphql`
+* To use Flexible mode, set `UpdateOption` to `flexible`
