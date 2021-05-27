@@ -57,16 +57,20 @@ To change your schema mode on a dedicated instance, go to the [settings page](ht
 click the <kbd>General</kbd> tab, and then select a mode from the
 **Schema Mode** list box.
 
-### Changing your Schema Mode with the `/alter` endpoint
+### Changing your Schema Mode with the `/admin` endpoint
 
 {{% notice "tip" %}}
 Dgraph Labs recommends using the Dgraph Cloud [settings page](https://cloud.dgraph.io/_/settings)
-to alter your schema mode for most scenarios, instead of using the `/alter` endpoint.
+to change your dedicated instance's schema mode for most scenarios, instead of
+directly modifying your schema.
 {{% /notice %}}
 
-You can alter the schema mode for your dedicated instance directly in the schema
-using the `/alter` HTTP and GRPC endpoints. To set your schema mode, configure
-`UpdateOption` to use one of the following values in your schema:
+You can change the schema mode for your dedicated instance directly in the schema
+using the `updateGQLSchema` mutation on the `/admin` HTTP and GRPC endpoints. To
+learn more, see [Fetching and Updating your Schema]({{< relref "admin/schema" >}})
+
+To set your schema mode, configure `UpdateOption` to use one of the following
+values in your schema:
 
 * To use Read Only mode, set `UpdateOption` to `readonly`
 * To use Strict mode, set `UpdateOption` to `graphql`
