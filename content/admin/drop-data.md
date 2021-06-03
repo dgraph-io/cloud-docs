@@ -9,7 +9,7 @@ It is possible to drop all data from your Dgraph Cloud backend, and start afresh
 
 In order to drop all data while retaining the schema, click the <kbd>Drop Data</kbd> button under the [Schema](https://cloud.dgraph.io/_/schema) tab in the sidebar.
 
-![](/images/drop-data.png)
+![Drop Data](/images/drop-data.png)
 
 ### Dropping Data Programmatically
 
