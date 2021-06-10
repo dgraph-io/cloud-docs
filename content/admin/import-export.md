@@ -21,17 +21,33 @@ The following is an example of a GraphQL mutation to export data to JSON.
 mutation {
   export {
     response { code message }
+    exportId
     taskId
   }
 }
 ```
-
-The `signedUrls` output field contains a list of URLs which can be downloaded. These URLs expire after 48 hours.
+Make sure to keep your `exportId` and `taskId` safe as you will need them for getting the signed URLs in order to download your export files. These URLs will be returned in the `signedUrls` output field and **they expire after 48 hours**.
 
 Export will usually return 3 files:
 * `g01.gql_schema.gz`: The GraphQL schema file. This file can be re-imported via the [Schema APIs](/admin/schema)
 * `g01.json.gz`: the data from your instance, which can be imported via live loader
 * `g01.schema.gz`: This file is the internal Dgraph schema. If you have set up your backend with a GraphQL schema, then you should be able to ignore this file.
+
+The following is an example of GraphQL query to check the status of the export and get the signed URLs for downloanding your export files.
+
+```graphql
+query {
+  exportStatus (
+    exportId:"<paste-your-exportId>"
+    taskId: "<paste-your-taskId>"
+  ){
+    kind
+    lastUpdated
+    signedUrls
+    status
+  }
+}
+```
 
 ## Importing data with Live Loader
 
