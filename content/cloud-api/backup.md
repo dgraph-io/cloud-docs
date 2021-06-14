@@ -6,6 +6,20 @@ weight = 3
     identifier = "backup"
 +++
 
+{{% notice "note" %}}
+Backup feature is only available for Dedicated Instances. This feature is not available for the Free and Shared Instances. 
+{{% /notice %}}
+
+## Periodic Backups
+
+Periodic Backups are created at a given schedule that by default is:
+- Full Backup every week 
+- Incremental Backups every 4 hours 
+
+You can trigger the Backup on-demand directelly from your Dgraph Cloud Dashboard, simply go to Admin>Setting>Backups and click on "Create Backup" button on the top left. 
+
+In case you would like to change your default Backup schedule please contact us and we will be happy to set you up. 
+
 ## List Backups
 
 List all backups of the current backend.
