@@ -55,7 +55,7 @@ With Multi-Tenancy feature enabled, for any GraphQL request you will need to pro
 {{% /notice %}}
 
 You can trigger two types of exports:
-* cluster-wide export: this is an export of the entier backend (including all namespaces). This request can be only triggered by the *Guardian of Galaxy* users
+* cluster-wide export: this is an export of the entire backend (including all namespaces). This request can be only triggered by the [*Guardian of Galaxy*](https://dgraph.io/docs/enterprise-features/multitenancy/#guardians-of-the-galaxy) users.
 * namespace-specific export: this is an export of a specific namespace. This request can be triggered by the *Guardian of Galaxy* users and by the *Guardian of Namespace* users.
 
 ### Cluster-wide Exports
