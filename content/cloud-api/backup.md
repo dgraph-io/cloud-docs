@@ -154,7 +154,7 @@ Import your data back using Dgraph [Live Loader]({{< relref "import-export.md#im
 Live loader command (via Docker):
 
 ```sh
-docker run -it --rm -v /tmp/file:/tmp/g01.json.gz dgraph/dgraph:v20.11-slash \
+docker run -it --rm -v /tmp/file:/tmp/g01.json.gz dgraph/dgraph:v21.03-slash \
   dgraph live --slash_grpc_endpoint=${DEPLOYMENT_URL} -f /tmp/g01.json.gz -t ${DEPLOYMENT_JWT}
 ```
 
@@ -167,7 +167,7 @@ docker run -it --rm -v /tmp/file:/tmp/g01.json.gz dgraph/dgraph:v20.11-slash \
 DEPLOYMENT_URL="lively-dream.grpc.us-east-1.aws.cloud.dgraph.io"
 DEPLOYMENT_JWT="<deployment-jwt>"
 
-docker run -it --rm -v /users/dgraph/downloads:/tmp dgraph/dgraph:v20.11-slash \
+docker run -it --rm -v /users/dgraph/downloads:/tmp dgraph/dgraph:v21.03-slash \
   dgraph live --slash_grpc_endpoint=${DEPLOYMENT_URL}:443 -f /tmp/1million.rdf.gz -t ${DEPLOYMENT_JWT}
 ```
 {{< /tab >}} 
