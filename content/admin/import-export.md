@@ -147,10 +147,10 @@ The gRPC endpoint URL must have the string `.grpc.` added after the domain prefi
 3. Run the live loader as follows:
 
     ```
-    docker run -it --rm -v /path/to/g01.json.gz:/tmp/g01.json.gz dgraph/dgraph:v20.07-slash \
+    docker run -it --rm -v /path/to/g01.json.gz:/tmp/g01.json.gz dgraph/dgraph:v21.03-slash \
       dgraph live --slash_grpc_endpoint=<grpc-endpoint>:443 -f /tmp/g01.json.gz -t <api-token>
     ```
 
 {{% notice "note" %}}
-Running this via Docker requires you to use an unreleased tag (either `master` or `v20.11-slash`).
+Running this via Docker requires you to use an unreleased tag (either `master` or `v21.03-slash`).
 {{% /notice %}}
