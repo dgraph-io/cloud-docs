@@ -31,7 +31,7 @@ The `Dg-Auth` or `X-Auth-Token` headers are for Dgraph Cloud’s API key authent
 Dgraph Cloud also offers the Dgraph Cloud API (hosted at https://cerebro.cloud.dgraph.io/graphql) that helps to automate tasks such as deployment of a lambda. In order to use this API, users need to pass an `Authorization` header. In order to generate this header, the user must first [Authenticate]({{< relref "/cloud-api/authentication" >}}) and generate a token. The token is then set in `Authorization` header as a Bearer token (e.g. `Bearer {token}`). 
 
 {{% notice "note" %}}
-The `Dg-Auth`, `X-Auth-Token` and the `Authorization` headers are relevant to all types of backends, including Free, Shared and Dedicated Backends.
+The `Dg-Auth`, `X-Auth-Token` and the `Authorization` headers are relevant to all types of backends, including Free, Shared, and Dedicated Backends.
 {{% /notice %}}
 
 ### Dgraph Access Control Lists Authentication
