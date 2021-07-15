@@ -23,7 +23,7 @@ Please see the following topics:
 
 ## Understanding Headers used across the APIs
 
-Dgraph Cloud has two layers of security: `Dgraph Cloud Authentication` and `Dgraph Access Control Lists Authentication`. The following section introduces the usage of the headers involved in the authentication process. These include the `Dg-Auth`, `X-Auth-Token` the `X-Dgraph-AccessToken` and the `Authorization` headers.
+Dgraph Cloud has two layers of security: Dgraph Cloud Authentication and Dgraph Access Control Lists Authentication. The following section introduces the usage of the headers involved in the authentication process. These include the `Dg-Auth`, `X-Auth-Token`,  `Authorization`, and `X-Dgraph-AccessToken` headers.
 
 ### Dgraph Cloud Authentication
 The `Dg-Auth` or `X-Auth-Token` headers are for Dgraph Cloud’s API key authentication (where you pass in any API key you’d generate from https://cloud.dgraph.io/_/settings?tab=api-keys). The API key passed can be one of two kinds: Admin API key or Client API key. The tokens generated from the admin API grant access to the `/admin` or `/admin/slash` endpoints to perform schema alterations and similar operations. The tokens generated via the Client API key provides access to the `/graphql` endpoint to run GraphQL queries and mutations.
