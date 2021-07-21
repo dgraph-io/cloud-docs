@@ -8,7 +8,7 @@ weight = 3
 
 # Introduction
 
-For Shared and Free backends, a Dgraph lambda script is uniquely identified by a deployment id associated with the backend. You can identify your backend and the associated deployment id by using the [List Backends API](/cloud-api/backend#list-backends). In case of a dedicated, and multi-tenant backend, an additional key, the tenantID is also required to uniquely identify a lambda script.
+For Shared and Free backends, a Dgraph lambda script is uniquely identified by a deployment id associated with the backend. You can identify your backend and the associated deployment id by using the [List Backends API](/cloud-api/backend#list-backends). In case of a Dedicated, and multi-tenant backend, an additional key, the tenant id is also required to uniquely identify a lambda script. This tenant id key is ignored when used in the context of Shared and Free backends.
 
 As a first step, you will need to identify your backend.
 
