@@ -19,7 +19,7 @@ In order to enable multi-tenancy you need to do the following -
     - Go to `Namespaces` page under `Admin` section on the sidebar to the left.
     - Click on `Create New` button, enter the description of the namespace and click `Create`.
     - You can view the created namespaces on the `Namespaces` page.
-    - Tenant 0 cannot be deleted.
+    - Please note that Tenant 0 cannot be deleted.
     ![namespacepage](/images/multitenancy/namespacepage.png)
 
 3. **Toggle namespaces**
