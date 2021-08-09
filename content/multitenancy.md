@@ -5,14 +5,14 @@ weight = 6
     parent = "cloud"
 +++
 
-Multi-Tenancy in Dgraph cloud is a dedicated cluster feature. It is not supported in free/shared clusters. Multi-tenancy is built upon Access Control Lists (ACL), and enables multiple tenants to share a Dgraph cluster using unique namespaces. The tenants are logically separated, and their data lies in the same p directory. Each namespace has a group guardian, which has root access to that namespace. [Read more about Multi-Tenancy in Dgraph]("https://dgraph.io/docs/enterprise-features/multitenancy/")
+Multi-Tenancy in Dgraph cloud is a dedicated cluster feature. It is not supported in free/shared clusters. Multi-tenancy is built upon Access Control Lists (ACL), and enables multiple tenants to share a Dgraph cluster using unique namespaces. The tenants are logically separated, and their data lies in the same p directory. Each namespace has a group [guardian(admin)]("https://dgraph.io/docs/enterprise-features/multitenancy/#guardians-of-the-galaxy"), which has root access to that namespace. [Read more about Multi-Tenancy in Dgraph]("https://dgraph.io/docs/enterprise-features/multitenancy/")
 
 ### Enabling Multi-Tenancy in Dgraph Cloud
-In order to enable multi-Tenancy you need to do the following - 
+In order to enable multi-tenancy you need to do the following - 
 
 1. **Enable ACL**
-    - If you are launching a dedicated cluster for the first time, you need to click on the checkbox for ACLs under addition Settings.
-    - For existing dedicated cluster, you need to go to Settings>Modify Backend and click on the checkbox for ACLs under addition Settings. Note - This restarts your backend hence causing some downtime. 
+    - If you are launching a dedicated cluster for the first time, you need to click on the checkbox for ACLs under `Additional Settings`.
+    - For existing dedicated cluster, you need to go to Settings>Modify Backend and click on the checkbox for ACLs under `Additional Settings`. Note - This restarts your backend hence causing some downtime. 
     ![ACL](/images/multitenancy/acl.png)
 
 2. **Create namespaces**
@@ -25,7 +25,7 @@ In order to enable multi-Tenancy you need to do the following -
 3. **Toggle namespaces**
     - Now you should be able to see a select box next to selected backend select box on the navbar.
     - You can switch between namespaces with the selection.
-    - Each namespace has its own Schema, ACLs & Lambdas. Also has its own view of Dgraph Studio, API Explorer, DQL Page.
+    - Also, each namespace has its own Schema, ACLs & Lambdas. Also has its own view of Dgraph Studio, API Explorer, DQL Page.
     - After switching namespaces, you can update view/update the namespace's schema and query/mutate as well.
     ![namespaces](/images/multitenancy/namespaces.png)
 
@@ -34,11 +34,11 @@ Namespaces are protected via ACLs. You need to create a user with username & pas
 
 **Example - we want to give all read access to a user for namespace**
 
-1. First you should create an ACL group and select all the predicates you want to give read access
+1. First, you should create an ACL group and select all predicates that you want to provision read access.
     ![group](/images/multitenancy/group.png)
-2. Next, create a user with access to the created group. While creating the user, you will be asked to username & password. Keep it handy.
+2. Next, create a user with access to the created group. While creating the user, you will be asked to provide with a username & password. Keep it handy.
     ![user](/images/multitenancy/user.png)
-3. You can go to API explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the below mutation to get the access token.
+3. You can go to the APIe Explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the mutation shown below to get the access token.
     (Note - NamespaceID can be found on the namespace page)
     ```
     mutation MyMutation {
@@ -55,7 +55,7 @@ Namespaces are protected via ACLs. You need to create a user with username & pas
 
 4. You have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
 5. On client side you will need to use the above mutation programatically to generate the access token for your namespace. 
-6. If you are using a dgraph client you need to set the username password and the client handles fetching the token & refresh logic for you.
+6. If you are using a dgraph client you need to set the username & password and the client handles fetching the token & refresh logic for you.
 
     
 
