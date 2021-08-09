@@ -40,21 +40,23 @@ In order to enable multi-Tenancy you need to do the following -
     - Next, create a user with access to the created group. While creating the user, you will be asked to username & password. Keep it handy.
     ![user](/images/multitenancy/user.png)
     - You can go to API explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the below mutation to get the access token.
+    (Note - NamespaceID can be found on the namespace page)
     ```
     mutation MyMutation {
         login(namespace: 1, password: "password", userId: "userID") {
             response {
-            accessJWT
-            refreshJWT
+                accessJWT
+                refreshJWT
             }
         }
-        }
+    }
 
     ```
-    Note - NamespaceID can be found on the namespace page.
+    
 
-    - Okay now you have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
-    - On client side you will need to use the above mutation to generate the access token for your namespace. If you are using a dgraph client you need to set the username password and the client handled fetching the token & refresh logic.
+    - You have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
+    - On client side you will need to use the above mutation programatically to generate the access token for your namespace. 
+    - If you are using a dgraph client you need to set the username password and the client handles fetching the token & refresh logic for you.
 
     
 
