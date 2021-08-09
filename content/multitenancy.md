@@ -29,17 +29,16 @@ In order to enable multi-Tenancy you need to do the following -
     - After switching namespaces, you can update view/update the namespace's schema and query/mutate as well.
     ![namespaces](/images/multitenancy/namespaces.png)
 
-4. **Accessing namespaces via client**
-    - Namespaces are protected via ACLs. 
-    - You need to create a user with username & password in the namespace. This can be done using `ACLs` page under `Admin` section on the sidebar to the left.
+### Accessing namespaces via client
+Namespaces are protected via ACLs. You need to create a user with username & password in the namespace. This can be done using `ACLs` page under `Admin` section on the sidebar to the left.
 
+**Example - we want to give all read access to a user for namespace**
 
-   **Example - we want to give all read access to a user for namespace**
-    - First you should create an ACL group and select all the predicates you want to give read access
+1. First you should create an ACL group and select all the predicates you want to give read access
     ![group](/images/multitenancy/group.png)
-    - Next, create a user with access to the created group. While creating the user, you will be asked to username & password. Keep it handy.
+2. Next, create a user with access to the created group. While creating the user, you will be asked to username & password. Keep it handy.
     ![user](/images/multitenancy/user.png)
-    - You can go to API explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the below mutation to get the access token.
+3. You can go to API explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the below mutation to get the access token.
     (Note - NamespaceID can be found on the namespace page)
     ```
     mutation MyMutation {
@@ -54,9 +53,9 @@ In order to enable multi-Tenancy you need to do the following -
     ```
     
 
-    - You have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
-    - On client side you will need to use the above mutation programatically to generate the access token for your namespace. 
-    - If you are using a dgraph client you need to set the username password and the client handles fetching the token & refresh logic for you.
+4. You have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
+5. On client side you will need to use the above mutation programatically to generate the access token for your namespace. 
+6. If you are using a dgraph client you need to set the username password and the client handles fetching the token & refresh logic for you.
 
     
 
