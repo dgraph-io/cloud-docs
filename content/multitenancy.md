@@ -5,7 +5,7 @@ weight = 6
     parent = "cloud"
 +++
 
-Multi-Tenancy in Dgraph cloud is a dedicated cluster feature. It is not supported in free/shared clusters. Multi-tenancy is built upon Access Control Lists (ACL), and enables multiple tenants to share a Dgraph cluster using unique namespaces. The tenants are logically separated, and their data lies in the same p directory. Each namespace has a group [guardian(admin)]("https://dgraph.io/docs/enterprise-features/multitenancy/#guardians-of-the-galaxy"), which has root access to that namespace. [Read more about Multi-Tenancy in Dgraph]("https://dgraph.io/docs/enterprise-features/multitenancy/")
+Multi-Tenancy in Dgraph cloud is a dedicated cluster feature. It is not supported in free/shared clusters. Multi-tenancy is built upon Access Control Lists (ACL), and enables multiple tenants to share a Dgraph cluster using unique namespaces. The tenants are logically separated, and their data lies in the same p directory. Each namespace has a group [guardian(admin)](https://dgraph.io/docs/enterprise-features/multitenancy/#guardians-of-the-galaxy), which has root access to that namespace. [Read more about Multi-Tenancy in Dgraph](https://dgraph.io/docs/enterprise-features/multitenancy/)
 
 ### Enabling Multi-Tenancy in Dgraph Cloud
 In order to enable multi-tenancy you need to do the following - 
@@ -55,7 +55,7 @@ Namespaces are protected via ACLs. You need to create a user with username & pas
 
 4. You have the access token which you need to pass it in `X-Dgraph-AccessToken` header.
 5. On client side you will need to use the above mutation programatically to generate the access token for your namespace. 
-6. If you are using a [dgraph client]("https://dgraph.io/docs/clients/") you need to set the username & password and the client handles fetching the token & refresh logic for you. 
+6. If you are using a [dgraph client](https://dgraph.io/docs/clients/) you need to set the username & password and the client handles fetching the token & refresh logic for you. 
 Note - Most of the dgraph clients will have a special method to login to a specific namespace. 
 
     
