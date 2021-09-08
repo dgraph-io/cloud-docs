@@ -6,9 +6,7 @@ weight = 8
     parent = "cloud-admin"
 +++
 
-Dgraph Cloud provides enterprises with real-time observability and high-fidelity telemetry of their instances via integration with [Prometheus](https://prometheus.io/), an open-source systems monitoring and alerting tool widely used by several companies and organizations worldwide. It has a very active developer community and was recently added to the [Cloud Native Computing Foundation](https://cncf.io/) as a hosted project. 
-
-Prometheus allows for collection and storage of metrics as time series data identified by metric names, timestamps and labels. It collects data from targets by scraping metrics HTTP endpoints. Dgraph Cloud exposes real-time values at any given instant via the `/prometheus` endpoint. Once enabled, Prometheus can poll, collect and store instance metrics by scraping the `/prometheus` endpoint. You can also configure Grafana for real-time vizualization and analysis thus allowing for in-depth visibility into the behavior, performance and health of your instances. 
+Dgraph Cloud provides enterprises with real-time observability and high-fidelity telemetry of their instances with [Prometheus](https://prometheus.io/). Once enabled Dgraph exposes real-time values for **Dedicated** backends at any given instant via the `/prometheus` endpoint. You can also configure Grafana for real-time visualization and analysis thus allowing for in-depth visibility into the behavior, performance and health of your instances.
 
 {{% notice "note" %}}
 Prometheus integration is only available to users of **Dedicated Instance** types and not **Free** or **Shared Instance**.
@@ -18,9 +16,9 @@ Prometheus integration is only available to users of **Dedicated Instance** type
 
 To enable Prometheus with your Dgraph Cloud instance: 
 
-1. Login to Dgraph Cloud Dashboard, select **Settings** under the **Admin** subsection and then select **Modify Backend**. Alternately, you can also enable Prometheus while launching a new backend; click on **Launch new backend** to launch a new dedicated cluster.
+1. Login to Dgraph Cloud Dashboard, select **Settings** under the **Admin** subsection and then select **Modify Backend**. Alternately, you can also enable Prometheus while launching a new backend.
 
-2. For your existing **Cluster Tier**, enable the **Prometheus** option under **Additional Settings**. Review and select one of the available configurations viz. 1C (1 vCPU 4GB RAM), 2C, 4C, or 8C.
+2. For your existing **Dgraph Cloud Backend**, enable the **Prometheus** option under **Additional Settings**. Review and select one of the available configurations viz. 1C (1 vCPU 4GB RAM), 2C, 4C, or 8C.
 
 3. Review the estimated hourly cost which should include additional charges for enabling Prometheus. Click **Launch** to submit changes.
 
@@ -42,14 +40,20 @@ To enable Prometheus with your Dgraph Cloud instance:
 
 To visualize Prometheus metrics within the **Grafana Dashboard** for Dgraph Cloud, perform the following actions:
 
-1. Launch the Grafana Dashboard and follow the same steps to add a **Prometheus Datasource** to Grafana as described **[here](http://docs.grafana.org/reference/export_import/#importing-a-dashboard)** but with the following changes:
+1. Launch the Grafana Dashboard and follow the same steps to add a **Prometheus Datasource** to Grafana as described **[here](https://prometheus.io/docs/visualization/grafana/#creating-a-prometheus-data-source)** but with the following changes:
 
 2. Under the section **HTTP**, for the option **URL**, enter the URL for your Prometheus endpoint (Example - https://sudomain.region.cloud-provider.cloud.dgraph.io/prometheus). For the **Access** option select **Server (default)** from the dropdown menu.
 
 3. Lastly, under **Auth**, within the **Custom HTTP Headers** subsection, click **Add Header** and add a new **Header** called `X-Auth-Token`. Enter your Admin API key as its **Value**. The following image shows an example data source configuration.
 
-   ![Grafana Dashboard](/images/monitoring/grafana_config.png)
+   ![Grafana Config](/images/monitoring/grafana_config.png)
 
 4. Click **Save & Test** to save and test the new Prometheus data source.
 
+5. Create and populate your **Grafana Dashboard**. Select the **Prometheus Data Source** that was configured earlier and select the metrics to visualize (e.g. dgraph_memory_inuse_bytes, dgraph_alpha_health_status etc). 
+   If correctly configured the metrics can be visualized as below:
+   
+   ![Grafana Config](/images/monitoring/grafana_dashboard.png)
+
 Your new monitoring and observability stack for Dgraph Cloud leveraging the Prometheus and Grafana solutions should now be ready for use. The same is useful to monitor your Dgraph backend efficiently, without the overhead of installing, maintaining, and scaling your own observability stack.
+
