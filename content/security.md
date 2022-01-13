@@ -114,11 +114,18 @@ const client = new ApolloClient({
 
 Once a client has been granted access to an operation with either Anonymous Access granted or as an authenticated client using an API Key, the GraphQL query or mutation is then unrestricted by default. In order to further restrict access, please see the [the @auth directive](https://dgraph.io/docs/graphql/authorization/directive/).
 
-### Restricting CORS from `allowlisted` domains
+### Restricting CORS
 
-Restricting the origins that your Dgraph Cloud responds to is a an important step in preventing XSS exploits. Your Dgraph Cloud backend will prevent any origins that are not in the allowlist from accessing your GraphQL endpoint.
+Restricting the origins that your Dgraph Cloud responds to is an important step in preventing XSS exploits. By default, we allow requesting code from any origin access to your Dgraph Cloud resources (`Access-Control-Allow-Origin: *`), but by explicitly specifying the permitted origins this default behavior can be overridden.
 
-In order to add origins to the allow list, please see the [settings page](https://cloud.dgraph.io/_/settings), under the **CORS** tab. By default, we allow all origins to connect to your endpoint (`Access-Control-Allow-Origin: *`), and adding an origin will prevent this default behavior. On adding your first origin, we automatically add `https://cloud.dgraph.io`  as well, so that the API explorer continues to work.
+To allow an origin, add the line `# Dgraph.Allow-Origin` at the end of your GraphQL schema either with a [schema update](https://dgraph.io/docs/graphql/admin/#using-updategqlschema-to-add-or-modify-a-schema) or via the Cloud console's [Schema](https://cloud.dgraph.io/_/schema) page. For example, the following will restrict all origins except the ones specified.
+
+```
+# Dgraph.Allow-Origin "https://example.com" 
+# Dgraph.Allow-Origin "https://www.example.com"
+```
+
+On adding your first origin, we automatically add `https://cloud.dgraph.io`  as well, so that the API explorer continues to work.
 
 {{% notice "note" %}}
 CORS restrictions are not a replacement for writing auth rules, as it is possible for malicious actors to bypass these restrictions.
