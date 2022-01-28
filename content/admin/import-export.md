@@ -33,7 +33,7 @@ Export will usually return 3 files:
 * `g01.json.gz`: the data from your instance, which can be imported via live loader
 * `g01.schema.gz`: This file is the internal Dgraph schema. If you have set up your backend with a GraphQL schema, then you should be able to ignore this file.
 
-The following is an example of GraphQL query to check the status of the export and get the signed URLs for downloanding your export files.
+The following is an example of GraphQL query to check the status of the export and get the signed URLs for downloading your export files.
 
 ```graphql
 query {
