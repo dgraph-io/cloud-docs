@@ -38,7 +38,7 @@ Namespaces are protected via ACLs. You need to create a user with username & pas
     ![group](/images/multitenancy/group.png)
 2. Next, create a user with access to the created group. While creating the user, you will be asked to provide with a username & password. Keep it handy.
     ![user](/images/multitenancy/user.png)
-3. You can go to the APIe Explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the mutation shown below to get the access token.
+3. You can go to the API Explorer and user the login mutation to fetch the API access token. Click on admin radio button at the top to query the admin endpoint. Use the mutation shown below to get the access token.
     (Note - NamespaceID can be found on the namespace page)
     ```
     mutation MyMutation {
